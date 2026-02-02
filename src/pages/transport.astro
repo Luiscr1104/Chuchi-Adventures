@@ -1,33 +1,50 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import TransportFilter from '../components/TransportFilter';
-import { CheckCircle2, Shield, Map, Clock } from 'lucide-react';
+import Layout from "../layouts/Layout.astro";
+import TransportFilter from "../components/TransportFilter";
+import { CheckCircle2, Shield, Map, Clock } from "lucide-react";
 ---
 
-<Layout title="Private Transport" description="Private transport service in Costa Rica. Travel safely and comfortably from Airports to La Fortuna and Guanacaste.">
-  
+<Layout
+  title="Private Transport"
+  description="Private transport service in Costa Rica. Travel safely and comfortably from Airports to La Fortuna and Guanacaste."
+>
   <!-- Hero Section -->
-  <section class="relative pt-32 pb-48 md:pt-48 md:pb-64 bg-slate-900 overflow-hidden">
+  <section
+    class="relative pt-32 pb-48 md:pt-48 md:pb-64 bg-slate-900 overflow-hidden"
+  >
     <!-- Background Image -->
     <div class="absolute inset-0 z-0">
-      <img 
-        src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2621" 
-        alt="Costa Rica Road" 
+      <img
+        src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2621"
+        alt="Costa Rica Road"
         class="w-full h-full object-cover opacity-40"
       />
-      <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"
+      >
+      </div>
     </div>
 
     <div class="relative z-10 container-custom text-center">
-      <span class="inline-block py-1 px-3 rounded-full bg-[var(--color-accent)] text-white text-sm font-bold tracking-wider mb-6 animate-fade-in-up">
+      <span
+        class="inline-block py-1 px-3 rounded-full bg-[var(--color-accent)] text-white text-sm font-bold tracking-wider mb-6 animate-fade-in-up"
+      >
         PREMIUM SERVICE
       </span>
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-xl animate-fade-in-up delay-100">
-        Travel Safe & Comfortably<br/>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-emerald-400">All Over Costa Rica</span>
+      <h1
+        class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-xl animate-fade-in-up delay-100"
+      >
+        Travel Safe & Comfortably<br />
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-emerald-400"
+          >All Over Costa Rica</span
+        >
       </h1>
-      <p class="text-xl text-slate-300 max-w-2xl mx-auto mb-10 animate-fade-in-up delay-200">
-        Choose your schedule and destination. We take care of the rest with our modern units and professional drivers.
+      <p
+        class="text-xl text-slate-300 max-w-2xl mx-auto mb-10 animate-fade-in-up delay-200"
+      >
+        Choose your schedule and destination. We take care of the rest with our
+        modern units and professional drivers.
       </p>
     </div>
   </section>
@@ -35,30 +52,60 @@ import { CheckCircle2, Shield, Map, Clock } from 'lucide-react';
   <!-- Filter Section (Floating overlap) -->
   <section class="relative z-20 -mt-32 pb-24 px-4">
     <TransportFilter client:load />
-    
+
     <div class="text-center mt-6 text-slate-500 text-sm">
       * Immediate response via WhatsApp to confirm availability and final price.
     </div>
   </section>
 
   <!-- Features -->
-  <section class="py-20 bg-white">
+  <section class="py-24 bg-slate-50">
     <div class="container-custom">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold text-slate-900 mb-4">Why Choose Us?</h2>
+        <div class="w-20 h-1 bg-[var(--color-primary)] mx-auto rounded-full">
+        </div>
+      </div>
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {[
-          { icon: Shield, title: "Safety First", desc: "Insured units and experienced drivers." },
-          { icon: Clock, title: "Punctuality", desc: "Always on time for your flight or tour." },
-          { icon: Map, title: "National Coverage", desc: "From SJO/LIR to any destination." },
-          { icon: CheckCircle2, title: "Personal Treatment", desc: "Help with luggage and convenience stops." }
-        ].map((feature) => (
-          <div class="text-center p-6 rounded-2xl bg-slate-50 hover:bg-slate-100 transition-colors">
-            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-[var(--color-primary)] mb-6">
-              <feature.icon className="w-8 h-8" />
+        {
+          [
+            {
+              icon: Shield,
+              title: "Safety First",
+              desc: "Insured units and experienced drivers.",
+            },
+            {
+              icon: Clock,
+              title: "Punctuality",
+              desc: "Always on time for your flight or tour.",
+            },
+            {
+              icon: Map,
+              title: "National Coverage",
+              desc: "From SJO/LIR to any destination.",
+            },
+            {
+              icon: CheckCircle2,
+              title: "Personal Treatment",
+              desc: "Help with luggage and convenience stops.",
+            },
+          ].map((feature) => (
+            <div class="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-slate-100 overflow-hidden">
+              <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-green-50 rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500" />
+
+              <div class="relative z-10">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-green-100 text-[var(--color-primary)] mb-6 group-hover:bg-[var(--color-primary)] group-hover:text-white transition-colors duration-300 shadow-sm">
+                  <feature.icon className="w-8 h-8" />
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-[var(--color-primary)] transition-colors">
+                  {feature.title}
+                </h3>
+                <p class="text-slate-600 leading-relaxed">{feature.desc}</p>
+              </div>
             </div>
-            <h3 class="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
-            <p class="text-slate-600">{feature.desc}</p>
-          </div>
-        ))}
+          ))
+        }
       </div>
     </div>
   </section>

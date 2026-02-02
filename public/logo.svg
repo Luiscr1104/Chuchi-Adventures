@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" fill="none">
+  <!-- Icon Mark -->
+  <g transform="translate(10, 10)">
+    <!-- Mountain/Adventure Shape -->
+    <path d="M40 10L10 60H70L40 10Z" fill="#16a34a" opacity="0.8"/> 
+    <!-- Leaf/Nature Accent -->
+    <path d="M40 35C40 35 55 25 65 35C75 45 65 60 40 60C15 60 5 45 15 35C25 25 40 35 40 35Z" fill="#15803d"/>
+    <!-- River/Water element -->
+    <path d="M15 65Q40 55 65 65" stroke="#38bdf8" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="90" y="55" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="38" fill="#1e293b">
+    CHUCHI
+  </text>
+  <text x="90" y="82" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="18" letter-spacing="3.5" fill="#166534">
+    ADVENTURES
+  </text>
+</svg>
