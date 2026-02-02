@@ -1,0 +1,170 @@
+---
+import Layout from "../layouts/Layout.astro";
+import TourCard from "../components/TourCard";
+import Hero from "../components/Hero";
+import TransportFilter from "../components/TransportFilter";
+import WhatsAppBtn from "../components/WhatsAppBtn.astro";
+import { tours } from "../data/tours";
+
+// Get featured tours (first 3 or specific ones)
+const featuredTours = tours.slice(0, 3);
+---
+
+<Layout title="Home">
+  <!-- React Hero Component -->
+  <Hero client:load />
+
+  <!-- Transport Filter (Overlap) -->
+  <div class="relative z-20 -mt-24 px-4 mb-12">
+    <TransportFilter client:load />
+  </div>
+
+  <!-- Featured Tours -->
+  <section id="tours" class="py-12 bg-slate-50">
+    <div class="container-custom">
+      <div class="text-center mb-16">
+        <span
+          class="text-[var(--color-primary)] font-semibold uppercase tracking-wider"
+          >Popular Adventures</span
+        >
+        <h2 class="text-4xl md:text-5xl font-bold mt-2 mb-4 text-slate-900">
+          Unforgettable Experiences
+        </h2>
+        <p class="text-slate-600 max-w-2xl mx-auto text-lg">
+          A selection of our favorite tours for you to experience the best of
+          the area.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredTours.map((tour) => <TourCard tour={tour} client:visible />)}
+      </div>
+
+      <div class="text-center mt-16">
+        <a
+          href="/tours"
+          class="inline-flex items-center text-[var(--color-primary)] font-bold hover:text-[var(--color-primary-dark)] transition-colors text-lg group"
+        >
+          View All Tours
+          <svg
+            class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="py-24 bg-white overflow-hidden">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="relative group">
+          <div
+            class="absolute inset-0 bg-[var(--color-accent)] rounded-3xl transform rotate-3 scale-105 opacity-20 group-hover:rotate-6 transition-transform duration-500"
+          >
+          </div>
+          <div
+            class="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl"
+          >
+            <img
+              src="https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/bef4db75-13f0-4965-ee32-83ea89ea8c00/public"
+              alt="Local Guide on the river"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+        </div>
+
+        <div>
+          <span
+            class="text-[var(--color-accent)] font-semibold uppercase tracking-wider"
+            >Why Chuchi Adventures?</span
+          >
+          <h2 class="text-4xl md:text-5xl font-bold mt-2 mb-6 text-slate-900">
+            Local Experts,<br />Passion for Nature
+          </h2>
+          <p class="text-slate-600 mb-8 text-lg leading-relaxed">
+            We are a local tour operator focused on providing authentic
+            experiences in Peñas Blancas and La Fortuna. We know every corner of
+            our rivers and forests because it is our home.
+          </p>
+
+          <ul class="space-y-4 mb-10">
+            {
+              [
+                "Certified Bilingual Guides",
+                "Small Groups & Personalized Service",
+                "Commitment to Conservation",
+              ].map((item) => (
+                <li class="flex items-center bg-slate-50 p-4 rounded-xl">
+                  <div class="bg-green-100 p-2 rounded-full mr-4 text-green-600">
+                    <svg
+                      class="w-5 h-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                  <span class="text-slate-700 font-medium">{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+
+          <a
+            href="/about"
+            class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full text-white bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] transition-all shadow-lg hover:shadow-xl"
+          >
+            Learn More About Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-24 bg-[var(--color-primary)] relative overflow-hidden">
+    <div
+      class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"
+    >
+    </div>
+    <div
+      class="absolute -top-24 -right-24 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute -bottom-24 -left-24 w-96 h-96 bg-white/10 rounded-full blur-3xl"
+    >
+    </div>
+
+    <div class="container-custom relative z-10 text-center">
+      <h2 class="text-4xl md:text-6xl font-bold text-white mb-6">
+        Ready for Adventure?
+      </h2>
+      <p class="text-xl text-green-100 mb-10 max-w-2xl mx-auto">
+        Contact us today and let us design the perfect experience for you and
+        your family.
+      </p>
+      <WhatsAppBtn
+        text="Contact via WhatsApp"
+        message="Hello, I am interested in booking a tour."
+        className="bg-white text-[var(--color-primary)] hover:bg-gray-100 px-8 py-4 text-lg rounded-full font-bold shadow-xl transform hover:scale-105 transition-transform"
+      />
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,83 @@
+---
+---
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="container-custom">
+    <div class="flex justify-between items-center h-20">
+      <!-- Logo -->
+      <div class="flex-shrink-0 flex items-center">
+        <a href="/" class="text-2xl font-bold text-[var(--color-primary)] flex items-center gap-2">
+          <span>🌿</span> Chuchi Adventures
+        </a>
+      </div>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex space-x-8 items-center">
+        <!-- Tours Dropdown Group -->
+        <div class="relative group">
+          <button class="flex items-center text-gray-700 hover:text-[var(--color-primary)] font-medium transition-colors focus:outline-none">
+            Tours
+            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          
+          <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2 z-50 border border-gray-100">
+            <a href="/tours?category=Hiking" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-[var(--color-primary)]">Hiking</a>
+            <a href="/tours?category=Adrenaline" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-[var(--color-primary)]">Adrenaline</a>
+            <a href="/tours?category=Wildlife" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-[var(--color-primary)]">Wildlife</a>
+            <a href="/tours?category=Water" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-[var(--color-primary)]">Water & Relax</a>
+            <div class="border-t border-gray-100 my-1"></div>
+            <a href="/tours" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-[var(--color-primary)] font-semibold">All Tours</a>
+          </div>
+        </div>
+
+        <a href="/transport" class="text-gray-700 hover:text-[var(--color-primary)] font-medium transition-colors">Private Shuttle</a>
+        <a href="/blog" class="text-gray-700 hover:text-[var(--color-primary)] font-medium transition-colors">Blog</a>
+        <a href="/about" class="text-gray-700 hover:text-[var(--color-primary)] font-medium transition-colors">About Us</a>
+        <a href="/contact" class="text-gray-700 hover:text-[var(--color-primary)] font-medium transition-colors">Contact</a>
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="hidden md:flex">
+        <a href="https://wa.me/50684291847" target="_blank" class="btn-primary text-sm px-4 py-2">
+          Book Now
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="md:hidden flex items-center">
+        <button id="mobile-menu-btn" class="text-gray-700 hover:text-[var(--color-primary)] focus:outline-none">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <div class="pl-3 py-2 font-medium text-gray-900 border-b border-gray-100 mb-2">Tours</div>
+      <a href="/tours?category=Hiking" class="block px-6 py-2 rounded-md text-base text-gray-600 hover:text-[var(--color-primary)] hover:bg-gray-50">Hiking</a>
+      <a href="/tours?category=Adrenaline" class="block px-6 py-2 rounded-md text-base text-gray-600 hover:text-[var(--color-primary)] hover:bg-gray-50">Adrenaline</a>
+      <a href="/tours?category=Wildlife" class="block px-6 py-2 rounded-md text-base text-gray-600 hover:text-[var(--color-primary)] hover:bg-gray-50">Wildlife</a>
+      
+      <div class="border-t border-gray-100 my-2"></div>
+      
+      <a href="/transport" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[var(--color-primary)] hover:bg-gray-50">Private Shuttle</a>
+      <a href="/blog" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[var(--color-primary)] hover:bg-gray-50">Blog</a>
+      <a href="/about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[var(--color-primary)] hover:bg-gray-50">About Us</a>
+      <a href="/contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[var(--color-primary)] hover:bg-gray-50">Contact</a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>

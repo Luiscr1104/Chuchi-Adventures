@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About Us" description="Learn about the Chuchi Adventures family. Local guides passionate about Costa Rica.">
+  <div class="bg-[var(--color-primary)] pt-32 pb-20 text-center text-white relative overflow-hidden">
+     <div class="absolute inset-0 bg-black/20"></div>
+     <div class="relative z-10 container-custom">
+       <h1 class="text-5xl font-bold mb-4">Our Story</h1>
+       <p class="text-xl text-green-100">Passion for what we do, Love for where we live.</p>
+     </div>
+  </div>
+
+  <section class="py-20">
+    <div class="container-custom">
+      <div class="prose prose-lg mx-auto text-slate-600">
+        <p>
+          Chuchi Adventures was born from the desire to share the authentic beauty of Costa Rica with the world. We are not just a tour operator; we are a family of locals who grew up exploring the rivers, volcanoes, and forests of La Fortuna and Peñas Blancas.
+        </p>
+        <p>
+          Our founder, "Chuchi", started as a kayak guide over 10 years ago. His ability to spot wildlife and his infectious enthusiasm made every tour a unique adventure. Today, that same passion is the heart of our company.
+        </p>
+        
+        <h3 class="text-slate-900 font-bold mt-8 mb-4">Our Values</h3>
+        <ul class="grid grid-cols-1 md:grid-cols-3 gap-6 not-prose">
+          <li class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+            <strong class="block text-xl text-[var(--color-primary)] mb-2">Safety</strong>
+            We never compromise your well-being. Certified equipment and rigorous standards.
+          </li>
+          <li class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+            <strong class="block text-xl text-[var(--color-primary)] mb-2">Sustainability</strong>
+            We respect nature. We minimize our impact and support conservation.
+          </li>
+          <li class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+            <strong class="block text-xl text-[var(--color-primary)] mb-2">Authenticity</strong>
+            Real experiences, away from the tourist traps. We show you the real Costa Rica.
+          </li>
+        </ul>
+      </div>
+
+      <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-4">
+         <img src="https://images.unsplash.com/photo-1596423736737-25e227094967?q=80&w=800" class="rounded-2xl h-64 object-cover w-full hover:scale-105 transition-transform duration-500" alt="River Adventure" />
+         <img src="https://images.unsplash.com/photo-1542111108264-58e38f6d6343?q=80&w=800" class="rounded-2xl h-64 object-cover w-full hover:scale-105 transition-transform duration-500 delay-75" alt="Arenal Hike" />
+         <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=800" class="rounded-2xl h-64 object-cover w-full hover:scale-105 transition-transform duration-500 delay-150" alt="Wildlife" />
+         <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=800" class="rounded-2xl h-64 object-cover w-full hover:scale-105 transition-transform duration-500 delay-200" alt="Transport" />
+      </div>
+      
+      <div class="text-center mt-12 bg-slate-100 p-8 rounded-2xl">
+        <h2 class="text-3xl font-bold text-slate-800 mb-4">10+ Years of Experience</h2>
+        <p class="text-slate-600">Thousands of happy customers can't be wrong.</p>
+      </div>
+    </div>
+  </section>
+</Layout>

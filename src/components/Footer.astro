@@ -1,0 +1,65 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-slate-900 text-white pt-16 pb-8">
+  <div class="container-custom">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+      <!-- Brand -->
+      <div class="col-span-1 md:col-span-1">
+        <a href="/" class="text-2xl font-bold flex items-center gap-2 mb-4">
+          <span>🌿</span> Chuchi Adventures
+        </a>
+        <p class="text-slate-400 text-sm leading-relaxed">
+          Authentic adventures in Costa Rica. Local experts in nature, wildlife, and adrenaline.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="font-bold text-lg mb-4 text-[var(--color-accent)]">Explore</h3>
+        <ul class="space-y-2 text-slate-300">
+          <li><a href="/tours" class="hover:text-white transition-colors">Tours</a></li>
+          <li><a href="/transport" class="hover:text-white transition-colors">Private Shuttle</a></li>
+          <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
+          <li><a href="/blog" class="hover:text-white transition-colors">Blog</a></li>
+        </ul>
+      </div>
+
+      <!-- Tours -->
+      <div>
+        <h3 class="font-bold text-lg mb-4 text-[var(--color-accent)]">Top Tours</h3>
+        <ul class="space-y-2 text-slate-300">
+          <li><a href="/tours?category=Hiking" class="hover:text-white transition-colors">Arenal Hiking</a></li>
+          <li><a href="/tours?category=Water" class="hover:text-white transition-colors">Safari Float</a></li>
+          <li><a href="/tours?category=Adrenaline" class="hover:text-white transition-colors">Canyoning</a></li>
+          <li><a href="/tours?category=Wildlife" class="hover:text-white transition-colors">Sloth Tour</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="font-bold text-lg mb-4 text-[var(--color-accent)]">Contact</h3>
+        <ul class="space-y-2 text-slate-300 text-sm">
+          <li class="flex items-center gap-2">
+            <span>📞</span> +506 8429 1847
+          </li>
+          <li class="flex items-center gap-2">
+            <span>📧</span> info@chuchiadventures.com
+          </li>
+          <li class="flex items-center gap-2">
+            <span>📍</span> Peñas Blancas, CR
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm">
+      <p>&copy; {currentYear} Chuchi Adventures. All rights reserved.</p>
+      <div class="flex space-x-6 mt-4 md:mt-0">
+        <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>

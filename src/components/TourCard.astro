@@ -1,0 +1,63 @@
+---
+import type { Tour } from '../data/tours';
+
+interface Props {
+  tour: Tour;
+}
+
+const { tour } = Astro.props;
+---
+
+<a href={`/tours/${tour.slug}`} class="group block h-full">
+  <article class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden h-full flex flex-col">
+    <div class="relative overflow-hidden aspect-[4/3]">
+      <img 
+        src={tour.image} 
+        alt={tour.title}
+        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+      />
+      <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-[var(--color-primary)] shadow-sm">
+        ${tour.price}
+      </div>
+      {tour.difficulty === 'Fácil' && (
+        <div class="absolute top-4 left-4 bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded-full uppercase tracking-wide">
+          Fácil
+        </div>
+      )}
+      {tour.difficulty === 'Moderado' && (
+        <div class="absolute top-4 left-4 bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded-full uppercase tracking-wide">
+          Moderado
+        </div>
+      )}
+      {tour.difficulty === 'Difícil' && (
+        <div class="absolute top-4 left-4 bg-red-100 text-red-800 text-xs font-bold px-2 py-1 rounded-full uppercase tracking-wide">
+          Difícil
+        </div>
+      )}
+    </div>
+    
+    <div class="p-6 flex flex-col flex-grow">
+      <h3 class="text-xl font-bold mb-2 group-hover:text-[var(--color-primary)] transition-colors">
+        {tour.title}
+      </h3>
+      
+      <div class="flex items-center gap-4 text-sm text-gray-500 mb-4">
+        <span class="flex items-center gap-1">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          {tour.duration}
+        </span>
+      </div>
+
+      <p class="text-gray-600 text-sm line-clamp-3 mb-4 flex-grow">
+        {tour.description}
+      </p>
+      
+      <div class="mt-auto">
+        <span class="text-[var(--color-primary)] font-medium text-sm flex items-center justify-end group-hover:underline">
+          Ver detalles
+          <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+        </span>
+      </div>
+    </div>
+  </article>
+</a>
