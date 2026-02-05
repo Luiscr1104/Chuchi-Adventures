@@ -149,7 +149,7 @@ export const tours: Tour[] = [
     id: 'tour-chocolate-roots',
     slug: 'chocolate-tour-roots-experience',
     title: 'Chocolate Tour: Roots Experience',
-    price: 95,
+    price: 40,
     duration: '1.5 hours',
     difficulty: 'Easy',
     description: 'A medicinal and aesthetic journey based on ancestral Costa Rican roots. This sensory experience uses premium organic cacao to nourish your skin and soul.',
