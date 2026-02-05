@@ -33,7 +33,7 @@ export default function TourCard({ tour }: TourCardProps) {
                         />
 
                         {/* Glassmorphic Overlays */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
 
                         <div className="absolute top-6 right-6">
                             <Badge className="bg-[var(--color-secondary)] text-slate-900 border-0 text-xl font-black px-5 py-2.5 rounded-2xl shadow-2xl">
@@ -51,7 +51,7 @@ export default function TourCard({ tour }: TourCardProps) {
                                     {tour.duration}
                                 </span>
                             </div>
-                            <h3 className="text-2xl font-bold leading-tight tracking-tight mb-2">
+                            <h3 className="text-2xl font-bold leading-tight tracking-tight mb-2 text-white drop-shadow-lg">
                                 {tour.title}
                             </h3>
                         </div>

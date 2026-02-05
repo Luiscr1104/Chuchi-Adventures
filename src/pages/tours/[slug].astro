@@ -71,8 +71,8 @@ const schema = {
         class="w-full h-full object-cover transition-transform duration-[10s] ease-out scale-105 hover:scale-100"
       />
       <!-- Dynamic Overlay Mesh -->
-      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-slate-900/90"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.4)_100%)]"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-slate-950"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.6)_100%)]"></div>
     </div>
     
     <div class="absolute inset-x-0 bottom-0 z-10 py-20">
@@ -89,9 +89,9 @@ const schema = {
             </Badge>
           </div>
           
-          <h1 class="text-5xl md:text-8xl font-bold text-white leading-[0.9] tracking-tight drop-shadow-2xl">
+          <h1 class="text-5xl md:text-8xl font-bold text-white leading-[0.9] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
             {tour.title.split(' ').map((word, i) => (
-              <span class={i % 2 === 0 ? "block" : "block text-[var(--color-secondary)]"}>{word}</span>
+              <span class={i % 2 === 0 ? "block" : "block text-[var(--color-secondary)] drop-shadow-none"}>{word}</span>
             ))}
           </h1>
 
