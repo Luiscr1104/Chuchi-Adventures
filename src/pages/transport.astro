@@ -1,111 +1,156 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import TransportFilter from "../components/TransportFilter";
-import { CheckCircle2, Shield, Map, Clock } from "lucide-react";
+import { CheckCircle2, Shield, Map, Clock, ArrowRight, Star } from "lucide-react";
 ---
 
 <Layout
-  title="Private Transport"
-  description="Private transport service in Costa Rica. Travel safely and comfortably from Airports to La Fortuna and Guanacaste."
+  title="Boutique Private Transport"
+  description="Navigate Costa Rica in absolute comfort. Professional private shuttle services from SJO and LIR airports to La Fortuna, Guanacaste, and beyond. locally owned, premium units."
+  image="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2621"
 >
-  <!-- Hero Section -->
-  <section
-    class="relative pt-32 pb-48 md:pt-48 md:pb-64 bg-slate-900 overflow-hidden"
-  >
-    <!-- Background Image -->
+  <!-- Premium Hero Section (Editorial) -->
+  <section class="relative h-[80vh] flex items-center justify-center overflow-hidden bg-slate-900">
     <div class="absolute inset-0 z-0">
       <img
         src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2621"
-        alt="Costa Rica Road"
-        class="w-full h-full object-cover opacity-40"
+        alt="Costa Rica Road Trip"
+        class="w-full h-full object-cover opacity-60 transition-transform duration-[15s] ease-out scale-105 hover:scale-100"
       />
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"
-      >
-      </div>
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-slate-900/20 to-slate-50"></div>
     </div>
 
-    <div class="relative z-10 container-custom text-center">
-      <span
-        class="inline-block py-1 px-3 rounded-full bg-[var(--color-accent)] text-white text-sm font-bold tracking-wider mb-6 animate-fade-in-up"
-      >
-        PREMIUM SERVICE
-      </span>
-      <h1
-        class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 drop-shadow-xl animate-fade-in-up delay-100"
-      >
-        Travel Safe & Comfortably<br />
-        <span
-          class="text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-emerald-400"
-          >All Over Costa Rica</span
-        >
-      </h1>
-      <p
-        class="text-xl text-slate-300 max-w-2xl mx-auto mb-10 animate-fade-in-up delay-200"
-      >
-        Choose your schedule and destination. We take care of the rest with our
-        modern units and professional drivers.
-      </p>
-    </div>
-  </section>
+    <div class="relative z-10 container-custom">
+      <div class="max-w-5xl">
+        <div class="flex items-center gap-4 mb-8">
+            <div class="w-12 h-1 bg-[var(--color-secondary)]"></div>
+            <span class="text-[var(--color-secondary)] font-black uppercase tracking-[0.4em] text-xs">Pura Vida Mobility</span>
+        </div>
+        
+        <h1 class="text-5xl sm:text-6xl md:text-9xl font-bold text-white tracking-tighter leading-[0.85] mb-12">
+          THE <br/><span class="text-slate-200">JOURNEY</span> <br/><span class="text-[var(--color-secondary)] underline decoration-4 underline-offset-8 decoration-white/20">REDEFINED.</span>
+        </h1>
 
-  <!-- Filter Section (Floating overlap) -->
-  <section class="relative z-20 -mt-32 pb-24 px-4">
-    <TransportFilter client:load />
-
-    <div class="text-center mt-6 text-slate-500 text-sm">
-      * Immediate response via WhatsApp to confirm availability and final price.
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section class="py-24 bg-slate-50">
-    <div class="container-custom">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-slate-900 mb-4">Why Choose Us?</h2>
-        <div class="w-20 h-1 bg-[var(--color-primary)] mx-auto rounded-full">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center border-t border-white/20 pt-12">
+           <p class="text-white/70 text-xl font-light leading-relaxed max-w-sm">
+             Boutique private shuttle services designed for those who value punctuality, safety, and the artisanal touch of local expertise.
+           </p>
+           <div class="flex items-center gap-6">
+              <div class="flex -space-x-3">
+                 {[1,2,3,4].map(() => (
+                   <div class="w-12 h-12 rounded-full border-2 border-slate-900 bg-slate-800 flex items-center justify-center text-xs text-white font-bold">
+                     <Star className="w-4 h-4 text-[var(--color-secondary)] fill-[var(--color-secondary)]" />
+                   </div>
+                 ))}
+              </div>
+              <span class="text-white font-black uppercase tracking-widest text-[10px]">Trusted by thousands <br/> of world travelers</span>
+           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {
-          [
-            {
-              icon: Shield,
-              title: "Safety First",
-              desc: "Insured units and experienced drivers.",
-            },
-            {
-              icon: Clock,
-              title: "Punctuality",
-              desc: "Always on time for your flight or tour.",
-            },
-            {
-              icon: Map,
-              title: "National Coverage",
-              desc: "From SJO/LIR to any destination.",
-            },
-            {
-              icon: CheckCircle2,
-              title: "Personal Treatment",
-              desc: "Help with luggage and convenience stops.",
-            },
-          ].map((feature) => (
-            <div class="group relative bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-slate-100 overflow-hidden">
-              <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-green-50 rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500" />
+  <!-- Integrated Filter Section -->
+  <section class="relative z-30 -mt-24 px-4 pb-32">
+    <TransportFilter client:load />
+    <div class="max-w-7xl mx-auto mt-8 flex justify-end">
+       <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 max-w-xs text-right leading-relaxed">
+         * All bookings include luggage assistance, hydration, and custom refreshment stops upon request.
+       </p>
+    </div>
+  </section>
 
-              <div class="relative z-10">
-                <div class="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-green-100 text-[var(--color-primary)] mb-6 group-hover:bg-[var(--color-primary)] group-hover:text-white transition-colors duration-300 shadow-sm">
-                  <feature.icon className="w-8 h-8" />
+  <!-- Features (Refined Editorial Layout) -->
+  <section class="py-40 bg-white relative overflow-hidden">
+    <!-- Decorative background -->
+    <div class="absolute top-0 left-0 w-full h-1/2 bg-slate-50/50 -skew-y-3 origin-top-left"></div>
+
+    <div class="container-custom relative z-10">
+      <div class="flex flex-col md:flex-row gap-20 items-start">
+        <div class="w-full md:w-1/3 space-y-8">
+           <span class="text-[var(--color-primary)] font-black uppercase tracking-[0.3em] text-xs">Unmatched Standards</span>
+           <h2 class="text-5xl font-bold text-slate-900 tracking-tighter leading-none">
+             WHY <br/><span class="text-slate-400">CHOOSE</span> <br/><span class="italic font-light">OUR FLEET.</span>
+           </h2>
+           <p class="text-slate-500 text-lg leading-relaxed font-medium">
+             We operate a modern, boutique fleet of vehicles maintained to rigorous international safety standards.
+           </p>
+           <div class="pt-8">
+              <div class="p-8 rounded-[2.5rem] bg-slate-950 text-white space-y-6 shadow-2xl">
+                 <h4 class="text-xs font-black uppercase tracking-widest text-[var(--color-secondary)]">The Local Advantage</h4>
+                 <p class="text-sm text-white/60 leading-relaxed font-light">
+                   As a locally-owned operator based in Peñas Blancas, we know every shortcut and scenic route in the valley. We don't just drive; we guide you through the heart of Costa Rica.
+                 </p>
+              </div>
+           </div>
+        </div>
+
+        <div class="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8">
+          {
+            [
+              {
+                icon: Shield,
+                title: "Safety First",
+                desc: "Fully insured premium units with experienced bilingual drivers.",
+              },
+              {
+                icon: Clock,
+                title: "Precision Timing",
+                desc: "Real-time flight tracking ensures we are always waiting for you.",
+              },
+              {
+                icon: Map,
+                title: "Total Coverage",
+                desc: "Seamless connectivity from SJO/LIR to any destination nationwide.",
+              },
+              {
+                icon: CheckCircle2,
+                title: "Artisanal Care",
+                desc: "From luggage assistance to custom stops, it's about your comfort.",
+              },
+            ].map((feature) => (
+              <div class="p-10 rounded-[2.5rem] bg-white border border-slate-100 hover:border-[var(--color-secondary)] transition-all duration-700 hover:shadow-2xl hover:shadow-emerald-500/5 group">
+                <div class="w-14 h-14 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-900 group-hover:bg-[var(--color-secondary)] transition-colors duration-500 mb-8">
+                  <feature.icon className="w-6 h-6" />
                 </div>
-                <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-[var(--color-primary)] transition-colors">
+                <h3 class="text-xl font-bold text-slate-900 mb-4 tracking-tight uppercase">
                   {feature.title}
                 </h3>
-                <p class="text-slate-600 leading-relaxed">{feature.desc}</p>
+                <p class="text-slate-500 text-sm leading-relaxed font-medium">{feature.desc}</p>
               </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final Interaction -->
+  <section class="py-40 bg-slate-100">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto rounded-[3rem] bg-white p-16 shadow-2xl border border-white flex flex-col md:flex-row items-center gap-16 text-center md:text-left">
+         <div class="space-y-6">
+            <span class="text-[var(--color-primary)] font-black uppercase tracking-[0.3em] text-[10px]">Ready to book?</span>
+            <h3 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tighter">Need a custom <br/><span class="text-[var(--color-primary)]">itinerary?</span></h3>
+            <p class="text-slate-500 text-lg leading-relaxed font-medium">
+              For group bookings over 8 people or multi-destination trips, contact our logistic experts.
+            </p>
+         </div>
+         <div class="grow flex flex-col items-center md:items-end gap-6">
+            <a 
+              href="https://wa.me/50684291847" 
+              class="group h-20 px-12 bg-slate-950 text-white rounded-[1.5rem] font-black uppercase tracking-widest text-xs flex items-center gap-6 hover:bg-[var(--color-primary)] transition-all duration-500 shadow-2xl shadow-slate-900/10"
+            >
+              Contact Logistics
+              <div class="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-emerald-600 transition-all">
+                <ArrowRight className="w-4 h-4" />
+              </div>
+            </a>
+            <div class="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-slate-300">
+               <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+               Response in &lt; 15min
             </div>
-          ))
-        }
+         </div>
       </div>
     </div>
   </section>

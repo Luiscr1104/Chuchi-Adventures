@@ -3,6 +3,11 @@ export interface Tour {
   slug: string;
   title: string;
   price: number;
+  priceChildren?: number;
+  netPrice?: number;
+  netPriceChildren?: number;
+  minAge?: number;
+  schedule?: string[];
   duration: string;
   difficulty: 'Easy' | 'Moderate' | 'Hard';
   description: string;
@@ -20,7 +25,7 @@ export const tours: Tour[] = [
   // ========================
   {
     id: 'tour-001',
-    slug: 'horseback-riding',
+    slug: 'horseback-riding-arenal-volcano',
     title: 'Horseback Riding Experience',
     price: 55,
     duration: '2.5 hours',
@@ -33,114 +38,111 @@ export const tours: Tour[] = [
     category: 'Relax',
   },
   {
-    id: 'tour-002',
-    slug: 'night-walk',
-    title: 'Night Walk (Exclusive Tour)',
-    price: 67,
-    duration: '2 hours',
-    difficulty: 'Easy',
-    description: 'Explore rainforest at night and spot frogs, sleeping birds, insects, and other nocturnal wildlife with an expert guide.',
-    highlights: ['Nocturnal Wildlife', 'Expert Guide', 'Flashlights Provided', 'Great Photos'],
-    image: 'https://images.unsplash.com/photo-1550965380-0a2569c763b0?q=80&w=2000',
-    images: ['https://images.unsplash.com/photo-1550965380-0a2569c763b0?q=80&w=2000'],
-    isResale: false,
-    category: 'Wildlife',
-  },
-  {
-    id: 'tour-003',
-    slug: 'cooking-class',
-    title: 'Traditional Cooking Class',
-    price: 65,
-    duration: '3 hours',
-    difficulty: 'Easy',
-    description: 'Learn to cook authentic Costa Rican dishes \"a la leña\" (wood fire). Harvest fresh ingredients from farm and prepare your own lunch or dinner.',
-    highlights: ['Farm-to-Table', 'Wood Stove Cooking', 'Delicious Meal', 'Cultural Experience'],
-    image: 'https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=2000',
-    images: ['https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=2000'],
-    isResale: false,
-    category: 'Relax',
-  },
-  {
     id: 'tour-004',
-    slug: 'arenal-tubing',
+    slug: 'arenal-river-tubing-adventure',
     title: 'Arenal River Tubing',
     price: 60,
     duration: '3 hours',
     difficulty: 'Moderate',
     description: 'Bounce down the river in your own tube. A perfect mix of adrenaline and relaxation surrounded by nature on Arenal River.',
     highlights: ['River Tubing', 'Nature Views', 'Refreshing Swim', 'Fun Guides'],
-    image: '/images/tubing/tour-photo.jpg',
-    images: ['/images/tubing/tour-photo.jpg'],
-    isResale: true,
+    image: '/images/tours/tubing/tour-photo.jpg',
+    images: ['/images/tours/tubing/tour-photo.jpg'],
+    isResale: false,
     category: 'Water',
   },
 
-  // ==========================================================
-  // JACAMAR TOURS (Reventa) - EXACT MATCH FROM jacamartours.com
-  // ==========================================================
-  // TOP 8 JACAMAR TOURS (MANUAL CURATION)
+  // ===================================
+  // NEW TOURS
+  // ===================================
   {
-    id: 'jacamar-exact-1',
-    slug: 'arenal-hanging-bridges-fortuna-waterfall',
-    title: 'Hanging Bridges + Fortuna Waterfall',
-    price: 85,
-    duration: '5 hours',
-    difficulty: 'Moderate',
-    category: 'Hiking',
-    description: 'Take a nature walk on the trails that will guide you to some of the most beautiful hanging bridges, they have 15 bridges in total and you can walk through them at 180 meters high.',
-    shortDescription: 'Take a nature walk on the trails with hanging bridges at 180m high.',
-    highlights: ['15 Hanging Bridges in total', '180 meters high', 'Nature trails', 'Wildlife viewing', 'Spectacular waterfall', 'Educational experience'],
-    image: 'https://imgcdn.bokun.tools/694d8fb3-3750-4afc-a16d-5d088b92ffe9.jpeg?fm=auto&mode=crop&crop=center&dpr=1&w=387&h=271',
-    images: [
-      'https://imgcdn.bokun.tools/c102a6e54877e67fa394d259cf27b29b.jpeg?fm=auto&mode=crop&crop=center&dpr=1&w=387&h=271',
-      'https://imgcdn.bokun.tools/a8302c93-1c17-46b4-b3c697e525d25.jpg?fm=auto&mode=crop&crop=center&dpr=1&w=387&h=271',
-    ],
-    included: ['Hanging Bridges entrance', 'Fortuna Waterfall access', 'Naturalist guide', 'Transportation', 'Safety equipment', 'Snacks and water'],
-    whatToBring: ['Comfortable walking shoes', 'Lightweight clothing', 'Rain jacket', 'Camera', 'Insect repellent', 'Water bottle'],
-    isResale: true,
-    category: 'Hiking',
-  },
-  {
-    id: 'jacamar-exact-2',
-    slug: 'white-water-rafting-class-iv',
-    title: 'White Water Rafting (Class II & III)',
-    price: 82,
-    duration: '5 hours',
-    difficulty: 'Moderate',
-    category: 'Adrenaline',
-    description: 'Take on our turbulent waters in one of the most exciting river rafting tour in Costa Rica. A journey that you and your team will never forget.',
-    shortDescription: 'Thrilling river rafting adventure on Costa Rica.',
-    highlights: ['Class II & III rapids', 'Safety equipment', 'Professional guides', 'River scenery', 'Adrenaline rush', 'Photography opportunities'],
-    image: 'https://imgcdn.bokun.tools/e75ced95-7cfd-4bdf-acfe-c97be1faa9bf.jpeg',
-    images: [
-      'https://imgcdn.bokun.tools/b5781425-44ae-4428-8b7c3d65d53f63.jpg',
-      'https://imgcdn.bokun.tools/698a9c79-6a71-4432-a950e11e6a6f.jpg'
-    ],
-    included: ['Rafting equipment', 'Life jacket and helmet', 'Safety briefing', 'Professional guide', 'Lunch included', 'Transportation'],
-    whatToBring: ['Swimsuit', 'Quick-dry clothes', 'Waterproof shoes', 'Sunscreen', 'Change of clothes', 'Camera', 'Adventurous spirit'],
-    isResale: true,
-    category: 'Adrenaline',
-  },
-  {
-    id: 'jacamar-exact-3',
-    slug: 'arenal-volcano-hike',
-    title: 'Arenal Volcano Hike',
-    price: 68,
+    id: 'tour-canyoning',
+    slug: 'canyoning-waterfall-rappelling-arenal',
+    title: 'Canyoning Waterfall Rappelling',
+    price: 105,
+    netPrice: 74,
     duration: '4 hours',
-    difficulty: 'Moderate',
-    category: 'Hiking',
-    description: 'A guided hike on the slopes of the majestic Arenal Volcano with our expert naturalist guides. Learn about volcanic activity and observe diverse wildlife.',
-    shortDescription: 'Guided hike on Arenal Volcano with expert naturalist guides.',
-    highlights: ['Volcano trails', 'Educational experience', 'Wildlife viewing', 'Scenic viewpoints', 'Geological features', 'Naturalist guide'],
-    image: 'https://imgcdn.bokun.tools/f91326e0-21cb-41aa-973f-d92a6880ef9.jpeg',
-    images: [
-      'https://imgcdn.bokun.tools/7e9041f6-8c3f-4bde-842a29785f9.jpg',
-      'https://imgcdn.bokun.tools/e684a8f4-8f2f-472f-a8064377a742.jpg',
-      'https://imgcdn.bokun.tools/1553284965-83fd3e82fa5a.jpeg'
+    difficulty: 'Hard',
+    description: 'Aventura de cañonismo con rappels en cascadas, canopy y caminata por el cañón.',
+    highlights: [
+      '5 rappels (20m, 25m, 30m, 35m y 60m)',
+      '2 cables de canopy (150m y 400m)',
+      'Equipo completo',
+      'Guías certificados',
+      'Transporte desde La Fortuna y alrededores',
+      'Almuerzo típico costarricense (pollo, carne, vegano o vegetariano)'
     ],
-    included: ['Naturalist guide', 'Park entrance', 'Educational content', 'Safety equipment', 'Transportation', 'Snacks included'],
-    whatToBring: ['Hiking boots', 'Lightweight clothing', 'Water', 'Camera', 'Sunscreen'],
+    schedule: ['7:00 am', '10:00 am', '1:00 pm'],
+    minAge: 5,
+    image: '/images/tours/canyoning/canyoning1.webp',
+    images: [
+      '/images/tours/canyoning/canyoning1.webp',
+      '/images/tours/canyoning/canyoning2.webp',
+      '/images/tours/canyoning/canyoning3.webp',
+      '/images/tours/canyoning/canyoning4.webp'
+    ],
     isResale: true,
-    category: 'Hiking',
-  }
+    category: 'Adrenaline',
+  },
+  {
+    id: 'tour-rafting',
+    slug: 'white-water-rafting-balsa-river',
+    title: 'White Water Rafting – Río Balsa (Class II / III)',
+    price: 78,
+    netPrice: 53,
+    duration: '5 hours',
+    difficulty: 'Moderate',
+    description: 'Rafting familiar en el Río Balsa con rápidos moderados, ideal para principiantes y familias.',
+    highlights: [
+      '10 km de rápidos',
+      'Frutas y bebidas',
+      'Almuerzo típico costarricense',
+      'Equipo completo',
+      'Guías certificados',
+      'Transporte desde La Fortuna y alrededores',
+      'Toalla'
+    ],
+    schedule: ['10:00 am'],
+    minAge: 6,
+    image: '/images/tours/rafting/rafting1.webp',
+    images: [
+      '/images/tours/rafting/rafting1.webp',
+      '/images/tours/rafting/rafting2.webp',
+      '/images/tours/rafting/rafting3.webp',
+      '/images/tours/rafting/rafting4.webp'
+    ],
+    isResale: true,
+    category: 'Water',
+  },
+  {
+    id: 'tour-safari-float',
+    slug: 'safari-float-penas-blancas-river',
+    title: 'Safari Float – Río Peñas Blancas',
+    price: 73,
+    priceChildren: 63,
+    netPrice: 48,
+    netPriceChildren: 40,
+    duration: '4 hours',
+    difficulty: 'Easy',
+    description: 'Safari flotado tranquilo enfocado en observación de fauna y naturaleza.',
+    highlights: [
+      'Tour guiado por naturalista',
+      'Observación de monos, perezosos, aves, cocodrilos',
+      'Transporte desde La Fortuna y alrededores'
+    ],
+    schedule: ['7:00 am', '2:00 pm'],
+    minAge: 3,
+    image: '/images/tours/float/20250209_075018.webp',
+    images: [
+      '/images/tours/float/20250209_075018.webp',
+      '/images/tours/float/20240415_082403.webp',
+      '/images/tours/float/20240415_082456.webp',
+      '/images/tours/float/DSC_1329.webp',
+      '/images/tours/float/IMG_9604.webp',
+      '/images/tours/float/_ANF0230.webp',
+      '/images/tours/float/_ANF0260.webp'
+    ],
+    isResale: true,
+    category: 'Wildlife',
+  },
 ];

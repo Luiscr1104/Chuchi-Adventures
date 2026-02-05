@@ -27,16 +27,26 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title} | BeyondArenal</title>
     
+    <link rel="canonical" href={new URL(Astro.url.pathname, "https://chuchi-adventures.com").href} />
+
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
+    <meta property="og:type" content={Astro.url.pathname.includes('/tours/') ? 'article' : 'website'} />
+    <meta property="og:title" content={`${title} | BeyondArenal`} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={new URL(image, "https://chuchi-adventures.com").href} />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:site_name" content="BeyondArenal" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | BeyondArenal`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, "https://chuchi-adventures.com").href} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   </head>
   <body class="flex flex-col min-h-screen bg-slate-50">
     <Navbar />

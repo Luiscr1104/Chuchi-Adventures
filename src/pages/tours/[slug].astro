@@ -20,11 +20,8 @@ const schema = {
   "@type": "TouristTrip",
   "name": tour.title,
   "description": tour.description,
-  "image": tour.image,
-  "touristType": [
-    "AdventureTourism",
-    "NatureTourism"
-  ],
+  "image": new URL(tour.image, "https://chuchi-adventures.com").href,
+  "touristType": ["AdventureTourism", "NatureTourism"],
   "itinerary": {
     "@type": "ItemList",
     "itemListElement": tour.highlights.map((highlight, index) => ({
@@ -38,17 +35,20 @@ const schema = {
     "price": tour.price,
     "priceCurrency": "USD",
     "availability": "https://schema.org/InStock",
-    "url": `https://chuchi-adventures.com/tours/${tour.slug}`
+    "url": `https://chuchi-adventures.com/tours/${tour.slug}`,
+    "validFrom": new Date().toISOString()
   },
   "provider": {
     "@type": "LocalBusiness",
-  "name": "BeyondArenal",
-  "image": "https://chuchi-adventures.com/logo.png",
+    "name": "Chuchi Adventures",
+    "image": "https://chuchi-adventures.com/logoBlack.svg",
     "telephone": "+50684291847",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Peñas Blancas",
+      "streetAddress": "La Fortuna",
+      "addressLocality": "San Carlos",
       "addressRegion": "Alajuela",
+      "postalCode": "21007",
       "addressCountry": "CR"
     }
   }
@@ -57,128 +57,171 @@ const schema = {
 
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
-<Layout title={tour.title} description={tour.description} image={tour.image}>
-  <!-- Hero with Image -->
-  <div class="relative h-[60vh] md:h-[70vh] overflow-hidden group">
-    <img 
-      src={tour.image} 
-      alt={tour.title}
-      class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[2s]"
-    />
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+<Layout 
+  title={tour.title} 
+  description={`${tour.description.slice(0, 150)}... Book your ${tour.title} experience in La Fortuna, Costa Rica.`} 
+  image={tour.image}
+>
+  <!-- Premium Hero Section (Editorial Style) -->
+  <div class="relative h-[70vh] md:h-[85vh] overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img 
+        src={tour.image} 
+        alt={tour.title}
+        class="w-full h-full object-cover transition-transform duration-[10s] ease-out scale-105 hover:scale-100"
+      />
+      <!-- Dynamic Overlay Mesh -->
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-slate-900/90"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_0%,_rgba(0,0,0,0.4)_100%)]"></div>
+    </div>
     
-    <div class="absolute bottom-0 left-0 right-0 p-8 md:p-16 text-white container-custom">
-      <div class="flex flex-wrap gap-3 mb-6 animate-fade-in">
-        <span class="inline-flex items-center px-3 py-1 rounded-full bg-[var(--color-primary)] text-sm font-bold backdrop-blur-sm border border-white/20">
-          <Clock className="w-4 h-4 mr-2" />
-          {tour.duration}
-        </span>
-        <span class="inline-flex items-center px-3 py-1 rounded-full bg-white/20 text-sm font-bold backdrop-blur-sm border border-white/20">
-          <Signal className="w-4 h-4 mr-2" />
-          {tour.difficulty}
-        </span>
-         <span class="inline-flex items-center px-3 py-1 rounded-full bg-white/20 text-sm font-bold backdrop-blur-sm border border-white/20 uppercase tracking-widest">
-          {tour.category}
-        </span>
-      </div>
-      
-      <h1 class="text-4xl md:text-6xl font-bold mb-6 drop-shadow-xl leading-tight max-w-4xl">
-        {tour.title}
-      </h1>
-      
-      <div class="flex items-baseline gap-2">
-         <span class="text-3xl md:text-4xl font-bold text-[var(--color-secondary)]">${tour.price}</span>
-         <span class="text-lg text-gray-300">/ per person</span>
+    <div class="absolute inset-x-0 bottom-0 z-10 py-20">
+      <div class="container-custom">
+        <div class="max-w-4xl space-y-8 animate-fade-in">
+          <div class="flex flex-wrap gap-4">
+            <Badge variant="secondary" className="bg-white/10 backdrop-blur-md text-white border-white/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest hover:bg-white/20 transition-colors">
+              <Clock className="w-4 h-4 mr-2 text-[var(--color-secondary)]" />
+              {tour.duration}
+            </Badge>
+            <Badge variant="secondary" className="bg-white/10 backdrop-blur-md text-white border-white/20 px-4 py-1.5 text-xs font-bold uppercase tracking-widest">
+              <Signal className="w-4 h-4 mr-2 text-[var(--color-secondary)]" />
+              {tour.difficulty}
+            </Badge>
+          </div>
+          
+          <h1 class="text-5xl md:text-8xl font-bold text-white leading-[0.9] tracking-tight drop-shadow-2xl">
+            {tour.title.split(' ').map((word, i) => (
+              <span class={i % 2 === 0 ? "block" : "block text-[var(--color-secondary)]"}>{word}</span>
+            ))}
+          </h1>
+
+          <div class="flex items-center gap-6 pt-4 border-t border-white/10 w-fit">
+            <div class="flex flex-col">
+              <span class="text-white/60 text-xs uppercase font-bold tracking-widest mb-1">Price from</span>
+              <span class="text-4xl font-bold text-white">${tour.price}<span class="text-lg font-medium opacity-60 ml-1">USD</span></span>
+            </div>
+            <div class="w-px h-12 bg-white/20"></div>
+            <div class="flex flex-col">
+              <span class="text-white/60 text-xs uppercase font-bold tracking-widest mb-1">Destination</span>
+              <span class="text-xl font-bold text-white">La Fortuna, CR</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-   <div class="container-custom py-16 md:py-24">
-     <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
-       
-       <!-- Main Content -->
-       <div class="lg:col-span-2 space-y-16">
-         
-         
-         <!-- Premium Photo Gallery -->
-         <TourCarousel 
-           images={tour.images || [tour.image]} 
-           title={tour.title}
-           className="py-8"
-         />
-         
-         <section>
-           <h2 class="text-3xl font-bold mb-6 text-slate-900">Adventure Description</h2>
-           <p class="text-slate-600 text-lg leading-loose">
-             {tour.description}
-           </p>
-         </section>
-
-        <section>
-          <h2 class="text-3xl font-bold mb-8 text-slate-900">What's Included</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {tour.highlights.map((item) => (
-              <div class="flex items-center p-4 rounded-xl bg-slate-50 border border-slate-100 hover:border-[var(--color-secondary)] transition-colors">
-                <div class="bg-green-100 p-2 rounded-full mr-4 text-green-600">
-                  <CheckCircle2 className="w-5 h-5" />
-                </div>
-                <span class="text-slate-700 font-medium">{item}</span>
-              </div>
-            ))}
+  <div class="container-custom -mt-16 relative z-20 pb-24">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      
+      <!-- Main Content (8 cols) -->
+      <div class="lg:col-span-8 space-y-20">
+        
+        <!-- Experience Gallery Container -->
+        <div class="bg-white rounded-[2.5rem] p-4 shadow-xl border border-slate-100 overflow-hidden">
+          <TourCarousel 
+            client:load
+            images={tour.images || [tour.image]} 
+            title={tour.title}
+          />
+        </div>
+        
+        <article class="prose prose-slate prose-lg max-w-none">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-12 h-1 bg-[var(--color-primary)] rounded-full"></div>
+            <h2 class="text-4xl font-bold text-slate-900 m-0">The Experience</h2>
           </div>
-        </section>
+          <p class="text-slate-600 text-xl leading-relaxed font-light first-letter:text-5xl first-letter:font-bold first-letter:mr-3 first-letter:float-left first-letter:text-[var(--color-primary)]">
+            {tour.description}
+          </p>
+        </article>
 
-        <section>
-          <h2 class="text-3xl font-bold mb-6 text-slate-900">What to Bring?</h2>
-          <ul class="list-none space-y-3">
-             <li class="flex items-center text-slate-600">
-               <span class="w-2 h-2 bg-[var(--color-primary)] rounded-full mr-4"></span>
-               Comfortable clothes and change of clothes
-             </li>
-             <li class="flex items-center text-slate-600">
-               <span class="w-2 h-2 bg-[var(--color-primary)] rounded-full mr-4"></span>
-               Water shoes or hiking boots
-             </li>
-             <li class="flex items-center text-slate-600">
-               <span class="w-2 h-2 bg-[var(--color-primary)] rounded-full mr-4"></span>
-               Sunscreen and insect repellent
-             </li>
-             <li class="flex items-center text-slate-600">
-               <span class="w-2 h-2 bg-[var(--color-primary)] rounded-full mr-4"></span>
-               Camera or GoPro
-             </li>
-          </ul>
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div class="space-y-8">
+            <h3 class="text-2xl font-bold text-slate-900 border-l-4 border-[var(--color-secondary)] pl-4">Adventure Highlights</h3>
+            <ul class="space-y-4">
+              {tour.highlights.map((item) => (
+                <li class="flex items-start gap-4 group">
+                  <div class="mt-1 bg-green-50 p-1.5 rounded-full text-green-600 group-hover:bg-green-600 group-hover:text-white transition-all duration-300">
+                    <CheckCircle2 className="w-4 h-4" />
+                  </div>
+                  <span class="text-slate-700 font-medium leading-tight">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="space-y-8">
+            <h3 class="text-2xl font-bold text-slate-900 border-l-4 border-[var(--color-primary)] pl-4">Essential Pack</h3>
+            <div class="grid grid-cols-1 gap-3">
+              {['Comfortable clothes', 'Water shoes', 'Sunscreen', 'GoPro/Camera'].map((item) => (
+                <div class="px-6 py-4 rounded-2xl bg-slate-50 text-slate-600 text-sm font-medium border border-transparent hover:border-slate-200 hover:bg-white transition-all">
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
       </div>
 
-      <!-- Sidebar / Sticky CTA -->
-      <div class="lg:col-span-1">
-        <div class="bg-white p-8 rounded-3xl shadow-2xl sticky top-28 border border-slate-100">
-          <div class="mb-8">
-            <span class="text-slate-500 uppercase tracking-wider text-sm font-semibold">Total Price</span>
-            <div class="flex items-baseline mt-1">
-               <span class="text-4xl font-bold text-slate-900">${tour.price}</span>
-               <span class="text-slate-500 ml-2">USD</span>
+      <!-- Sidebar / Booking Card (4 cols) -->
+      <div class="lg:col-span-4 lg:relative">
+        <div class="sticky top-28 space-y-6">
+          <div class="bg-slate-900 text-white p-10 rounded-[3rem] shadow-2xl overflow-hidden relative group">
+            <!-- Decorative Accent -->
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-[var(--color-primary)] opacity-20 blur-3xl group-hover:opacity-40 transition-opacity duration-700"></div>
+            
+            <div class="relative z-10 space-y-8">
+              <div>
+                <span class="text-[var(--color-secondary)] text-xs font-bold uppercase tracking-[0.2em]">Private Booking</span>
+                <div class="flex items-baseline mt-4 gap-2">
+                   <h2 class="text-6xl font-black text-[var(--color-secondary)]">${tour.price}</h2>
+                   <span class="text-white/40 font-medium tracking-wider">USD / Person</span>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <p class="text-white/60 text-sm leading-relaxed">
+                  Join us for an unforgettable local adventure. We prioritize small groups and personalized service.
+                </p>
+                <div class="flex flex-col gap-3">
+                  <div class="flex items-center gap-3 text-xs text-white/80">
+                    <CheckCircle2 class="w-4 h-4 text-[var(--color-secondary)]" />
+                    No prepayment required
+                  </div>
+                  <div class="flex items-center gap-3 text-xs text-white/80">
+                    <CheckCircle2 class="w-4 h-4 text-[var(--color-secondary)]" />
+                    Flexible cancellation
+                  </div>
+                </div>
+              </div>
+
+              <WhatsAppBtn 
+                text="Check Availability" 
+                message={`Pura Vida! I'm interested in the "${tour.title}" tour for my trip to La Fortuna. Is there space available?`}
+                className="w-full justify-center bg-[var(--color-secondary)] hover:bg-[#c9e4cd] text-slate-900 text-lg py-6 rounded-2xl shadow-xl hover:shadow-[var(--color-secondary)]/20 transform hover:-translate-y-2 transition-all duration-500 font-black uppercase tracking-widest"
+              />
+
+              <div class="pt-6 border-t border-white/10 flex items-center justify-between text-[10px] text-white/40 font-bold uppercase tracking-widest">
+                <span>Direct Contact</span>
+                <span class="text-[var(--color-secondary)]">Online Now</span>
+              </div>
             </div>
           </div>
-        
-          <h3 class="text-xl font-bold mb-4 text-slate-900">Book this adventure</h3>
-          <p class="text-slate-500 mb-8 text-sm leading-relaxed">
-            To guarantee the best experience and availability, we handle reservations directly via WhatsApp. No advanced payments!
-          </p>
-          
-          <WhatsAppBtn 
-            text="Check Availability" 
-            message={`Hello, I am interested in the tour: ${tour.title}. Is there space available?`}
-            className="w-full justify-center bg-[var(--color-primary)] hover:bg-[var(--color-primary-dark)] text-white text-lg py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all mb-4 font-bold" 
-          />
-          
-          <div class="flex items-center justify-center gap-2 text-xs text-slate-400 mt-4">
-             <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            Immediate response during business hours
+
+          <!-- Trust Badge -->
+          <div class="bg-white p-6 rounded-3xl border border-slate-100 flex items-center gap-4">
+            <div class="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center text-slate-400">
+              🌿
+            </div>
+            <div>
+              <p class="text-sm font-bold text-slate-900">Eco-Friendly Tour</p>
+              <p class="text-xs text-slate-500">100% sustainable local operator</p>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </Layout>
