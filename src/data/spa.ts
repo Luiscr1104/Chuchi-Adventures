@@ -131,10 +131,10 @@ export const spaServices: SpaService[] = [
         isPremium: true
     },
     {
-        id: 'signature-wellness',
-        name: 'Signature Wellness',
+        id: 'roots-experience',
+        name: 'Roots Experience: Cacao Ritual',
         duration: '1h 30m',
-        description: 'Therapeutic massage, chocolate wrap, hydrating mask, and reflexology.',
+        description: 'A deep medicinal journey: Therapeutic massage, artisanal chocolate wrap, hydrating cacao mask, and specialized reflexology.',
         category: 'Packages',
         isPremium: true
     },

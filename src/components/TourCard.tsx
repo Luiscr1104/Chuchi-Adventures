@@ -26,6 +26,9 @@ export default function TourCard({ tour }: TourCardProps) {
                         <motion.img
                             src={tour.image}
                             alt={tour.title}
+                            width={800}
+                            height={1000}
+                            loading="lazy"
                             className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
                         />
 

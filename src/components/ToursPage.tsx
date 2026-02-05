@@ -28,7 +28,7 @@ export default function ToursPage({ tours }: ToursPageProps) {
       const categoryFromUrl = params.get('category');
       setSelectedCategory(categoryFromUrl);
     };
-    
+
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
@@ -45,7 +45,7 @@ export default function ToursPage({ tours }: ToursPageProps) {
   // Handle category selection
   const handleCategoryChange = (category: string | null) => {
     setSelectedCategory(category);
-    
+
     // Update URL without page reload
     const url = new URL(window.location.href);
     if (category) {
@@ -59,20 +59,20 @@ export default function ToursPage({ tours }: ToursPageProps) {
   return (
     <div className="container-custom">
       {/* Category Filter UI */}
-      <div className="flex flex-wrap justify-center gap-3 mb-12 overflow-x-auto pb-4 no-scrollbar">
+      <div className="flex flex-wrap justify-center gap-3 mb-20 overflow-x-auto pb-4 no-scrollbar">
         <Button
           variant={!selectedCategory ? "default" : "outline"}
           onClick={() => handleCategoryChange(null)}
-          className="px-6 py-2 rounded-full text-sm font-semibold transition-all"
+          className="px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest transition-all focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2"
         >
-          All Tours
+          All Expeditions
         </Button>
         {categories.map((cat) => (
           <Button
             key={cat}
             variant={selectedCategory === cat ? "default" : "outline"}
             onClick={() => handleCategoryChange(cat)}
-            className="px-6 py-2 rounded-full text-sm font-semibold transition-all"
+            className="px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest transition-all focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2"
           >
             {cat}
           </Button>

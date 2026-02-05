@@ -145,4 +145,24 @@ export const tours: Tour[] = [
     isResale: true,
     category: 'Wildlife',
   },
+  {
+    id: 'tour-chocolate-roots',
+    slug: 'chocolate-tour-roots-experience',
+    title: 'Chocolate Tour: Roots Experience',
+    price: 95,
+    duration: '1.5 hours',
+    difficulty: 'Easy',
+    description: 'A medicinal and aesthetic journey based on ancestral Costa Rican roots. This sensory experience uses premium organic cacao to nourish your skin and soul.',
+    highlights: [
+      'Therapeutic Massage',
+      'Artisanal Chocolate Wrapper',
+      'Moisturizing Cacao Mask',
+      'Pressure Point Reflexology',
+      'Medicinal & Sensory Experience'
+    ],
+    image: 'https://images.unsplash.com/photo-1542859170-863a9219eaac?q=80&w=2620',
+    images: ['https://images.unsplash.com/photo-1542859170-863a9219eaac?q=80&w=2620'],
+    isResale: false,
+    category: 'Relax',
+  },
 ];
