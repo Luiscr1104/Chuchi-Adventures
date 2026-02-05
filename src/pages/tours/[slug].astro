@@ -4,6 +4,7 @@ import WhatsAppBtn from '../../components/WhatsAppBtn.astro';
 import { Badge } from '../../components/ui/badge';
 import { tours } from '../../data/tours';
 import { Clock, Signal, CheckCircle2 } from 'lucide-react';
+import TourCarousel from '../../components/TourCarousel.tsx';
 
 export async function getStaticPaths() {
   return tours.map((tour) => ({
@@ -41,8 +42,8 @@ const schema = {
   },
   "provider": {
     "@type": "LocalBusiness",
-    "name": "Chuchi Adventures",
-    "image": "https://chuchi-adventures.com/logo.png",
+  "name": "BeyondArenal",
+  "image": "https://chuchi-adventures.com/logo.png",
     "telephone": "+50684291847",
     "address": {
       "@type": "PostalAddress",
@@ -92,17 +93,26 @@ const schema = {
     </div>
   </div>
 
-  <div class="container-custom py-16 md:py-24">
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
-      
-      <!-- Main Content -->
-      <div class="lg:col-span-2 space-y-16">
-        <section>
-          <h2 class="text-3xl font-bold mb-6 text-slate-900">Adventure Description</h2>
-          <p class="text-slate-600 text-lg leading-loose">
-            {tour.description}
-          </p>
-        </section>
+   <div class="container-custom py-16 md:py-24">
+     <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+       
+       <!-- Main Content -->
+       <div class="lg:col-span-2 space-y-16">
+         
+         
+         <!-- Premium Photo Gallery -->
+         <TourCarousel 
+           images={tour.images || [tour.image]} 
+           title={tour.title}
+           className="py-8"
+         />
+         
+         <section>
+           <h2 class="text-3xl font-bold mb-6 text-slate-900">Adventure Description</h2>
+           <p class="text-slate-600 text-lg leading-loose">
+             {tour.description}
+           </p>
+         </section>
 
         <section>
           <h2 class="text-3xl font-bold mb-8 text-slate-900">What's Included</h2>

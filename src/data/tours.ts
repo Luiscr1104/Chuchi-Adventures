@@ -8,155 +8,139 @@ export interface Tour {
   description: string;
   highlights: string[];
   image: string;
+  images?: string[];
+  logo?: string;
   isResale: boolean;
   category: 'Hiking' | 'Adrenaline' | 'Water' | 'Wildlife' | 'Relax';
 }
 
 export const tours: Tour[] = [
-  // LOCAL / PROPIO
+  // ========================
+  // LOCAL / PROPIO (Mis Tours)
+  // ========================
   {
-    id: '1',
+    id: 'tour-001',
     slug: 'horseback-riding',
     title: 'Horseback Riding Experience',
     price: 55,
     duration: '2.5 hours',
     difficulty: 'Easy',
-    description: 'Ride through lush pastures and rainforest trails with our own healthy, well-cared-for horses. Enjoy stunning views of the Arenal Volcano and vibrant local wildlife.',
-    highlights: ['Volcano Views', 'Well-Trained Horses', 'Birdwatching', 'Farm Visit'],
+    description: 'Ride through lush pastures and rainforest trails with healthy, well-cared-for horses. Enjoy local wildlife and beautiful countryside views.',
+    highlights: ['Well-Trained Horses', 'Birdwatching', 'Farm Visit', 'Small Groups'],
     image: 'https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?q=80&w=2000',
+    images: ['https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?q=80&w=2000'],
     isResale: false,
-    category: 'Relax'
+    category: 'Relax',
   },
   {
-    id: '2',
-    slug: 'childrens-eternal-rainforest',
-    title: 'Children\'s Eternal Rainforest Hike',
-    price: 45,
-    duration: '3 hours',
-    difficulty: 'Moderate',
-    description: 'Explore "Bosque Eterno de los Niños", Costa Rica\'s largest private reserve. A magical hike through dense cloud forest with immense biodiversity and fewer crowds.',
-    highlights: ['Cloud Forest', 'Private Reserve', 'Biodiversity', 'Support Conservation'],
-    image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2000',
-    isResale: false,
-    category: 'Hiking'
-  },
-  {
-    id: '3',
-    slug: 'burrito-waterfall',
-    title: 'Burrito Waterfall Hike',
-    price: 40,
-    duration: '2.5 hours',
-    difficulty: 'Moderate',
-    description: 'A hidden gem adventure. Hike through private trails to reach the spectacular Burrito Waterfall. Perfect for those seeking a refreshing dip away from main tourist spots.',
-    highlights: ['Hidden Waterfall', 'Swimming Hole', 'Private Trail', 'Scenic Hike'],
-    image: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?q=80&w=2000',
-    isResale: false,
-    category: 'Hiking'
-  },
-  {
-    id: '4',
+    id: 'tour-002',
     slug: 'night-walk',
-    title: 'Rainforest Night Walk',
-    price: 45,
+    title: 'Night Walk (Exclusive Tour)',
+    price: 67,
     duration: '2 hours',
     difficulty: 'Easy',
-    description: 'Detailed exploration of the jungle at night. Spot red-eyed tree frogs, sleeping birds, tarantulas, and active nocturnal mammals in our private reserve.',
-    highlights: ['Nocturnal Wildlife', 'Frogs & Snakes', 'Flashlights Provided', 'Expert Guide'],
+    description: 'Explore rainforest at night and spot frogs, sleeping birds, insects, and other nocturnal wildlife with an expert guide.',
+    highlights: ['Nocturnal Wildlife', 'Expert Guide', 'Flashlights Provided', 'Great Photos'],
     image: 'https://images.unsplash.com/photo-1550965380-0a2569c763b0?q=80&w=2000',
+    images: ['https://images.unsplash.com/photo-1550965380-0a2569c763b0?q=80&w=2000'],
     isResale: false,
-    category: 'Wildlife'
+    category: 'Wildlife',
   },
   {
-    id: '5',
+    id: 'tour-003',
     slug: 'cooking-class',
     title: 'Traditional Cooking Class',
     price: 65,
     duration: '3 hours',
     difficulty: 'Easy',
-    description: 'Learn to cook authentic Costa Rican dishes "a la leña" (wood fire). Harvest fresh ingredients from the farm and prepare your own lunch or dinner.',
+    description: 'Learn to cook authentic Costa Rican dishes \"a la leña\" (wood fire). Harvest fresh ingredients from farm and prepare your own lunch or dinner.',
     highlights: ['Farm-to-Table', 'Wood Stove Cooking', 'Delicious Meal', 'Cultural Experience'],
     image: 'https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=2000',
+    images: ['https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=2000'],
     isResale: false,
-    category: 'Relax'
+    category: 'Relax',
   },
   {
-    id: '6',
-    slug: 'chocolate-tour',
-    title: 'Chocolate & Coffee Tour',
-    price: 40,
-    duration: '2 hours',
-    difficulty: 'Easy',
-    description: 'Discover the ancient secrets of cacao. Participate in the entire process from roasting to grinding, and taste organic chocolate mixed with local fruits.',
-    highlights: ['Chocolate Tasting', 'History of Cacao', 'Coffee Process', 'Sweet Snacks'],
-    image: 'https://images.unsplash.com/photo-1621939514649-28b12e81658e?q=80&w=2000',
-    isResale: false,
-    category: 'Relax'
-  },
-
-  // ADVENTURE / PARTNERS
-  {
-    id: '7',
-    slug: 'maquique-canyoning',
-    title: 'Maquique Canyoning',
-    price: 105,
-    duration: '4 hours',
-    difficulty: 'Moderate',
-    description: 'Rappel down 5 spectacular waterfalls in a lush rainforest canyon. An adrenaline-filled adventure with Maquique Adventure, known for safety and fun.',
-    highlights: ['5 Rappels', 'Canyon Trekking', 'Lunch Included', 'Professional Gear'],
-    image: 'https://images.unsplash.com/photo-1605540307843-c9902636253f?q=80&w=2000',
-    isResale: true,
-    category: 'Adrenaline'
-  },
-  {
-    id: '8',
-    slug: 'white-water-rafting',
-    title: 'White Water Rafting',
-    price: 85,
-    duration: '6 hours',
-    difficulty: 'Moderate',
-    description: 'Challenge the rapids of bountiful local rivers (Balsa or Sarapiquí). Full day of excitement, paddling through class II-III or III-IV rapids.',
-    highlights: ['World Class Rapids', 'Tropical Fruit Break', 'Lunch Included', 'Experienced Guides'],
-    image: 'https://plus.unsplash.com/premium_photo-1664303499312-917c50e4047b?q=80&w=2000',
-    isResale: true,
-    category: 'Water'
-  },
-  {
-    id: '9',
+    id: 'tour-004',
     slug: 'arenal-tubing',
     title: 'Arenal River Tubing',
     price: 60,
     duration: '3 hours',
     difficulty: 'Moderate',
-    description: 'Bounce down the river in your own tube. A perfect mix of adrenaline and relaxation surrounded by nature on the Arenal River.',
+    description: 'Bounce down the river in your own tube. A perfect mix of adrenaline and relaxation surrounded by nature on Arenal River.',
     highlights: ['River Tubing', 'Nature Views', 'Refreshing Swim', 'Fun Guides'],
-    image: 'https://images.unsplash.com/photo-1544473244-f6895e672d1a?q=80&w=2000',
+    image: '/images/tubing/tour-photo.jpg',
+    images: ['/images/tubing/tour-photo.jpg'],
     isResale: true,
-    category: 'Water'
+    category: 'Water',
+  },
+
+  // ==========================================================
+  // JACAMAR TOURS (Reventa) - EXACT MATCH FROM jacamartours.com
+  // ==========================================================
+  // TOP 8 JACAMAR TOURS (MANUAL CURATION)
+  {
+    id: 'jacamar-exact-1',
+    slug: 'arenal-hanging-bridges-fortuna-waterfall',
+    title: 'Hanging Bridges + Fortuna Waterfall',
+    price: 85,
+    duration: '5 hours',
+    difficulty: 'Moderate',
+    category: 'Hiking',
+    description: 'Take a nature walk on the trails that will guide you to some of the most beautiful hanging bridges, they have 15 bridges in total and you can walk through them at 180 meters high.',
+    shortDescription: 'Take a nature walk on the trails with hanging bridges at 180m high.',
+    highlights: ['15 Hanging Bridges in total', '180 meters high', 'Nature trails', 'Wildlife viewing', 'Spectacular waterfall', 'Educational experience'],
+    image: 'https://imgcdn.bokun.tools/694d8fb3-3750-4afc-a16d-5d088b92ffe9.jpeg?fm=auto&mode=crop&crop=center&dpr=1&w=387&h=271',
+    images: [
+      'https://imgcdn.bokun.tools/c102a6e54877e67fa394d259cf27b29b.jpeg?fm=auto&mode=crop&crop=center&dpr=1&w=387&h=271',
+      'https://imgcdn.bokun.tools/a8302c93-1c17-46b4-b3c697e525d25.jpg?fm=auto&mode=crop&crop=center&dpr=1&w=387&h=271',
+    ],
+    included: ['Hanging Bridges entrance', 'Fortuna Waterfall access', 'Naturalist guide', 'Transportation', 'Safety equipment', 'Snacks and water'],
+    whatToBring: ['Comfortable walking shoes', 'Lightweight clothing', 'Rain jacket', 'Camera', 'Insect repellent', 'Water bottle'],
+    isResale: true,
+    category: 'Hiking',
   },
   {
-    id: '10',
-    slug: 'safari-float-maquique',
-    title: 'Maquique Safari Float',
-    price: 60,
-    duration: '3.5 hours',
-    difficulty: 'Easy',
-    description: 'Quietly float down the river to spot monkeys, sloths, and tropical birds. A peaceful wildlife experience operated by Maquique Adventure.',
-    highlights: ['Wildlife Watching', 'Peaceful Float', 'Snack Included', 'Great for Seniors'],
-    image: 'https://images.unsplash.com/photo-1596423736737-25e227094967?q=80&w=2000',
+    id: 'jacamar-exact-2',
+    slug: 'white-water-rafting-class-iv',
+    title: 'White Water Rafting (Class II & III)',
+    price: 82,
+    duration: '5 hours',
+    difficulty: 'Moderate',
+    category: 'Adrenaline',
+    description: 'Take on our turbulent waters in one of the most exciting river rafting tour in Costa Rica. A journey that you and your team will never forget.',
+    shortDescription: 'Thrilling river rafting adventure on Costa Rica.',
+    highlights: ['Class II & III rapids', 'Safety equipment', 'Professional guides', 'River scenery', 'Adrenaline rush', 'Photography opportunities'],
+    image: 'https://imgcdn.bokun.tools/e75ced95-7cfd-4bdf-acfe-c97be1faa9bf.jpeg',
+    images: [
+      'https://imgcdn.bokun.tools/b5781425-44ae-4428-8b7c3d65d53f63.jpg',
+      'https://imgcdn.bokun.tools/698a9c79-6a71-4432-a950e11e6a6f.jpg'
+    ],
+    included: ['Rafting equipment', 'Life jacket and helmet', 'Safety briefing', 'Professional guide', 'Lunch included', 'Transportation'],
+    whatToBring: ['Swimsuit', 'Quick-dry clothes', 'Waterproof shoes', 'Sunscreen', 'Change of clothes', 'Camera', 'Adventurous spirit'],
     isResale: true,
-    category: 'Water'
+    category: 'Adrenaline',
   },
   {
-    id: '11',
-    slug: 'penas-blancas-safari',
-    title: 'Peñas Blancas Safari Float',
-    price: 55,
+    id: 'jacamar-exact-3',
+    slug: 'arenal-volcano-hike',
+    title: 'Arenal Volcano Hike',
+    price: 68,
     duration: '4 hours',
-    difficulty: 'Easy',
-    description: 'The classic wildlife safari on the Peñas Blancas River. Look for crocodiles, iguanas, and families of monkeys in the riverside trees.',
-    highlights: ['River Safari', 'Crocodiles & Iguanas', 'Typical Snack', 'Relaxing Paced'],
-    image: 'https://images.unsplash.com/photo-1582234080922-fe4725c17921?q=80&w=2000',
+    difficulty: 'Moderate',
+    category: 'Hiking',
+    description: 'A guided hike on the slopes of the majestic Arenal Volcano with our expert naturalist guides. Learn about volcanic activity and observe diverse wildlife.',
+    shortDescription: 'Guided hike on Arenal Volcano with expert naturalist guides.',
+    highlights: ['Volcano trails', 'Educational experience', 'Wildlife viewing', 'Scenic viewpoints', 'Geological features', 'Naturalist guide'],
+    image: 'https://imgcdn.bokun.tools/f91326e0-21cb-41aa-973f-d92a6880ef9.jpeg',
+    images: [
+      'https://imgcdn.bokun.tools/7e9041f6-8c3f-4bde-842a29785f9.jpg',
+      'https://imgcdn.bokun.tools/e684a8f4-8f2f-472f-a8064377a742.jpg',
+      'https://imgcdn.bokun.tools/1553284965-83fd3e82fa5a.jpeg'
+    ],
+    included: ['Naturalist guide', 'Park entrance', 'Educational content', 'Safety equipment', 'Transportation', 'Snacks included'],
+    whatToBring: ['Hiking boots', 'Lightweight clothing', 'Water', 'Camera', 'Sunscreen'],
     isResale: true,
-    category: 'Wildlife'
+    category: 'Hiking',
   }
 ];

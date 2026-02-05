@@ -6,6 +6,25 @@ import { ArrowDown } from 'lucide-react';
 export default function Hero() {
     return (
         <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+            {/* Floating tour logo badge */}
+            <div className="absolute top-6 left-6 z-10 hidden md:flex items-center gap-3 bg-white/90 backdrop-blur-sm rounded-full shadow-lg px-4 py-2">
+                <div className="h-10 w-10 rounded-full overflow-hidden border border-slate-200 bg-slate-50">
+                    <img
+                        src="/logoTour.webp"
+                        alt="BeyondArenal tour badge"
+                        className="h-full w-full object-cover"
+                    />
+                </div>
+                <div className="flex flex-col leading-tight">
+                    <span className="text-[10px] uppercase tracking-[0.25em] text-slate-500">
+                        Local Tour Operator
+                    </span>
+                    <span className="text-sm font-semibold text-slate-900">
+                        BeyondArenal • Local Experts
+                    </span>
+                </div>
+            </div>
+
             {/* Background Image / Video */}
             <div className="absolute inset-0 z-0">
                 <motion.img
