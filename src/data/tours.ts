@@ -160,8 +160,13 @@ export const tours: Tour[] = [
       'Pressure Point Reflexology',
       'Medicinal & Sensory Experience'
     ],
-    image: 'https://images.unsplash.com/photo-1542859170-863a9219eaac?q=80&w=2620',
-    images: ['https://images.unsplash.com/photo-1542859170-863a9219eaac?q=80&w=2620'],
+    image: '/images/tours/chocolate/chocolate.webp',
+    images: [
+      '/images/tours/chocolate/chocolate.webp',
+      '/images/tours/chocolate/chocola2.webp',
+      '/images/tours/chocolate/chocola3.webp',
+      '/images/tours/chocolate/chocola4.webp'
+    ],
     isResale: false,
     category: 'Relax',
   },
