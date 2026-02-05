@@ -160,12 +160,12 @@ export const tours: Tour[] = [
       'Pressure Point Reflexology',
       'Medicinal & Sensory Experience'
     ],
-    image: '/images/tours/chocolate/chocolate.webp',
+    image: '/images/tours/chocolate/chocolate1.webp',
     images: [
-      '/images/tours/chocolate/chocolate.webp',
-      '/images/tours/chocolate/chocola2.webp',
-      '/images/tours/chocolate/chocola3.webp',
-      '/images/tours/chocolate/chocola4.webp'
+      '/images/tours/chocolate/chocolate1.webp',
+      '/images/tours/chocolate/chocolate2.webp',
+      '/images/tours/chocolate/chocolate3.webp',
+      '/images/tours/chocolate/chocolate4.webp'
     ],
     isResale: false,
     category: 'Relax',
