@@ -54,99 +54,106 @@ export default function TourCarousel({ images, title, className }: TourCarouselP
   const translationValue = currentIndex * itemWidthPercent;
 
   return (
-    <section className={`space-y-6 ${className || ''}`}>
-      <div className="text-center space-y-2">
-        <h2 className="text-3xl font-bold text-stone-900 relative">
-          <span className="absolute -left-3 -top-1 text-2xl text-stone-600">🌿</span>
-          Photo Gallery
-          <span className="absolute -right-3 -top-1 text-2xl text-stone-600">🌿</span>
+    <section className={`space-y-8 ${className || ''}`}>
+      <div className="text-center space-y-3">
+        <h2 className="text-4xl md:text-5xl font-black text-stone-900 tracking-tighter uppercase">
+          Photo <span className="text-emerald-600">Gallery</span>
         </h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-stone-300 via-stone-600 to-stone-300 mx-auto rounded-full"></div>
+        <div className="flex items-center justify-center gap-4">
+          <div className="h-px w-8 bg-stone-300"></div>
+          <span className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-400">Captured Moments</span>
+          <div className="h-px w-8 bg-stone-300"></div>
+        </div>
       </div>
 
-      <Carousel className="bg-stone-100 border-2 border-stone-300 shadow-2xl overflow-hidden rounded-2xl">
-        <CarouselContent
-          style={{
-            transform: `translateX(-${translationValue}%)`,
-            width: `${images.length * 100}%`
-          }}
-        >
-          {images.map((image, index) => (
-            <CarouselItem
-              key={`${image}-${index}`}
-              style={{ width: `${itemWidthPercent}%` }}
-              className="px-2"
-            >
-              <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden rounded-xl bg-stone-200">
-                <img
-                  ref={el => imgRefs.current[index] = el}
-                  src={image}
-                  alt={`${title} - Photo ${index + 1}`}
-                  onLoad={() => handleImageLoad(index)}
-                  onError={() => handleImageError(index)}
-                  className={`w-full h-full object-cover transition-all duration-700 ${loadedImages[index] ? 'opacity-100' : 'opacity-0'}`}
-                  style={{ display: errorImages[index] ? 'none' : 'block' }}
-                />
+      <div className="relative group">
+        <Carousel className="bg-white border border-stone-100 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] overflow-hidden rounded-[2.5rem]">
+          <CarouselContent
+            style={{
+              transform: `translateX(-${translationValue}%)`,
+              width: `${images.length * 100}%`
+            }}
+          >
+            {images.map((image, index) => (
+              <CarouselItem
+                key={`${image}-${index}`}
+                style={{ width: `${itemWidthPercent}%` }}
+                className="px-0"
+              >
+                <div className="relative aspect-[16/10] md:aspect-[21/9] overflow-hidden bg-stone-50">
+                  <img
+                    ref={el => imgRefs.current[index] = el}
+                    src={image}
+                    alt={`${title} - Photo ${index + 1}`}
+                    onLoad={() => handleImageLoad(index)}
+                    onError={() => handleImageError(index)}
+                    className={`w-full h-full object-cover transition-all duration-[1.5s] ease-out group-hover:scale-110 ${loadedImages[index] ? 'opacity-100' : 'opacity-0'}`}
+                    style={{ display: errorImages[index] ? 'none' : 'block' }}
+                  />
 
-                {(!loadedImages[index] && !errorImages[index]) && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-stone-100 z-10">
-                    <div className="flex flex-col items-center gap-3">
-                      <div className="w-10 h-10 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
-                      <span className="text-stone-500 font-medium animate-pulse">Cargando aventura...</span>
+                  {(!loadedImages[index] && !errorImages[index]) && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-stone-50 z-10">
+                      <div className="flex flex-col items-center gap-4">
+                        <div className="w-12 h-12 border-2 border-emerald-600/20 border-t-emerald-600 rounded-full animate-spin"></div>
+                        <span className="text-stone-400 text-[10px] font-black uppercase tracking-widest animate-pulse">Developing adventure...</span>
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
 
-                {errorImages[index] && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-stone-100 z-10">
-                    <div className="text-center p-4">
-                      <span className="text-stone-400 block mb-2">📷</span>
-                      <span className="text-stone-400 text-sm">No se pudo cargar la imagen</span>
-                      <p className="text-[10px] text-stone-300 mt-1">{image}</p>
+                  {errorImages[index] && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-stone-50 z-10">
+                      <div className="text-center p-8">
+                        <span className="text-stone-300 block mb-4 text-4xl">📷</span>
+                        <span className="text-stone-400 text-xs font-bold uppercase tracking-widest">Image Unavailable</span>
+                      </div>
                     </div>
+                  )}
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-stone-900/20 via-transparent to-transparent pointer-events-none"></div>
+
+                  <div className="absolute top-8 right-8 bg-white/10 backdrop-blur-xl px-4 py-2 rounded-2xl text-[10px] font-black text-white border border-white/20 shadow-2xl">
+                    {index + 1} / {images.length}
                   </div>
-                )}
-
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/10 via-transparent to-transparent pointer-events-none"></div>
-
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-stone-700 border border-stone-200 shadow-sm">
-                  {index + 1} / {images.length}
                 </div>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-
-        {images.length > 1 && (
-          <>
-            <CarouselPrevious
-              onClick={goToPrevious}
-              className="left-4 bg-white/95 border-stone-200 hover:bg-white shadow-md"
-            />
-            <CarouselNext
-              onClick={goToNext}
-              className="right-4 bg-white/95 border-stone-200 hover:bg-white shadow-md"
-            />
-          </>
-        )}
-
-        {images.length > 1 && (
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex gap-2.5">
-            {images.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`h-2.5 rounded-full transition-all duration-300 shadow-sm ${index === currentIndex ? 'bg-emerald-600 w-8' : 'bg-white/70 hover:bg-white w-2.5'}`}
-                aria-label={`Ir a foto ${index + 1}`}
-              />
+              </CarouselItem>
             ))}
-          </div>
-        )}
-      </Carousel>
+          </CarouselContent>
 
-      <blockquote className="text-center italic text-stone-500 text-sm md:text-base px-6 py-4 bg-stone-50/50 rounded-2xl border border-stone-100">
-        "Cada imagen cuenta una historia de pura vida"
-      </blockquote>
+          {images.length > 1 && (
+            <>
+              <CarouselPrevious
+                onClick={goToPrevious}
+                className="left-8 w-14 h-14 bg-white/10 backdrop-blur-xl border-white/20 text-white hover:bg-white hover:text-stone-900 transition-all duration-500 opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0"
+              />
+              <CarouselNext
+                onClick={goToNext}
+                className="right-8 w-14 h-14 bg-white/10 backdrop-blur-xl border-white/20 text-white hover:bg-white hover:text-stone-900 transition-all duration-500 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0"
+              />
+            </>
+          )}
+
+          {images.length > 1 && (
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex gap-3">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`h-1.5 rounded-full transition-all duration-500 ${index === currentIndex ? 'bg-white w-12 shadow-[0_0_20px_rgba(255,255,255,0.5)]' : 'bg-white/30 hover:bg-white/50 w-3'}`}
+                  aria-label={`Ir a foto ${index + 1}`}
+                />
+              ))}
+            </div>
+          )}
+        </Carousel>
+      </div>
+
+      <div className="flex justify-center">
+        <blockquote className="max-w-2xl text-center">
+          <p className="text-stone-400 text-lg md:text-xl font-light italic leading-relaxed">
+            "Every frame is a heartbeat of the Costa Rican soul, preserved for your memory."
+          </p>
+        </blockquote>
+      </div>
     </section>
   );
 }

@@ -27,7 +27,7 @@ export default function TransportFilter() {
 📍 *From:* ${pickup || 'TBD'}%0A
 🏁 *To:* ${dropoff || 'TBD'}`;
 
-        return `https://wa.me/50684291847?text=${message}`;
+        return `https://wa.me/50688201065?text=${message}`;
     };
 
     return (
@@ -37,23 +37,26 @@ export default function TransportFilter() {
             transition={{ duration: 0.8 }}
             className="w-full max-w-7xl mx-auto"
         >
-            <div className="relative bg-white/80 backdrop-blur-2xl rounded-[2.5rem] shadow-2xl overflow-hidden border border-white/40">
+            <div className="relative bg-white rounded-[2rem] md:rounded-[3rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.2)] overflow-hidden border border-slate-100">
                 {/* Visual Header */}
-                <div className="bg-slate-900 text-white px-8 py-5 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-[var(--color-secondary)] flex items-center justify-center text-slate-900">
+                <div className="bg-slate-900 text-white px-6 md:px-10 py-5 md:py-6 flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                        <div className="w-10 h-10 rounded-xl bg-[var(--color-secondary)] flex items-center justify-center text-slate-900 shrink-0 shadow-lg shadow-emerald-500/20">
                             <Car className="w-5 h-5" />
                         </div>
-                        <span className="text-xs font-black uppercase tracking-[0.3em]">Instant Booking Request</span>
+                        <div>
+                            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[var(--color-secondary)] block mb-0.5">Premium Service</span>
+                            <span className="text-xs md:text-sm font-bold uppercase tracking-widest text-white leading-none">Instant Booking Request</span>
+                        </div>
                     </div>
-                    <div className="hidden md:flex items-center gap-2 text-[10px] font-bold text-white/40 uppercase tracking-widest">
+                    <div className="hidden md:flex items-center gap-3 text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
                         <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                        Available 24/7
+                        Status: Online
                     </div>
                 </div>
 
-                <div className="p-8 md:p-12">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 items-end">
+                <div className="p-6 md:p-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 md:gap-10 items-end">
 
                         {/* Origins & Destinations */}
                         <div className="lg:col-span-5 space-y-6">
@@ -67,11 +70,11 @@ export default function TransportFilter() {
                                         name="pickup"
                                         value={formData.pickup}
                                         onChange={handleChange}
-                                        className="h-16 px-6 rounded-2xl border-slate-100 bg-slate-50 focus:bg-white focus:ring-4 focus:ring-emerald-500/5 transition-all text-sm font-medium"
+                                        className="h-16 px-6 rounded-2xl border-2 border-slate-100 bg-white focus:border-[var(--color-primary)] focus:ring-0 transition-all text-sm font-bold text-slate-900 placeholder:text-slate-300"
                                     />
                                 </div>
                                 <div className="space-y-3">
-                                    <Label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1 flex items-center gap-2">
+                                    <Label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1 flex items-center gap-2">
                                         <MapPin className="w-3 h-3 text-[var(--color-secondary)]" /> Destination
                                     </Label>
                                     <Input
@@ -79,7 +82,7 @@ export default function TransportFilter() {
                                         name="dropoff"
                                         value={formData.dropoff}
                                         onChange={handleChange}
-                                        className="h-16 px-6 rounded-2xl border-slate-100 bg-slate-50 focus:bg-white focus:ring-4 focus:ring-emerald-500/5 transition-all text-sm font-medium"
+                                        className="h-16 px-6 rounded-2xl border-2 border-slate-100 bg-white focus:border-[var(--color-secondary)] focus:ring-0 transition-all text-sm font-bold text-slate-900 placeholder:text-slate-300"
                                     />
                                 </div>
                             </div>
@@ -94,28 +97,28 @@ export default function TransportFilter() {
                                     name="date"
                                     value={formData.date}
                                     onChange={handleChange}
-                                    className="h-16 px-4 rounded-2xl border-slate-100 bg-slate-50 text-xs font-bold uppercase"
+                                    className="h-16 px-4 rounded-2xl border-2 border-slate-100 bg-white focus:border-[var(--color-primary)] focus:ring-0 transition-all text-xs font-bold uppercase text-slate-900"
                                 />
                             </div>
                             <div className="space-y-3">
-                                <Label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Time</Label>
+                                <Label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Time</Label>
                                 <Input
                                     type="time"
                                     name="time"
                                     value={formData.time}
                                     onChange={handleChange}
-                                    className="h-16 px-4 rounded-2xl border-slate-100 bg-slate-50 text-xs font-bold"
+                                    className="h-16 px-4 rounded-2xl border-2 border-slate-100 bg-white focus:border-[var(--color-primary)] focus:ring-0 transition-all text-xs font-bold text-slate-900"
                                 />
                             </div>
                             <div className="space-y-3 col-span-2 md:col-span-1">
-                                <Label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Group</Label>
+                                <Label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Group</Label>
                                 <div className="relative">
                                     <Input
                                         type="number"
                                         name="passengers"
                                         value={formData.passengers}
                                         onChange={handleChange}
-                                        className="h-16 px-6 rounded-2xl border-slate-100 bg-slate-50 text-sm font-black"
+                                        className="h-16 px-6 rounded-2xl border-2 border-slate-100 bg-white focus:border-[var(--color-primary)] focus:ring-0 transition-all text-sm font-black text-slate-900"
                                     />
                                     <Users className="absolute right-6 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-300" />
                                 </div>
@@ -137,7 +140,7 @@ export default function TransportFilter() {
                 </div>
 
                 {/* Status Bar */}
-                <div className="px-12 py-4 bg-slate-50 border-t border-slate-100 flex flex-wrap gap-8 items-center text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                <div className="px-6 md:px-12 py-4 bg-slate-50 border-t border-slate-100 flex flex-wrap gap-x-6 gap-y-3 items-center text-[10px] font-bold uppercase tracking-widest text-slate-400">
                     <div className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-secondary)]"></div>
                         Privacy Guaranteed

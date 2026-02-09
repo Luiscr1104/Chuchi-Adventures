@@ -39,11 +39,11 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                            className="text-5xl sm:text-7xl md:text-9xl lg:text-[10rem] font-bold text-white leading-[0.85] tracking-tighter mb-12 drop-shadow-2xl"
+                            className="text-4xl sm:text-6xl md:text-8xl lg:text-[7rem] font-bold text-white leading-[0.9] tracking-tighter mb-12 drop-shadow-2xl uppercase"
                         >
-                            THE <br />
-                            <span className="text-[var(--color-secondary)]">EXTRA-</span><br />
-                            ORDINARY.
+                            AUTHENTIC <br />
+                            <span className="text-[var(--color-secondary)]">LA FORTUNA</span><br />
+                            ADVENTURES.
                         </motion.h1>
 
                         <div className="flex flex-col md:flex-row items-start md:items-center gap-12 pt-12 border-t border-white/20 max-w-4xl">
@@ -67,7 +67,7 @@ export default function Hero() {
                                         Explore Now
                                     </Button>
                                 </a>
-                                <a href="https://wa.me/50684291847" target="_blank">
+                                <a href="https://wa.me/50688201065" target="_blank">
                                     <Button variant="outline" size="lg" className="h-16 px-10 rounded-2xl bg-white/5 backdrop-blur-md text-white border-white/20 hover:bg-white/10 transition-all duration-500 font-bold uppercase tracking-widest text-sm">
                                         Private Trip
                                     </Button>

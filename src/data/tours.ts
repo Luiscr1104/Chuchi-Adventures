@@ -63,14 +63,14 @@ export const tours: Tour[] = [
     netPrice: 74,
     duration: '4 hours',
     difficulty: 'Hard',
-    description: 'Aventura de cañonismo con rappels en cascadas, canopy y caminata por el cañón.',
+    description: 'Canyoning adventure with waterfall rappels, canopy, and hiking through the canyon.',
     highlights: [
-      '5 rappels (20m, 25m, 30m, 35m y 60m)',
-      '2 cables de canopy (150m y 400m)',
-      'Equipo completo',
-      'Guías certificados',
-      'Transporte desde La Fortuna y alrededores',
-      'Almuerzo típico costarricense (pollo, carne, vegano o vegetariano)'
+      '5 rappels (20m, 25m, 30m, 35m and 60m)',
+      '2 ziplines (150m and 400m)',
+      'Full safety equipment included',
+      'Certified expert guides',
+      'Transportation from La Fortuna and surrounding areas',
+      'Typical Costa Rican lunch (Chicken, beef, vegan, or vegetarian options)'
     ],
     schedule: ['7:00 am', '10:00 am', '1:00 pm'],
     minAge: 5,
@@ -92,15 +92,15 @@ export const tours: Tour[] = [
     netPrice: 53,
     duration: '5 hours',
     difficulty: 'Moderate',
-    description: 'Rafting familiar en el Río Balsa con rápidos moderados, ideal para principiantes y familias.',
+    description: 'Family-friendly rafting on the Balsa River with moderate rapids, perfect for beginners and families.',
     highlights: [
-      '10 km de rápidos',
-      'Frutas y bebidas',
-      'Almuerzo típico costarricense',
-      'Equipo completo',
-      'Guías certificados',
-      'Transporte desde La Fortuna y alrededores',
-      'Toalla'
+      '10 km of exciting rapids',
+      'Fresh fruit and beverages',
+      'Typical Costa Rican lunch',
+      'Full safety equipment included',
+      'Certified expert guides',
+      'Transportation from La Fortuna and surrounding areas',
+      'Towel included'
     ],
     schedule: ['10:00 am'],
     minAge: 6,
@@ -124,11 +124,11 @@ export const tours: Tour[] = [
     netPriceChildren: 40,
     duration: '4 hours',
     difficulty: 'Easy',
-    description: 'Safari flotado tranquilo enfocado en observación de fauna y naturaleza.',
+    description: 'Peaceful river safari float focused on wildlife observation and nature photography.',
     highlights: [
-      'Tour guiado por naturalista',
-      'Observación de monos, perezosos, aves, cocodrilos',
-      'Transporte desde La Fortuna y alrededores'
+      'Guided tour by a naturalist expert',
+      'Observation of monkeys, sloths, birds, and crocodiles',
+      'Transportation from La Fortuna and surrounding areas'
     ],
     schedule: ['7:00 am', '2:00 pm'],
     minAge: 3,
@@ -170,4 +170,6 @@ export const tours: Tour[] = [
     isResale: false,
     category: 'Relax',
   },
+
+
 ];

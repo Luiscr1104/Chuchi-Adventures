@@ -5,13 +5,15 @@ import Hero from "../components/Hero";
 import TransportFilter from "../components/TransportFilter";
 import WhatsAppBtn from "../components/WhatsAppBtn.astro";
 import { tours } from "../data/tours";
-import { ArrowRight } from "lucide-react";
+import { reviews } from "../data/reviews";
+import ReviewCarousel from "../components/ReviewCarousel";
+import { ArrowRight, Star } from "lucide-react";
 
 // Get featured tours (first 3 or specific ones)
 const featuredTours = tours.slice(0, 3);
 ---
 
-<Layout 
+<Layout
   title="Authentic Adventures in La Fortuna"
   description="Experience the real Costa Rica with BeyondArenal. Local experts providing boutique river tours, safari floats, and canyoning adventures in La Fortuna and Peñas Blancas."
   image="https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/54a5c2c2-3d08-4516-0804-2e722847be00/public"
@@ -19,29 +21,37 @@ const featuredTours = tours.slice(0, 3);
   <!-- Main Hero -->
   <Hero client:load />
 
-  <!-- Integrated Transport Filter (Premium Positioning) -->
-  <div class="relative z-30 -mt-20 px-4 mb-32 max-w-7xl mx-auto drop-shadow-2xl">
-    <TransportFilter client:load />
-  </div>
-
   <!-- Featured Expeditions -->
   <section id="tours" class="py-32 bg-white relative overflow-hidden">
     <!-- Decorative background elements -->
-    <div class="absolute top-0 right-0 w-1/3 h-full bg-slate-50 opacity-50 -skew-x-12 transform translate-x-1/2"></div>
-    
+    <div
+      class="absolute top-0 right-0 w-1/3 h-full bg-slate-50 opacity-50 -skew-x-12 transform translate-x-1/2"
+    >
+    </div>
+
     <div class="container-custom relative z-10">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8"
+      >
         <div class="max-w-2xl">
           <div class="flex items-center gap-4 mb-4">
             <div class="w-12 h-1 bg-[var(--color-primary)]"></div>
-            <span class="text-[var(--color-primary)] font-black uppercase tracking-[0.3em] text-xs">Chosen for you</span>
+            <span
+              class="text-[var(--color-primary)] font-black uppercase tracking-[0.3em] text-xs"
+              >Chosen for you</span
+            >
           </div>
-          <h2 class="text-4xl sm:text-5xl md:text-7xl font-bold text-slate-900 tracking-tighter leading-none">
-            CURATED <br/><span class="text-slate-400">EXPEDITIONS.</span>
+          <h2
+            class="text-4xl sm:text-5xl md:text-7xl font-bold text-slate-900 tracking-tighter leading-none"
+          >
+            CURATED <br /><span class="text-slate-400">EXPEDITIONS.</span>
           </h2>
         </div>
-        <p class="text-slate-500 max-w-sm text-base md:text-lg font-medium leading-relaxed">
-          A handpicked selection of our most immersive local experiences designed for deep connection with nature.
+        <p
+          class="text-slate-500 max-w-sm text-base md:text-lg font-medium leading-relaxed"
+        >
+          A handpicked selection of our most immersive local experiences
+          designed for deep connection with nature.
         </p>
       </div>
 
@@ -55,12 +65,83 @@ const featuredTours = tours.slice(0, 3);
           class="group relative inline-flex items-center gap-4 px-12 py-5 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-sm transition-all hover:bg-[var(--color-primary)] hover:shadow-2xl hover:shadow-emerald-500/20 active:scale-95"
         >
           Explore All Adventures
-          <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-slate-900 transition-colors">
-            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          <div
+            class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-slate-900 transition-colors"
+          >
+            <svg
+              class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
           </div>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transport Section (Strategic Placement) -->
+  <section class="py-24 bg-slate-900 text-white overflow-hidden">
+    <div class="container-custom">
+      <div class="max-w-4xl mx-auto text-center mb-16">
+        <span
+          class="text-[var(--color-secondary)] font-black uppercase tracking-[0.3em] text-xs mb-6 block"
+          >Door-to-Door Comfort</span
+        >
+        <h2
+          class="text-5xl md:text-7xl font-bold tracking-tighter mb-8 text-white"
+        >
+          PRIVATE <span class="text-slate-400">SHUTTLES.</span>
+        </h2>
+        <p
+          class="text-slate-300 text-xl md:text-2xl font-light leading-relaxed max-w-3xl mx-auto"
+        >
+          Experience seamless travel across Costa Rica. Professional drivers and
+          premium vehicles for your ultimate comfort.
+        </p>
+      </div>
+      <div class="max-w-5xl mx-auto">
+        <TransportFilter client:load />
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Section (NEW) -->
+  <section class="py-32 bg-white border-y border-slate-100">
+    <div class="container-custom">
+      <div class="flex flex-col items-center text-center mb-20">
+        <div class="flex gap-1 mb-6 text-yellow-400">
+          {
+            [...Array(5)].map(() => (
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+              </svg>
+            ))
+          }
+        </div>
+        <h2
+          class="text-4xl md:text-6xl font-bold text-slate-900 tracking-tighter mb-6 uppercase"
+        >
+          Trusted by <br /><span class="text-slate-400">Global Explorers.</span>
+        </h2>
+        <div
+          class="flex flex-wrap justify-center gap-12 opacity-30 grayscale items-center mt-10 mb-20"
+        >
+          {/* Placeholders for TripAdvisor, Google, etc. Logos */}
+          <span class="font-black text-2xl tracking-tighter">TRIPADVISOR</span>
+          <span class="font-black text-2xl tracking-tighter"
+            >GOOGLE REVIEWS</span
+          >
+          <span class="font-black text-2xl tracking-tighter">VIATOR</span>
+        </div>
+
+        <ReviewCarousel client:load reviews={reviews} />
       </div>
     </div>
   </section>
@@ -69,53 +150,89 @@ const featuredTours = tours.slice(0, 3);
   <section class="py-40 bg-slate-50 relative">
     <div class="container-custom">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
-        
         <div class="lg:col-span-7 relative group">
-          <div class="absolute -inset-4 bg-white rounded-[3rem] shadow-sm transform -rotate-1 group-hover:rotate-0 transition-transform duration-700"></div>
-          <div class="relative aspect-[16/10] rounded-[2.5rem] overflow-hidden shadow-2xl">
+          <div
+            class="absolute -inset-4 bg-white rounded-[3rem] shadow-sm transform -rotate-1 group-hover:rotate-0 transition-transform duration-700"
+          >
+          </div>
+          <div
+            class="relative aspect-[16/10] rounded-[2.5rem] overflow-hidden shadow-2xl"
+          >
             <img
               src="https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/bef4db75-13f0-4965-ee32-83ea89ea8c00/public"
               alt="Local Guide on the river"
               class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
             />
             <!-- Visual texture overlay -->
-            <div class="absolute inset-0 bg-gradient-to-tr from-slate-900/40 to-transparent mix-blend-overlay"></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-tr from-slate-900/40 to-transparent mix-blend-overlay"
+            >
+            </div>
           </div>
           <!-- Floating Editorial Badge -->
-          <div class="absolute -bottom-10 -right-10 bg-[var(--color-primary)] text-white p-10 rounded-[2.5rem] shadow-2xl hidden md:block max-w-xs rotate-3 hover:rotate-0 transition-transform duration-500">
-             <span class="text-[var(--color-secondary)] font-black text-5xl mb-2 block tracking-tighter">100%</span>
-             <p class="font-bold uppercase tracking-widest text-xs leading-tight">Local ownership and authentic guidance since day one.</p>
+          <div
+            class="absolute -bottom-10 -right-10 bg-[var(--color-primary)] text-white p-10 rounded-[2.5rem] shadow-2xl hidden md:block max-w-xs rotate-3 hover:rotate-0 transition-transform duration-500"
+          >
+            <span
+              class="text-[var(--color-secondary)] font-black text-5xl mb-2 block tracking-tighter"
+              >100%</span
+            >
+            <p
+              class="font-bold uppercase tracking-widest text-xs leading-tight"
+            >
+              Local ownership and authentic guidance since day one.
+            </p>
           </div>
         </div>
 
         <div class="lg:col-span-5 space-y-12">
           <div class="space-y-6">
-            <span class="inline-block px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase tracking-widest">
+            <span
+              class="inline-block px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase tracking-widest"
+            >
               The Essence of BeyondArenal
             </span>
-            <h2 class="text-5xl md:text-6xl font-bold text-slate-900 tracking-tighter leading-none">
-              BORN IN <br/><span class="italic underline decoration-[var(--color-secondary)] decoration-8 underline-offset-12">LA FORTUNA.</span>
+            <h2
+              class="text-5xl md:text-6xl font-bold text-slate-900 tracking-tighter leading-none"
+            >
+              BORN IN <br /><span
+                class="italic underline decoration-[var(--color-secondary)] decoration-8 underline-offset-12"
+                >LA FORTUNA.</span
+              >
             </h2>
             <p class="text-slate-500 text-xl leading-relaxed font-light">
-              We don't just guide tours; we share our home. Born and raised in the Peñas Blancas valley, our passion flows through the same rivers we'll explore together.
+              We don't just guide tours; we share our home. Born and raised in
+              the Peñas Blancas valley, our passion flows through the same
+              rivers we'll explore together.
             </p>
           </div>
 
           <div class="space-y-4">
             {
               [
-                { title: "Artisanal Guidance", desc: "Native bilingual guides with deep knowledge." },
-                { title: "Boutique Groups", desc: "Privacy and focus on your safety & comfort." },
-                { title: "Eco-Conscious", desc: "100% committed to river conservation." },
+                {
+                  title: "Artisanal Guidance",
+                  desc: "Native bilingual guides with deep knowledge.",
+                },
+                {
+                  title: "Boutique Groups",
+                  desc: "Privacy and focus on your safety & comfort.",
+                },
+                {
+                  title: "Eco-Conscious",
+                  desc: "100% committed to river conservation.",
+                },
               ].map((item) => (
                 <div class="flex items-start gap-4 p-6 rounded-3xl bg-white border border-slate-100 hover:border-[var(--color-secondary)] transition-all group">
-                   <div class="w-10 h-10 rounded-2xl bg-slate-50 flex items-center justify-center group-hover:bg-[var(--color-secondary)] transition-colors">
-                     <span class="text-lg">🌿</span>
-                   </div>
-                   <div>
-                     <h4 class="font-bold text-slate-900 uppercase tracking-widest text-xs mb-1">{item.title}</h4>
-                     <p class="text-slate-500 text-sm">{item.desc}</p>
-                   </div>
+                  <div class="w-10 h-10 rounded-2xl bg-slate-50 flex items-center justify-center group-hover:bg-[var(--color-secondary)] transition-colors">
+                    <span class="text-lg">🌿</span>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-slate-900 uppercase tracking-widest text-xs mb-1">
+                      {item.title}
+                    </h4>
+                    <p class="text-slate-500 text-sm">{item.desc}</p>
+                  </div>
                 </div>
               ))
             }
@@ -135,71 +252,163 @@ const featuredTours = tours.slice(0, 3);
     </div>
   </section>
 
-  <!-- Spa Teaser (Luxury Editorial) -->
-  <section class="py-40 bg-white relative overflow-hidden">
-     <div class="container-custom">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-           <div class="space-y-10 order-2 lg:order-1">
-              <div class="flex items-center gap-4 mb-4">
-                 <div class="w-12 h-px bg-emerald-600"></div>
-                 <span class="text-emerald-600 font-black uppercase tracking-[0.4em] text-[10px]">Artisanal Wellness Spa</span>
-              </div>
-              <h2 class="text-6xl md:text-8xl font-serif text-slate-900 leading-none italic">
-                 Sanctuary <br/><span class="not-italic font-bold text-emerald-900">of Rejuvenation</span>
-              </h2>
-              <p class="text-slate-500 text-xl leading-relaxed font-light italic max-w-lg">
-                 Elevate your journey with our artisanal wellness treatments. From volcanic mud wraps to relaxing massages in the heart of the rainforest.
-              </p>
-              <div class="pt-6">
-                 <a
-                   href="/spa"
-                   class="group relative inline-flex items-center gap-6 px-12 py-6 bg-emerald-900 text-white rounded-2xl font-black uppercase tracking-widest text-xs transition-all hover:bg-emerald-600 hover:shadow-2xl hover:shadow-emerald-500/20 shadow-xl"
-                 >
-                   Explore the Catalog
-                   <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-emerald-900 transition-colors">
-                      <ArrowRight class="w-4 h-4" />
-                   </div>
-                 </a>
-              </div>
-           </div>
-
-           <div class="relative order-1 lg:order-2 group">
-              <div class="absolute -inset-6 bg-emerald-50 rounded-[4rem] transform rotate-2 group-hover:rotate-0 transition-transform duration-700"></div>
-              <div class="relative aspect-[4/5] rounded-[3.5rem] overflow-hidden shadow-2xl">
-                 <img
-                   src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2621"
-                   alt="Spa Experience"
-                   class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
-                 />
-                 <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/40 to-transparent"></div>
-              </div>
-              <!-- Floating Detail -->
-              <div class="absolute top-10 -left-10 bg-white p-8 rounded-[2.5rem] shadow-2xl hidden md:block max-w-[200px] -rotate-3 hover:rotate-0 transition-transform duration-500 border border-emerald-50">
-                 <span class="text-emerald-600 font-serif text-4xl mb-2 block italic">Pure</span>
-                 <p class="font-bold uppercase tracking-widest text-[10px] text-slate-400 leading-tight">Artisanal treatments with local volcanic extracts.</p>
-              </div>
-           </div>
+  <!-- FAQ Section (NEW) -->
+  <section class="py-32 bg-white relative overflow-hidden">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
+        <div>
+          <span
+            class="text-[var(--color-primary)] font-black uppercase tracking-widest text-xs mb-4 block"
+            >Common Inquiries</span
+          >
+          <h2
+            class="text-5xl md:text-7xl font-bold text-slate-900 tracking-tighter leading-none mb-10 uppercase"
+          >
+            FAQ<span class="text-slate-400">S.</span>
+          </h2>
+          <p class="text-slate-500 text-lg leading-relaxed font-light max-w-sm">
+            Everything you need to know before your Costa Rican expedition.
+          </p>
         </div>
-     </div>
+        <div class="space-y-8">
+          {
+            [
+              {
+                q: "What if it rains?",
+                a: "We embrace the rain! Tours typically run unless conditions are unsafe. Rainforest experiences are often best in the mist.",
+              },
+              {
+                q: "What should I bring?",
+                a: "Comfortable shoes, sunscreen, insect repellent, and a sense of adventure. Specific gear list provided upon booking.",
+              },
+              {
+                q: "Are tours private?",
+                a: "We specialize in boutique, small groups to ensure an authentic and personalized experience.",
+              },
+            ].map((faq) => (
+              <div class="space-y-2 pb-8 border-b border-slate-100">
+                <h4 class="font-bold text-slate-900 text-lg uppercase tracking-tight">
+                  {faq.q}
+                </h4>
+                <p class="text-slate-500 leading-relaxed">{faq.a}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spa Teaser (Luxury Editorial) -->
+  <section class="py-40 bg-slate-50 relative overflow-hidden">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+        <div class="space-y-10 order-2 lg:order-1">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-12 h-px bg-emerald-600"></div>
+            <span
+              class="text-emerald-600 font-black uppercase tracking-[0.4em] text-[10px]"
+              >Artisanal Wellness Spa</span
+            >
+          </div>
+          <h2
+            class="text-6xl md:text-8xl font-serif text-slate-900 leading-none italic"
+          >
+            Sanctuary <br /><span class="not-italic font-bold text-emerald-900"
+              >of Rejuvenation</span
+            >
+          </h2>
+          <p
+            class="text-slate-500 text-xl leading-relaxed font-light italic max-w-lg"
+          >
+            Elevate your journey with our artisanal wellness treatments. From
+            volcanic mud wraps to relaxing massages in the heart of the
+            rainforest.
+          </p>
+          <div class="pt-6">
+            <a
+              href="/spa"
+              class="group relative inline-flex items-center gap-6 px-12 py-6 bg-emerald-900 text-white rounded-2xl font-black uppercase tracking-widest text-xs transition-all hover:bg-emerald-600 hover:shadow-2xl hover:shadow-emerald-500/20 shadow-xl"
+            >
+              Explore the Catalog
+              <div
+                class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-emerald-900 transition-colors"
+              >
+                <ArrowRight class="w-4 h-4" />
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="relative order-1 lg:order-2 group">
+          <div
+            class="absolute -inset-6 bg-emerald-50 rounded-[4rem] transform rotate-2 group-hover:rotate-0 transition-transform duration-700"
+          >
+          </div>
+          <div
+            class="relative aspect-[4/5] rounded-[3.5rem] overflow-hidden shadow-2xl"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2621"
+              alt="Spa Experience"
+              class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-emerald-900/40 to-transparent"
+            >
+            </div>
+          </div>
+          <!-- Floating Detail -->
+          <div
+            class="absolute top-10 -left-10 bg-white p-8 rounded-[2.5rem] shadow-2xl hidden md:block max-w-[200px] -rotate-3 hover:rotate-0 transition-transform duration-500 border border-emerald-50"
+          >
+            <span class="text-emerald-600 font-serif text-4xl mb-2 block italic"
+              >Pure</span
+            >
+            <p
+              class="font-bold uppercase tracking-widest text-[10px] text-slate-400 leading-tight"
+            >
+              Artisanal treatments with local volcanic extracts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- Final CTA Section (Immersive Overlay) -->
   <section class="py-40 bg-slate-900 relative overflow-hidden">
     <!-- Abstract Shapes -->
     <div class="absolute top-0 right-0 w-full h-full opacity-20">
-      <div class="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-[var(--color-primary)] blur-[150px]"></div>
-      <div class="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] rounded-full bg-emerald-500/20 blur-[100px]"></div>
+      <div
+        class="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-[var(--color-primary)] blur-[150px]"
+      >
+      </div>
+      <div
+        class="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] rounded-full bg-emerald-500/20 blur-[100px]"
+      >
+      </div>
     </div>
-    
+
     <div class="container-custom relative z-10">
       <div class="max-w-5xl mx-auto text-center space-y-12">
         <div class="space-y-6">
-          <span class="text-[var(--color-secondary)] font-black uppercase tracking-[0.4em] text-xs">Begin your expedition</span>
-          <h2 class="text-6xl md:text-9xl font-bold text-white tracking-tighter leading-none uppercase">
-            Start <br/><span class="text-[var(--color-secondary)]">Living.</span>
+          <span
+            class="text-[var(--color-secondary)] font-black uppercase tracking-[0.4em] text-xs"
+            >Begin your expedition</span
+          >
+          <h2
+            class="text-6xl md:text-9xl font-bold text-white tracking-tighter leading-none uppercase"
+          >
+            Start <br /><span class="text-[var(--color-secondary)]"
+              >Living.</span
+            >
           </h2>
-          <p class="text-white/60 text-xl font-light max-w-2xl mx-auto leading-relaxed">
-            Your journey through the extraordinary starts with a simple conversation. Join us in the heart of Costa Rica.
+          <p
+            class="text-white/60 text-xl font-light max-w-2xl mx-auto leading-relaxed"
+          >
+            Your journey through the extraordinary starts with a simple
+            conversation. Join us in the heart of Costa Rica.
           </p>
         </div>
 
@@ -209,7 +418,9 @@ const featuredTours = tours.slice(0, 3);
             message="Pura Vida! I'm planning a trip to La Fortuna and I'd like to book an adventure with BeyondArenal."
             className="h-20 px-12 bg-white text-slate-900 hover:bg-[var(--color-secondary)] rounded-[2rem] font-black uppercase tracking-widest transition-all duration-500 flex items-center gap-4 shadow-2xl hover:scale-105"
           />
-          <div class="flex items-center gap-3 text-white/30 text-[10px] font-black uppercase tracking-[0.2em]">
+          <div
+            class="flex items-center gap-3 text-white/30 text-[10px] font-black uppercase tracking-[0.2em]"
+          >
             <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
             Online Assistance via WhatsApp
           </div>
@@ -218,4 +429,3 @@ const featuredTours = tours.slice(0, 3);
     </div>
   </section>
 </Layout>
-
