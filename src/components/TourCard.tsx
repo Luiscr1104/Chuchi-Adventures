@@ -37,7 +37,7 @@ export default function TourCard({ tour }: TourCardProps) {
 
                         <div className="absolute top-6 right-6">
                             <Badge className="bg-[var(--color-secondary)] text-slate-900 border-0 text-xl font-black px-5 py-2.5 rounded-2xl shadow-2xl">
-                                ${tour.price}
+                                ${tour.variants.length > 0 ? Math.min(...tour.variants.map(v => v.price.rack)) : 0}
                             </Badge>
                         </div>
 
@@ -59,7 +59,7 @@ export default function TourCard({ tour }: TourCardProps) {
 
                     <CardContent className="pt-8 pb-8 px-8 flex-grow">
                         <p className="text-slate-500 text-sm leading-relaxed line-clamp-2 font-medium">
-                            {tour.description}
+                            {tour.shortDescription || tour.description}
                         </p>
                     </CardContent>
 

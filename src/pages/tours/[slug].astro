@@ -4,7 +4,7 @@ import WhatsAppBtn from "../../components/WhatsAppBtn.astro";
 import { Badge } from "../../components/ui/badge";
 import { tours } from "../../data/tours";
 import { Clock, Signal, CheckCircle2 } from "lucide-react";
-import TourCarousel from "../../components/TourCarousel.tsx";
+import TourCarousel from "../../components/TourCarousel";
 
 export async function getStaticPaths() {
   return tours.map((tour) => ({
@@ -14,6 +14,11 @@ export async function getStaticPaths() {
 }
 
 const { tour } = Astro.props;
+
+const minPrice =
+  tour.variants.length > 0
+    ? Math.min(...tour.variants.map((v) => v.price.rack))
+    : 0;
 
 const schema = {
   "@context": "https://schema.org",
@@ -32,7 +37,7 @@ const schema = {
   },
   offers: {
     "@type": "Offer",
-    price: tour.price,
+    price: minPrice,
     priceCurrency: "USD",
     availability: "https://schema.org/InStock",
     url: `https://chuchi-adventures.com/tours/${tour.slug}`,
@@ -130,7 +135,7 @@ const schema = {
                 >Price from</span
               >
               <span class="text-4xl font-bold text-white"
-                >${tour.price}<span class="text-lg font-medium opacity-60 ml-1"
+                >${minPrice}<span class="text-lg font-medium opacity-60 ml-1"
                   >USD</span
                 ></span
               >
@@ -209,12 +214,14 @@ const schema = {
             </h3>
             <div class="grid grid-cols-1 gap-3">
               {
-                [
-                  "Comfortable clothes",
-                  "Water shoes",
-                  "Sunscreen",
-                  "GoPro/Camera",
-                ].map((item) => (
+                (
+                  tour.whatToBring || [
+                    "Comfortable clothes",
+                    "Water shoes",
+                    "Sunscreen",
+                    "GoPro/Camera",
+                  ]
+                ).map((item) => (
                   <div class="px-6 py-4 rounded-2xl bg-slate-50 text-slate-600 text-sm font-medium border border-transparent hover:border-slate-200 hover:bg-white transition-all">
                     {item}
                   </div>
@@ -223,6 +230,39 @@ const schema = {
             </div>
           </div>
         </section>
+
+        {
+          tour.variants.length > 1 && (
+            <section class="space-y-8">
+              <h3 class="text-2xl font-bold text-slate-900 border-l-4 border-[var(--color-secondary)] pl-4">
+                Options & Variants
+              </h3>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {tour.variants.map((v) => (
+                  <div class="p-6 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                    <h4 class="font-bold text-lg mb-2">{v.label}</h4>
+                    <p class="text-2xl font-black text-[var(--color-primary)] mb-4">
+                      ${v.price.rack}{" "}
+                      <span class="text-xs font-normal text-slate-400">
+                        / adult
+                      </span>
+                    </p>
+                    <ul class="text-sm text-slate-500 space-y-1">
+                      <li class="flex items-center gap-2">
+                        {v.includesTransport ? "✅" : "❌"} Transport
+                      </li>
+                      {v.includesLunch !== undefined && (
+                        <li class="flex items-center gap-2">
+                          {v.includesLunch ? "✅" : "❌"} Lunch
+                        </li>
+                      )}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )
+        }
       </div>
 
       <!-- Sidebar / Booking Card (4 cols) -->
@@ -241,19 +281,56 @@ const schema = {
               <div>
                 <span
                   class="text-[var(--color-secondary)] text-xs font-bold uppercase tracking-[0.2em]"
-                  >Private Booking</span
+                  >Booking Information</span
                 >
-                <div class="flex items-baseline mt-4 gap-2">
-                  <h2 class="text-6xl font-black text-[var(--color-secondary)]">
-                    ${tour.price}
-                  </h2>
-                  <span class="text-white/40 font-medium tracking-wider"
-                    >USD / Person</span
-                  >
+                <div class="flex flex-col mt-4 gap-2">
+                  <div class="flex items-baseline gap-2">
+                    <h2
+                      class="text-6xl font-black text-[var(--color-secondary)]"
+                    >
+                      ${minPrice}
+                    </h2>
+                    <span class="text-white/40 font-medium tracking-wider"
+                      >USD / Adult</span
+                    >
+                  </div>
+                  {
+                    tour.variants[0].price.rackChild && (
+                      <div class="flex items-baseline gap-2">
+                        <h3 class="text-3xl font-black text-white/90">
+                          ${tour.variants[0].price.rackChild}
+                        </h3>
+                        <span class="text-white/40 font-medium tracking-wider text-sm">
+                          USD / Child
+                        </span>
+                      </div>
+                    )
+                  }
                 </div>
               </div>
 
               <div class="space-y-4">
+                {
+                  tour.childPolicy && (
+                    <div class="bg-white/5 rounded-2xl p-4 border border-white/10">
+                      <p class="text-white/60 text-xs font-bold uppercase tracking-widest mb-2">
+                        Child Policy
+                      </p>
+                      <ul class="text-xs text-white/80 space-y-1">
+                        {tour.childPolicy.minAge && (
+                          <li>Min age: {tour.childPolicy.minAge}</li>
+                        )}
+                        {tour.childPolicy.freeAges && (
+                          <li>
+                            Free for: {tour.childPolicy.freeAges.from}-
+                            {tour.childPolicy.freeAges.to} years
+                          </li>
+                        )}
+                      </ul>
+                    </div>
+                  )
+                }
+
                 <p class="text-white/60 text-sm leading-relaxed">
                   Join us for an unforgettable local adventure. We prioritize
                   small groups and personalized service.
