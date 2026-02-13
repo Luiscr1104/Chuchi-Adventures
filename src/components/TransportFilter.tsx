@@ -4,6 +4,18 @@ import { Calendar, Clock, Users, MapPin, ArrowRight, Plane, Car } from 'lucide-r
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
+import { generateTransportQuoteLink } from '../lib/whatsapp';
+
+// Stub for Google Analytics
+const trackLead = () => {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'generate_lead', {
+            event_category: 'transport',
+            event_label: 'whatsapp_quote'
+        });
+    }
+    console.log('Lead tracked: generate_lead');
+};
 
 export default function TransportFilter() {
     const [formData, setFormData] = useState({
@@ -18,17 +30,7 @@ export default function TransportFilter() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const generateWhatsAppLink = () => {
-        const { date, time, passengers, pickup, dropoff } = formData;
-        const message = `Pura Vida! I would like to get a quote for private transport:%0A
-📅 *Date:* ${date || 'TBD'}%0A
-⏰ *Time:* ${time || 'TBD'}%0A
-👥 *Passengers:* ${passengers}%0A
-📍 *From:* ${pickup || 'TBD'}%0A
-🏁 *To:* ${dropoff || 'TBD'}`;
 
-        return `https://wa.me/50688201065?text=${message}`;
-    };
 
     return (
         <motion.div
@@ -127,7 +129,12 @@ export default function TransportFilter() {
 
                         {/* CTA */}
                         <div className="lg:col-span-3">
-                            <a href={generateWhatsAppLink()} target="_blank" className="block group">
+                            <a
+                                href={generateTransportQuoteLink(formData)}
+                                target="_blank"
+                                onClick={trackLead}
+                                className="block group"
+                            >
                                 <Button className="w-full h-16 md:h-20 rounded-[1.5rem] bg-[var(--color-primary)] text-white font-black uppercase tracking-[0.2em] text-xs shadow-2xl shadow-emerald-500/20 hover:scale-[1.02] active:scale-95 transition-all duration-500 flex items-center justify-between px-8">
                                     Get Quote
                                     <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-emerald-600 transition-colors">
