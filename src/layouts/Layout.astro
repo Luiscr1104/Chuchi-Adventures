@@ -1,8 +1,8 @@
 ---
-import '../styles/global.css';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
-import WhatsAppBtn from '../components/WhatsAppBtn.astro';
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppBtn from "../components/WhatsAppBtn.astro";
 
 interface Props {
   title: string;
@@ -10,10 +10,10 @@ interface Props {
   image?: string;
 }
 
-const { 
-  title, 
+const {
+  title,
   description = "Descubre La Fortuna y Peñas Blancas con tours locales únicos. Aventuras en río, selva nocturna y más.",
-  image = "/images/og-default.jpg"
+  image = "/images/og-default.jpg",
 } = Astro.props;
 ---
 
@@ -21,19 +21,42 @@ const {
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MT2XX3NT");
+    </script>
+    <!-- End Google Tag Manager -->
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/logoBlack.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title} | BeyondArenal</title>
-    
-    <link rel="canonical" href={new URL(Astro.url.pathname, "https://chuchi-adventures.com").href} />
+
+    <link
+      rel="canonical"
+      href={new URL(Astro.url.pathname, "https://chuchi-adventures.com").href}
+    />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content={Astro.url.pathname.includes('/tours/') ? 'article' : 'website'} />
+    <meta
+      property="og:type"
+      content={Astro.url.pathname.includes("/tours/") ? "article" : "website"}
+    />
     <meta property="og:title" content={`${title} | BeyondArenal`} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, "https://chuchi-adventures.com").href} />
+    <meta
+      property="og:image"
+      content={new URL(image, "https://chuchi-adventures.com").href}
+    />
     <meta property="og:url" content={Astro.url.href} />
     <meta property="og:site_name" content="BeyondArenal" />
 
@@ -41,14 +64,29 @@ const {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} | BeyondArenal`} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL(image, "https://chuchi-adventures.com").href} />
+    <meta
+      name="twitter:image"
+      content={new URL(image, "https://chuchi-adventures.com").href}
+    />
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="flex flex-col min-h-screen bg-slate-50">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MT2XX3NT"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
+    <!-- End Google Tag Manager (noscript) -->
     <Navbar />
     <main class="flex-grow">
       <slot />
