@@ -118,7 +118,16 @@ export const tours: Tour[] = [
     difficulty: 'Easy',
     category: 'Wildlife',
     highlights: ['Naturalist Guide', 'Wildlife Spotting', 'Family Friendly'],
-    image: '/images/tours/float/20250209_075018.webp',
+    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/467761f8-ba2a-4099-6713-395a1a537100/public',
+    images: [
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/09c8eba2-6fb6-48a4-4aac-7a976bb6c000/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/a904a362-61b1-482a-3436-7ff650f0d600/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/b22d405f-59a1-4a65-e796-e1c0f6dd0f00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/c41b7cf3-5bf4-40d2-517d-733f58237300/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/e6b94daa-7b4c-408f-80f0-8be90445db00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/3c4b0bb2-7eea-4c06-de82-9bea97e49900/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/ce347f63-42bd-4b79-e347-9fd44aa3f000/public'
+    ],
     isResale: true,
     variants: [
       { id: 'standard', label: 'Standard Raft', price: { rack: 83 }, includesTransport: true },
@@ -135,7 +144,15 @@ export const tours: Tour[] = [
     difficulty: 'Moderate',
     category: 'Water',
     highlights: ['Paddling Experience', 'River Wildlife', 'Nature Connection'],
-    image: '/images/tours/float/DSC_1329.webp',
+    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/12d6f914-6be6-4bcf-c5cd-7e6260c2b500/public',
+    images: [
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/bb0296d3-cb96-4fe3-12de-942258978e00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/43371d85-e38a-499d-4fde-a196d0ff8800/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/be8f2550-b705-40a1-aeaf-a27e91334700/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/242ed38d-d7bb-4fd3-37bc-b90a336a9c00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/4ff344ce-58d1-40e0-091e-5a0d3c840200/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/1fddb5f5-adbb-4003-8177-667d76991a00/public'
+    ],
     isResale: true,
     variants: [
       { id: 'standard', label: 'Standard Kayak', price: { rack: 88 }, includesTransport: true },
@@ -152,7 +169,16 @@ export const tours: Tour[] = [
     difficulty: 'Moderate',
     category: 'Water',
     highlights: ['Class II-III Rapids', 'Tropical Scenery', 'Expert Guides'],
-    image: '/images/tours/rafting/rafting1.webp',
+    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/ae599075-4079-44cf-3a21-898f605b7700/public',
+    images: [
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/7083f061-3934-4ce2-77d3-94c011654500/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/1fdc92ec-4708-4073-89e4-9df00ae5ba00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/24adcae3-3104-4bd7-be4f-1ccd04704e00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/31559580-4e5a-4e9f-8233-05c556fa2900/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/5e153782-217e-4273-4dfb-096ce115e800/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/90d3135c-c9b9-4df6-fb31-df1b1c028300/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/e81971df-e68a-4621-950a-1ea3cdd48000/public'
+    ],
     isResale: true,
     variants: [
       { id: 'standard', label: 'Standard (with transport)', price: { rack: 105 }, includesTransport: true, includesLunch: true },
@@ -169,7 +195,14 @@ export const tours: Tour[] = [
     difficulty: 'Moderate',
     category: 'Water',
     highlights: ['Volcano Views', 'Arenal Lake', 'Active Adventure'],
-    image: '/images/tours/float/DSC_1329.webp',
+    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/f8eb2267-5b65-43eb-ee8e-c2d862c8bb00/public',
+    images: [
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/4b6cfa59-4db3-4fac-f4a7-4674dd1d0900/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/98caf730-7d00-415f-4bd2-0e46bd041a00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/bdffdc74-aeee-4fcf-095e-9df249498900/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/2a73bdb1-f993-4942-0811-1b40e1897b00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/e056cc09-590e-4b29-21c1-6216576cdc00/public'
+    ],
     isResale: true,
     variants: [
       { id: 'morning', label: 'Morning Departure', price: { rack: 81 }, includesTransport: true },
@@ -206,7 +239,17 @@ export const tours: Tour[] = [
     difficulty: 'Moderate',
     category: 'Hiking',
     highlights: ['Lava Flows', 'Volcano Base', 'Rainforest Trails'],
-    image: '/images/tours/tubing/tour-photo.jpg',
+    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/84ff9676-5311-49c2-2c1f-00d732a3d900/public',
+    images: [
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/1e03414d-fdb3-440a-9833-c1b0ef174300/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/65509e11-b7f0-4262-0ebd-64070e698000/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/a89fbf42-b280-4081-65ec-00691a78cd00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/7c159fcf-9148-4849-18bd-96a4ed891000/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/39729a90-8169-4ad4-37ba-c8664d92b100/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/e254ba19-86b7-43a4-2a68-f7d590675a00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/876ff673-0e87-4f7b-2dc3-374592ab7d00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/f586dacd-575f-4ce6-8b4e-f04197e4ab00/public'
+    ],
     isResale: true,
     variants: [
       { id: 'standard', label: 'Standard Hike', price: { rack: 77 }, includesTransport: true },
