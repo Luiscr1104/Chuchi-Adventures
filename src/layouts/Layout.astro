@@ -8,17 +8,22 @@ interface Props {
   title: string;
   description?: string;
   image?: string;
+  noindex?: boolean;
 }
 
 const {
   title,
-  description = "Descubre La Fortuna y Peñas Blancas con tours locales únicos. Aventuras en río, selva nocturna y más.",
-  image = "/images/og-default.jpg",
+  description = "Book top-rated tours in La Fortuna & Peñas Blancas: Safari Float, Kayak, Rafting, Canyoning and more. Fast booking via WhatsApp.",
+  image = "/images/og/home.webp", // Default OG image
+  noindex = false,
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL(image, Astro.site);
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <!-- Google Tag Manager -->
@@ -35,39 +40,34 @@ const {
       })(window, document, "script", "dataLayer", "GTM-MT2XX3NT");
     </script>
     <!-- End Google Tag Manager -->
-    <meta name="description" content={description} />
+
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/logoBlack.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} | BeyondArenal</title>
 
-    <link
-      rel="canonical"
-      href={new URL(Astro.url.pathname, "https://chuchi-adventures.com").href}
-    />
+    <!-- SEO -->
+    <title>{title} | Beyond Arenal</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Kevin -->
+    <meta property="og:locale" content="en_US" />
     <meta
       property="og:type"
-      content={Astro.url.pathname.includes("/tours/") ? "article" : "website"}
+      content={Astro.url.pathname.startsWith("/tours/") ? "article" : "website"}
     />
-    <meta property="og:title" content={`${title} | BeyondArenal`} />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta
-      property="og:image"
-      content={new URL(image, "https://chuchi-adventures.com").href}
-    />
-    <meta property="og:url" content={Astro.url.href} />
-    <meta property="og:site_name" content="BeyondArenal" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="Beyond Arenal" />
+    <meta property="og:image" content={socialImageURL} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${title} | BeyondArenal`} />
+    <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta
-      name="twitter:image"
-      content={new URL(image, "https://chuchi-adventures.com").href}
-    />
+    <meta name="twitter:image" content={socialImageURL} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -76,6 +76,9 @@ const {
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Slot for additional head elements (like Schema) -->
+    <slot name="head" />
   </head>
   <body class="flex flex-col min-h-screen bg-slate-50">
     <!-- Google Tag Manager (noscript) -->
