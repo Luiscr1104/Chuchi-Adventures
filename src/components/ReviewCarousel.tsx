@@ -68,9 +68,9 @@ export default function ReviewCarousel({ reviews }: ReviewCarouselProps) {
                                     {review.author[0]}
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-slate-900 text-sm whitespace-nowrap">
+                                    <h3 className="font-bold text-slate-900 text-sm whitespace-nowrap">
                                         {review.author}
-                                    </h4>
+                                    </h3>
                                     <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none">
                                         {review.location || 'Explorer'}
                                     </p>

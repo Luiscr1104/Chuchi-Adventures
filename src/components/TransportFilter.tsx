@@ -117,9 +117,10 @@ export default function TransportFilter() {
                                 />
                             </div>
                             <div className="space-y-3 col-span-2 md:col-span-1">
-                                <Label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Group</Label>
+                                <Label htmlFor="passengers" className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Group</Label>
                                 <div className="relative">
                                     <Input
+                                        id="passengers"
                                         type="number"
                                         name="passengers"
                                         value={formData.passengers}
