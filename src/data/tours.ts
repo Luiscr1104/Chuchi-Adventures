@@ -122,7 +122,7 @@ export const tours: Tour[] = [
     difficulty: 'Hard',
     category: 'Combo',
     highlights: ['Hanging Bridges', 'Waterfall Swim', 'Volcano Hike', 'Hot Springs & Dinner'],
-    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/5edab093-9ba5-4182-28d9-68bc99e53d00/public',
+    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/aec31631-8983-49a5-8914-bf643e24c200/public',
     images: [
       'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/5edab093-9ba5-4182-28d9-68bc99e53d00/public',
       'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/444f653e-489e-4684-3379-25b25fb30400/public',
