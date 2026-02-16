@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Clock, ArrowRight, Star } from 'lucide-react';
-import { cn } from '../lib/utils';
+import { cn, getOptimizedImageUrl } from '../lib/utils';
 import type { Tour } from '../data/tours';
 
 interface TourCardProps {
@@ -45,9 +45,12 @@ export default function TourCard({ tour }: TourCardProps) {
                 {/* Image Section */}
                 <div className="relative aspect-[16/10] overflow-hidden">
                     <img
-                        src={tour.image}
+                        src={getOptimizedImageUrl(tour.image, 800)}
+                        srcSet={tour.image.startsWith('http') ? `${getOptimizedImageUrl(tour.image, 400)} 400w, ${getOptimizedImageUrl(tour.image, 800)} 800w` : undefined}
+                        sizes={tour.image.startsWith('http') ? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px" : undefined}
                         alt={tour.title}
                         loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105"
                     />
 

@@ -110,6 +110,100 @@ export interface Tour {
 
 export const tours: Tour[] = [
   // =========================
+  // ⭐ TOP FEATURED TOURS
+  // =========================
+  {
+    id: 'combo-top-001',
+    slug: 'arenal-top-4-attractions-incl-hot-springs',
+    title: 'Arenal Top 4 Attractions Incl. Hot Springs',
+    shortDescription: 'Short time? Do you want to get the most out of your day? Enjoy the best 4 attractions of La Fortuna in one day.',
+    description: 'This combo includes the <strong>top 4 Arenal tours</strong> and activities: <strong>Hanging Bridges</strong> on the Tropical Rainforest, <strong>Arenal Volcano Hike</strong>, <strong>La Fortuna Waterfall</strong>, and <strong>Hot Springs with dinner</strong>.<br /><br />We start at <strong>7:30 am</strong> with a visit to Arenal Hanging Bridges, a 2 miles (3 km) trail with <strong>16 bridges</strong> ranging in length from 16 to 328 feet (5 to 100 meters) and with heights of up to 196 feet (60 meters), spectacular scenery of the tropical humid forest.<br /><br />The second adventure is at <strong>La Fortuna Waterfall</strong>. An exotic swimming pool at its base surrounded by huge rocky canyons makes it a nice relaxing place. After this refreshing swim, we will have lunch in our restaurant <strong>"La Finquita Farm"</strong>.<br /><br />Following this, we enjoy a hike at a reserve at the base of the <strong>Volcano</strong>, through the humid tropical forest for approximately 45 minutes to reach a block of petrified lava from past eruptions. There is the possibility of observing many plants, fauna, and the magnificent view of the <strong>Arenal Volcano</strong> and the <strong>Arenal Lake</strong>.<br /><br />Finally, relax in the <strong>hot springs</strong> for a few hours and then have <strong>dinner</strong> at its restaurant.',
+    duration: '10 hours',
+    difficulty: 'Hard',
+    category: 'Combo',
+    highlights: ['Hanging Bridges', 'Waterfall Swim', 'Volcano Hike', 'Hot Springs & Dinner'],
+    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/5edab093-9ba5-4182-28d9-68bc99e53d00/public',
+    images: [
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/5edab093-9ba5-4182-28d9-68bc99e53d00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/444f653e-489e-4684-3379-25b25fb30400/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/d94aff5d-cdbd-4aff-d628-5891f2c17700/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/b15e2a91-50e9-4ea8-25c8-56ec6416e400/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/32e91e75-d8ce-475c-e0b2-c96b197ae900/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/6c230c13-6da0-4511-1a9d-c9d89785ac00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/95661570-3574-4aa6-6285-69b60fc88300/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/3394674a-b407-4c62-7871-52e9eaca6400/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/d3446754-91a7-4c3b-a001-e041fe28b300/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/ee6be305-fb64-4109-230e-553fd64a2800/public'
+    ],
+    isResale: true,
+    childPolicy: {
+      minAge: 5
+    },
+    variants: [
+      { id: 'standard', label: 'Standard (No Transport)', price: { rack: 242 }, includesTransport: false, includesLunch: true, includesHotSprings: true }
+    ],
+    rating: 5,
+    reviewsCount: 148
+  },
+  {
+    id: 'river-003',
+    slug: 'white-water-rafting-sarapiqui',
+    title: 'White Water Rafting Class II–III – Sarapiquí River',
+    shortDescription: 'Exciting but family-friendly rafting adventure.',
+    description: 'An exciting but family-friendly rafting adventure with Class II and III rapids, perfect for beginners.',
+    duration: '5 hours',
+    difficulty: 'Moderate',
+    category: 'Water',
+    highlights: ['Class II-III Rapids', 'Tropical Scenery', 'Expert Guides'],
+    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/ae599075-4079-44cf-3a21-898f605b7700/public',
+    images: [
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/7083f061-3934-4ce2-77d3-94c011654500/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/1fdc92ec-4708-4073-89e4-9df00ae5ba00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/24adcae3-3104-4bd7-be4f-1ccd04704e00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/31559580-4e5a-4e9f-8233-05c556fa2900/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/5e153782-217e-4273-4dfb-096ce115e800/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/90d3135c-c9b9-4df6-fb31-df1b1c028300/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/e81971df-e68a-4621-950a-1ea3cdd48000/public'
+    ],
+    isResale: true,
+    variants: [
+      { id: 'standard', label: 'Standard (with transport)', price: { rack: 105 }, includesTransport: true, includesLunch: true },
+      { id: 'baldi', label: 'With Baldi Hot Springs', price: { rack: 155 }, includesTransport: true, includesLunch: true, includesHotSprings: true, hotSpringsProvider: 'Baldi' }
+    ],
+    rating: 5,
+    reviewsCount: 104
+  },
+  {
+    id: 'hiking-003',
+    slug: 'hanging-bridges-tour',
+    title: 'Hanging Bridges Tour',
+    shortDescription: 'Walk across a network of hanging bridges.',
+    description: 'Walk across a network of hanging bridges high above the rainforest canopy with breathtaking views.',
+    duration: '4 hours',
+    difficulty: 'Moderate',
+    category: 'Hiking',
+    highlights: ['Forest Canopy', 'Wildlife from Above', 'Scenic Views'],
+    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/c0cd7b4b-e3d7-4e02-d925-3584578ecc00/public',
+    images: [
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/444f653e-489e-4684-3379-25b25fb30400/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/d94aff5d-cdbd-4aff-d628-5891f2c17700/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/b15e2a91-50e9-4ea8-25c8-56ec6416e400/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/32e91e75-d8ce-475c-e0b2-c96b197ae900/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/6c230c13-6da0-4511-1a9d-c9d89785ac00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/95661570-3574-4aa6-6285-69b60fc88300/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/3394674a-b407-4c62-7871-52e9eaca6400/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/d3446754-91a7-4c3b-a001-e041fe28b300/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/ee6be305-fb64-4109-230e-553fd64a2800/public'
+    ],
+    isResale: true,
+    variants: [
+      { id: 'standard', label: 'Standard', price: { rack: 85 }, includesTransport: true },
+      { id: 'hot-springs', label: 'With Hot Springs', price: { rack: 135 }, includesTransport: true, includesHotSprings: true }
+    ],
+    rating: 4.5,
+    reviewsCount: 212
+  },
+  // =========================
   // 🌊 RIVER & WATER TOURS
   // =========================
   {
@@ -168,34 +262,6 @@ export const tours: Tour[] = [
     reviewsCount: 96
   },
   {
-    id: 'river-003',
-    slug: 'white-water-rafting-sarapiqui',
-    title: 'White Water Rafting Class II–III – Sarapiquí River',
-    shortDescription: 'Exciting but family-friendly rafting adventure.',
-    description: 'An exciting but family-friendly rafting adventure with Class II and III rapids, perfect for beginners.',
-    duration: '5 hours',
-    difficulty: 'Moderate',
-    category: 'Water',
-    highlights: ['Class II-III Rapids', 'Tropical Scenery', 'Expert Guides'],
-    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/ae599075-4079-44cf-3a21-898f605b7700/public',
-    images: [
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/7083f061-3934-4ce2-77d3-94c011654500/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/1fdc92ec-4708-4073-89e4-9df00ae5ba00/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/24adcae3-3104-4bd7-be4f-1ccd04704e00/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/31559580-4e5a-4e9f-8233-05c556fa2900/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/5e153782-217e-4273-4dfb-096ce115e800/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/90d3135c-c9b9-4df6-fb31-df1b1c028300/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/e81971df-e68a-4621-950a-1ea3cdd48000/public'
-    ],
-    isResale: true,
-    variants: [
-      { id: 'standard', label: 'Standard (with transport)', price: { rack: 105 }, includesTransport: true, includesLunch: true },
-      { id: 'baldi', label: 'With Baldi Hot Springs', price: { rack: 155 }, includesTransport: true, includesLunch: true, includesHotSprings: true, hotSpringsProvider: 'Baldi' }
-    ],
-    rating: 5,
-    reviewsCount: 104
-  },
-  {
     id: 'river-004',
     slug: 'arenal-lake-kayak',
     title: 'Arenal Lake by Kayak',
@@ -217,7 +283,9 @@ export const tours: Tour[] = [
     variants: [
       { id: 'morning', label: 'Morning Departure', price: { rack: 81 }, includesTransport: true },
       { id: 'afternoon', label: 'Afternoon Departure', price: { rack: 81 }, includesTransport: true }
-    ]
+    ],
+    rating: 4.5,
+    reviewsCount: 64
   },
   {
     id: 'river-005',
@@ -233,7 +301,9 @@ export const tours: Tour[] = [
     isResale: true,
     variants: [
       { id: 'standard', label: 'Private Boat (per boat)', price: { rack: 248 }, includesTransport: false }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 28
   },
 
   // =========================
@@ -265,7 +335,9 @@ export const tours: Tour[] = [
       { id: 'standard', label: 'Standard Hike', price: { rack: 77 }, includesTransport: true },
       { id: 'baldi', label: 'With Baldi Hot Springs', price: { rack: 120 }, includesTransport: true, includesHotSprings: true, hotSpringsProvider: 'Baldi' },
       { id: 'ecotermales', label: 'With Ecotermales', price: { rack: 140 }, includesTransport: true, includesHotSprings: true, hotSpringsProvider: 'Ecotermales' }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 156
   },
   {
     id: 'hiking-002',
@@ -281,24 +353,9 @@ export const tours: Tour[] = [
     isResale: true,
     variants: [
       { id: 'standard', label: 'Standard', price: { rack: 102 }, includesTransport: true }
-    ]
-  },
-  {
-    id: 'hiking-003',
-    slug: 'hanging-bridges-tour',
-    title: 'Hanging Bridges Tour',
-    shortDescription: 'Walk across a network of hanging bridges.',
-    description: 'Walk across a network of hanging bridges high above the rainforest canopy with breathtaking views.',
-    duration: '4 hours',
-    difficulty: 'Moderate',
-    category: 'Hiking',
-    highlights: ['Forest Canopy', 'Wildlife from Above', 'Scenic Views'],
-    image: '/images/tours/canyoning/canyoning2.webp',
-    isResale: true,
-    variants: [
-      { id: 'standard', label: 'Standard', price: { rack: 85 }, includesTransport: true },
-      { id: 'hot-springs', label: 'With Hot Springs', price: { rack: 135 }, includesTransport: true, includesHotSprings: true }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 89
   },
   {
     id: 'hiking-004',
@@ -315,7 +372,9 @@ export const tours: Tour[] = [
     variants: [
       { id: 'standard', label: 'Standard', price: { rack: 140 }, includesTransport: true, includesLunch: true },
       { id: 'baldi', label: 'With Baldi Hot Springs', price: { rack: 195 }, includesTransport: true, includesLunch: true, includesHotSprings: true, hotSpringsProvider: 'Baldi' }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 342
   },
   {
     id: 'hiking-005',
@@ -331,7 +390,9 @@ export const tours: Tour[] = [
     isResale: true,
     variants: [
       { id: 'standard', label: 'Min 4 participants', price: { rack: 110 }, includesTransport: true, includesLunch: true }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 45
   },
   {
     id: 'hiking-006',
@@ -347,7 +408,9 @@ export const tours: Tour[] = [
     isResale: true,
     variants: [
       { id: 'standard', label: 'Standard', price: { rack: 79 }, includesTransport: true }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 167
   },
   {
     id: 'hiking-007',
@@ -363,7 +426,9 @@ export const tours: Tour[] = [
     isResale: true,
     variants: [
       { id: 'standard', label: 'Standard', price: { rack: 79 }, includesTransport: true }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 92
   },
 
   // =========================
@@ -392,7 +457,9 @@ export const tours: Tour[] = [
       { id: 'standard', label: 'With Transport', price: { rack: 96 }, includesTransport: true, includesLunch: true },
       { id: 'no-transport', label: 'Without Transport', price: { rack: 70 }, includesTransport: false, includesLunch: true },
       { id: 'hot-springs', label: 'With Hot Springs', price: { rack: 192 }, includesTransport: true, includesLunch: true, includesHotSprings: true }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 124
   },
 
   // =========================
@@ -412,7 +479,9 @@ export const tours: Tour[] = [
     isResale: true,
     variants: [
       { id: 'standard', label: 'Standard (with transport)', price: { rack: 105 }, includesTransport: true, includesLunch: true }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 235
   },
   {
     id: 'adv-002',
@@ -428,7 +497,9 @@ export const tours: Tour[] = [
     isResale: false,
     variants: [
       { id: 'standard', label: 'Standard', price: { rack: 60 }, includesTransport: false }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 42
   },
 
   // =========================
@@ -448,7 +519,9 @@ export const tours: Tour[] = [
     isResale: false,
     variants: [
       { id: 'standard', label: 'Standard', price: { rack: 40 }, includesTransport: false }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 156
   },
 
   // =========================
@@ -469,7 +542,9 @@ export const tours: Tour[] = [
     variants: [
       { id: 'standard', label: 'Standard', price: { rack: 152 }, includesTransport: true, includesLunch: true },
       { id: 'hot-springs', label: 'With Hot Springs', price: { rack: 205 }, includesTransport: true, includesLunch: true, includesHotSprings: true }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 88
   },
   {
     id: 'combo-002',
@@ -486,7 +561,9 @@ export const tours: Tour[] = [
     variants: [
       { id: 'standard', label: 'Standard', price: { rack: 159 }, includesTransport: true, includesLunch: true },
       { id: 'hot-springs', label: 'With Hot Springs', price: { rack: 212 }, includesTransport: true, includesLunch: true, includesHotSprings: true }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 112
   },
   {
     id: 'combo-003',
@@ -503,7 +580,9 @@ export const tours: Tour[] = [
     variants: [
       { id: 'standard', label: 'Standard', price: { rack: 144 }, includesTransport: true, includesLunch: true },
       { id: 'hot-springs', label: 'With Hot Springs', price: { rack: 198 }, includesTransport: true, includesLunch: true, includesHotSprings: true }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 94
   },
   {
     id: 'combo-004',
@@ -520,7 +599,9 @@ export const tours: Tour[] = [
     variants: [
       { id: 'standard', label: 'Standard', price: { rack: 173 }, includesTransport: true, includesLunch: true },
       { id: 'hot-springs', label: 'With Hot Springs', price: { rack: 228 }, includesTransport: true, includesLunch: true, includesHotSprings: true }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 76
   },
   {
     id: 'combo-005',
@@ -536,7 +617,9 @@ export const tours: Tour[] = [
     isResale: true,
     variants: [
       { id: 'private', label: 'Private (Fixed Price)', price: { rack: 260 }, includesTransport: true, private: true }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 31
   },
   {
     id: 'combo-006',
@@ -552,7 +635,9 @@ export const tours: Tour[] = [
     isResale: true,
     variants: [
       { id: 'standard', label: 'Standard', price: { rack: 139 }, includesTransport: true }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 184
   },
   {
     id: 'combo-007',
@@ -570,7 +655,9 @@ export const tours: Tour[] = [
       { id: 'standard', label: 'Full Day Standard', price: { rack: 198 }, includesTransport: true, includesLunch: true },
       { id: 'baldi', label: 'With Baldi & Dinner', price: { rack: 250 }, includesTransport: true, includesLunch: true, includesHotSprings: true, hotSpringsProvider: 'Baldi' },
       { id: 'ecotermales', label: 'With Ecotermales & Dinner', price: { rack: 270 }, includesTransport: true, includesLunch: true, includesHotSprings: true, hotSpringsProvider: 'Ecotermales' }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 126
   },
 
   // =========================
@@ -590,7 +677,9 @@ export const tours: Tour[] = [
     isResale: true,
     variants: [
       { id: 'adult', label: 'Adult Extension', price: { rack: 45 }, includesTransport: false, includesHotSprings: true, hotSpringsProvider: 'Baldi' }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 442
   },
   {
     id: 'hotsprings-002',
@@ -606,7 +695,9 @@ export const tours: Tour[] = [
     isResale: true,
     variants: [
       { id: 'adult', label: 'Adult Extension', price: { rack: 42 }, includesTransport: false, includesHotSprings: true, hotSpringsProvider: 'Paradise' }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 215
   },
   {
     id: 'hotsprings-003',
@@ -622,7 +713,8 @@ export const tours: Tour[] = [
     isResale: true,
     variants: [
       { id: 'adult', label: 'Adult Extension', price: { rack: 65 }, includesTransport: false, includesHotSprings: true, hotSpringsProvider: 'Ecotermales' }
-    ]
-  }
+    ],
+    rating: 5,
+    reviewsCount: 178
+  },
 ];
-

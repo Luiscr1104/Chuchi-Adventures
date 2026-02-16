@@ -1,9 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
-import { ArrowDown, MapPin } from 'lucide-react';
+import { getOptimizedImageUrl } from '../lib/utils';
 
 export default function Hero() {
+    const heroImage = "https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/54a5c2c2-3d08-4516-0804-2e722847be00/public";
+
     return (
         <section className="relative h-[95vh] flex items-center justify-center overflow-hidden bg-slate-900">
             {/* Background Image with Parallax-like effect */}
@@ -12,10 +14,14 @@ export default function Hero() {
                     initial={{ scale: 1.15, opacity: 0.8 }}
                     animate={{ scale: 1.05, opacity: 1 }}
                     transition={{ duration: 15, ease: "easeOut" }}
-                    src="https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/54a5c2c2-3d08-4516-0804-2e722847be00/public"
+                    src={heroImage}
+                    srcSet={`${getOptimizedImageUrl(heroImage, 800)} 800w, ${getOptimizedImageUrl(heroImage, 1200)} 1200w, ${heroImage} 1920w`}
+                    sizes="100vw"
                     alt="La Fortuna Landscape"
                     className="w-full h-full object-cover"
-                    fetchpriority="high"
+                    fetchPriority="high"
+                    loading="eager"
+                    decoding="sync"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-slate-900/40"></div>
                 <div className="absolute inset-0 bg-black/10 backdrop-blur-[2px]"></div>

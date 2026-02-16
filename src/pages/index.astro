@@ -8,6 +8,7 @@ import { tours } from "../data/tours";
 import { reviews } from "../data/reviews";
 import ReviewCarousel from "../components/ReviewCarousel";
 import { ArrowRight, Star } from "lucide-react";
+import { Image } from "astro:assets";
 
 // Get featured tours (first 3 or specific ones)
 const featuredTours = tours.slice(0, 3);
@@ -240,8 +241,8 @@ const featuredTours = tours.slice(0, 3);
             <img
               src="https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/bef4db75-13f0-4965-ee32-83ea89ea8c00/public"
               alt="Local Guide on the river"
-              width="800"
-              height="500"
+              loading="lazy"
+              decoding="async"
               class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
             />
             <!-- Visual texture overlay -->
@@ -438,8 +439,8 @@ const featuredTours = tours.slice(0, 3);
             <img
               src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=2621"
               alt="Spa Experience"
-              width="600"
-              height="750"
+              loading="lazy"
+              decoding="async"
               class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
             />
             <div
