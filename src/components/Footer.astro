@@ -18,7 +18,7 @@ const currentYear = new Date().getFullYear();
                 <a href="/" class="group flex items-center gap-4">
                     <img
                         src="/brand.svg"
-                        alt="BeyondArenal"
+                        alt="Beyond Arenal"
                         class="h-12 w-auto invert brightness-0"
                     />
                 </a>
@@ -66,13 +66,15 @@ const currentYear = new Date().getFullYear();
                     </h3>
                     <ul class="space-y-4 text-white/60 font-medium">
                         {
-                            [
-                                "Tours",
-                                "Spa",
-                                "Transport",
-                                "About Us",
-                                "Contact",
-                            ].map((item) => (
+                            (
+                                [
+                                    "Tours",
+                                    "Spa",
+                                    "Transport",
+                                    "About Us",
+                                    "Contact",
+                                ] as string[]
+                            ).map((item) => (
                                 <li>
                                     <a
                                         href={`/${item.toLowerCase().replace(" ", "")}`}
@@ -94,19 +96,24 @@ const currentYear = new Date().getFullYear();
                     </h3>
                     <ul class="space-y-4 text-white/60 font-medium">
                         {
-                            ["Water", "Hiking", "Adrenaline", "Wildlife"].map(
-                                (cat) => (
-                                    <li>
-                                        <a
-                                            href={`/tours?category=${cat}`}
-                                            class="hover:text-white transition-colors flex items-center gap-2 group"
-                                        >
-                                            <div class="w-1 h-1 bg-[var(--color-primary)] opacity-0 group-hover:opacity-100 transition-opacity" />
-                                            {cat} Tours
-                                        </a>
-                                    </li>
-                                ),
-                            )
+                            (
+                                [
+                                    "Water",
+                                    "Hiking",
+                                    "Adrenaline",
+                                    "Wildlife",
+                                ] as string[]
+                            ).map((cat) => (
+                                <li>
+                                    <a
+                                        href={`/tours?category=${cat}`}
+                                        class="hover:text-white transition-colors flex items-center gap-2 group"
+                                    >
+                                        <div class="w-1 h-1 bg-[var(--color-primary)] opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        {cat} Tours
+                                    </a>
+                                </li>
+                            ))
                         }
                     </ul>
                 </div>
@@ -181,7 +188,7 @@ const currentYear = new Date().getFullYear();
         <div
             class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30"
         >
-            <p>&copy; {currentYear} BeyondArenal. All rights reserved.</p>
+            <p>&copy; {currentYear} Beyond Arenal. All rights reserved.</p>
             <div class="flex gap-10">
                 <a href="#" class="hover:text-white transition-colors"
                     >Privacy</a

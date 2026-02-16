@@ -15,7 +15,7 @@ export const reviews: TourReview[] = [
     // === Safari Float Peñas Blancas ===
     {
         id: 'rev-pb-001',
-        tourSlug: 'safari-float-penas-blancas-river',
+        tourSlug: 'safari-float-penas-blancas-raft',
         author: 'Emily R.',
         rating: 5,
         text: 'So peaceful and full of wildlife — we saw sloths, monkeys and lots of birds. The guide was incredible.',
@@ -25,7 +25,7 @@ export const reviews: TourReview[] = [
     },
     {
         id: 'rev-pb-002',
-        tourSlug: 'safari-float-penas-blancas-river',
+        tourSlug: 'safari-float-penas-blancas-raft',
         author: 'Daniel S.',
         rating: 5,
         text: 'Perfect for families. Calm float, great explanations, and the local snack after the tour was amazing.',
@@ -37,7 +37,7 @@ export const reviews: TourReview[] = [
     // === Rafting Sarapiquí / Balsa ===
     {
         id: 'rev-raft-001',
-        tourSlug: 'white-water-rafting-balsa-river',
+        tourSlug: 'white-water-rafting-sarapiqui',
         author: 'Mark D.',
         rating: 5,
         text: 'Fun rapids and very safe. Great for first-timers. Lunch was delicious and the staff were super friendly.',
@@ -61,7 +61,7 @@ export const reviews: TourReview[] = [
     // === Kayak / Lake ===
     {
         id: 'rev-kayak-001',
-        tourSlug: 'arenal-lake-kayak-tour',
+        tourSlug: 'arenal-lake-kayak',
         author: 'Chris M.',
         rating: 5,
         text: 'Beautiful views of Arenal Volcano. Calm waters and a nice fruit snack at the end. Highly recommended.',

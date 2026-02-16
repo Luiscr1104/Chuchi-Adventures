@@ -21,6 +21,7 @@ const minPrice =
     : 0;
 
 // SEO Metadata Logic
+const _URL = (globalThis as any).URL;
 const seoTitle = `${tour.title} in La Fortuna | Beyond Arenal`;
 const seoDescription = `Book the ${tour.title} in La Fortuna. ${tour.shortDescription} Starting at $${minPrice}. Instant booking via WhatsApp.`;
 const ogImage = tour.image; // Assuming tour.image is a relative or absolute path we can use directly or it's already a URL.
@@ -31,7 +32,7 @@ const schema = {
   "@type": "Product", // Google prefers Product for tours with prices
   name: tour.title,
   description: tour.description,
-  image: new URL(tour.image, Astro.site).href,
+  image: new _URL(tour.image, Astro.site).href,
   brand: {
     "@type": "Brand",
     name: "Beyond Arenal",
@@ -41,7 +42,7 @@ const schema = {
     price: minPrice,
     priceCurrency: "USD",
     availability: "https://schema.org/InStock",
-    url: new URL(Astro.url.pathname, Astro.site).href,
+    url: new _URL(Astro.url.pathname, Astro.site).href,
     validFrom: new Date().toISOString(),
   },
   aggregateRating: {

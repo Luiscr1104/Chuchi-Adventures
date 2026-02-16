@@ -18,17 +18,18 @@ const {
   noindex = false,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const socialImageURL = new URL(image, Astro.site);
+const _URL = (globalThis as any).URL;
+const canonicalURL = new _URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new _URL(image, Astro.site);
 
 // Global Organization schema
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "TourOperator",
   name: "Beyond Arenal",
-  alternateName: "BeyondArenal",
+  alternateName: "Beyond Arenal",
   url: "https://beyondarenal.com",
-  logo: new URL("/logoBlack.svg", Astro.site).href,
+  logo: new _URL("/logoBlack.svg", Astro.site).href,
   description:
     "Boutique tour operator in La Fortuna, Costa Rica. Locally owned & operated since 2014.",
   telephone: "+506-8820-1065",

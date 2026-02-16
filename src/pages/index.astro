@@ -57,7 +57,10 @@ const featuredTours = tours.slice(0, 3);
   <Hero client:load />
 
   <!-- Featured Expeditions -->
-  <section id="tours" class="py-32 bg-white relative overflow-hidden">
+  <section
+    id="tours"
+    class="py-32 bg-white relative overflow-hidden scroll-reveal"
+  >
     <!-- Decorative background elements -->
     <div
       class="absolute top-0 right-0 w-1/3 h-full bg-slate-50 opacity-50 -skew-x-12 transform translate-x-1/2"
@@ -66,7 +69,7 @@ const featuredTours = tours.slice(0, 3);
 
     <div class="container-custom relative z-10">
       <div
-        class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8"
+        class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8 scroll-child"
       >
         <div class="max-w-2xl">
           <div class="flex items-center gap-4 mb-4">
@@ -90,7 +93,10 @@ const featuredTours = tours.slice(0, 3);
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 scroll-child"
+        style="--scroll-delay: 0.15s"
+      >
         {featuredTours.map((tour) => <TourCard tour={tour} client:visible />)}
       </div>
 
@@ -122,9 +128,9 @@ const featuredTours = tours.slice(0, 3);
   </section>
 
   <!-- Transport Section (Strategic Placement) -->
-  <section class="py-24 bg-slate-900 text-white overflow-hidden">
+  <section class="py-24 bg-slate-900 text-white overflow-hidden scroll-reveal">
     <div class="container-custom">
-      <div class="max-w-4xl mx-auto text-center mb-16">
+      <div class="max-w-4xl mx-auto text-center mb-16 scroll-child">
         <span
           class="text-[var(--color-secondary)] font-black uppercase tracking-[0.3em] text-xs mb-6 block"
           >Door-to-Door Comfort</span
@@ -141,16 +147,16 @@ const featuredTours = tours.slice(0, 3);
           premium vehicles for your ultimate comfort.
         </p>
       </div>
-      <div class="max-w-5xl mx-auto">
+      <div class="max-w-5xl mx-auto scroll-child" style="--scroll-delay: 0.2s">
         <TransportFilter client:load />
       </div>
     </div>
   </section>
 
-  <!-- Social Proof Section (NEW) -->
-  <section class="py-32 bg-white border-y border-slate-100">
+  <!-- Social Proof Section -->
+  <section class="py-32 bg-white border-y border-slate-100 scroll-reveal">
     <div class="container-custom">
-      <div class="flex flex-col items-center text-center mb-20">
+      <div class="flex flex-col items-center text-center mb-20 scroll-child">
         <div class="flex gap-1 mb-6 text-yellow-400">
           {
             [...Array(5)].map(() => (
@@ -168,8 +174,33 @@ const featuredTours = tours.slice(0, 3);
         <div
           class="flex flex-wrap justify-center gap-12 opacity-30 grayscale items-center mt-10 mb-20"
         >
-          {/* Placeholders for TripAdvisor, Google, etc. Logos */}
-          <span class="font-black text-2xl tracking-tighter">TRIPADVISOR</span>
+          {/* TripAdvisor Logo */}
+          <div class="h-10 w-auto flex items-center">
+            <svg
+              class="h-full w-auto"
+              viewBox="0 -96 512.2 512.2"
+              xmlns="http://www.w3.org/2000/svg"
+              ><style>
+                .st0 {
+                  fill: currentColor;
+                }
+              </style><path
+                class="st0"
+                d="M128.2 127.9C92.7 127.9 64 156.6 64 192c0 35.4 28.7 64.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1.1-35.4-28.6-64.1-64-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S174 166.7 174 192s-20.5 45.9-45.8 45.9z"
+              ></path><circle class="st0" cx="128.4" cy="191.9" r="31.9"
+              ></circle><path
+                class="st0"
+                d="M384.2 127.9c-35.4 0-64.1 28.7-64.1 64.1 0 35.4 28.7 64.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1 0-35.4-28.7-64.1-64.1-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S430 166.7 430 192s-20.5 45.9-45.8 45.9z"
+              ></path><circle class="st0" cx="384.4" cy="191.9" r="31.9"
+              ></circle><path
+                class="st0"
+                d="M474.4 101.2l37.7-37.4h-76.4C392.9 29 321.8 0 255.9 0c-66 0-136.5 29-179.3 63.8H0l37.7 37.4C14.4 124.4 0 156.5 0 192c0 70.8 57.4 128.2 128.2 128.2 32.5 0 62.2-12.1 84.8-32.1l43.4 31.9 42.9-31.2-.5-1.2c22.7 20.2 52.5 32.5 85.3 32.5 70.8 0 128.2-57.4 128.2-128.2-.1-35.4-14.6-67.5-37.9-90.7zM368 64.8c-60.7 7.6-108.3 57.6-111.9 119.5-3.7-62-51.4-112.1-112.3-119.5 30.6-22 69.6-32.8 112.1-32.8S337.4 42.8 368 64.8zM128.2 288.2C75 288.2 32 245.1 32 192s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2zm256 0c-53.1 0-96.2-43.1-96.2-96.2s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2z"
+              ></path></svg
+            >
+            <span class="ml-2 font-black text-2xl tracking-tighter"
+              >TRIPADVISOR</span
+            >
+          </div>
           <span class="font-black text-2xl tracking-tighter"
             >GOOGLE REVIEWS</span
           >
@@ -182,10 +213,10 @@ const featuredTours = tours.slice(0, 3);
   </section>
 
   <!-- Editorial About Section (Asymmetric) -->
-  <section class="py-40 bg-slate-50 relative">
+  <section class="py-40 bg-slate-50 relative scroll-reveal">
     <div class="container-custom">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
-        <div class="lg:col-span-7 relative group">
+        <div class="lg:col-span-7 relative group scroll-child">
           <div
             class="absolute -inset-4 bg-white rounded-[3rem] shadow-sm transform -rotate-1 group-hover:rotate-0 transition-transform duration-700"
           >
@@ -222,12 +253,15 @@ const featuredTours = tours.slice(0, 3);
           </div>
         </div>
 
-        <div class="lg:col-span-5 space-y-12">
+        <div
+          class="lg:col-span-5 space-y-12 scroll-child"
+          style="--scroll-delay: 0.2s"
+        >
           <div class="space-y-6">
             <span
               class="inline-block px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black uppercase tracking-widest"
             >
-              The Essence of BeyondArenal
+              The Essence of Beyond Arenal
             </span>
             <h2
               class="text-5xl md:text-6xl font-bold text-slate-900 tracking-tighter leading-none"
@@ -289,11 +323,11 @@ const featuredTours = tours.slice(0, 3);
     </div>
   </section>
 
-  <!-- FAQ Section (NEW) -->
-  <section class="py-32 bg-white relative overflow-hidden">
+  <!-- FAQ Section -->
+  <section class="py-32 bg-white relative overflow-hidden scroll-reveal">
     <div class="container-custom">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
-        <div>
+        <div class="scroll-child">
           <span
             class="text-[var(--color-primary)] font-black uppercase tracking-widest text-xs mb-4 block"
             >Common Inquiries</span
@@ -307,7 +341,7 @@ const featuredTours = tours.slice(0, 3);
             Everything you need to know before your Costa Rican expedition.
           </p>
         </div>
-        <div class="space-y-8">
+        <div class="space-y-8 scroll-child" style="--scroll-delay: 0.15s">
           {
             [
               {
@@ -337,10 +371,10 @@ const featuredTours = tours.slice(0, 3);
   </section>
 
   <!-- Spa Teaser (Luxury Editorial) -->
-  <section class="py-40 bg-slate-50 relative overflow-hidden">
+  <section class="py-40 bg-slate-50 relative overflow-hidden scroll-reveal">
     <div class="container-custom">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-        <div class="space-y-10 order-2 lg:order-1">
+        <div class="space-y-10 order-2 lg:order-1 scroll-child">
           <div class="flex items-center gap-4 mb-4">
             <div class="w-12 h-px bg-emerald-600"></div>
             <span
@@ -377,7 +411,10 @@ const featuredTours = tours.slice(0, 3);
           </div>
         </div>
 
-        <div class="relative order-1 lg:order-2 group">
+        <div
+          class="relative order-1 lg:order-2 group scroll-child"
+          style="--scroll-delay: 0.15s"
+        >
           <div
             class="absolute -inset-6 bg-emerald-50 rounded-[4rem] transform rotate-2 group-hover:rotate-0 transition-transform duration-700"
           >
@@ -416,7 +453,7 @@ const featuredTours = tours.slice(0, 3);
   </section>
 
   <!-- Final CTA Section (Immersive Overlay) -->
-  <section class="py-40 bg-slate-900 relative overflow-hidden">
+  <section class="py-40 bg-slate-900 relative overflow-hidden scroll-reveal">
     <!-- Abstract Shapes -->
     <div class="absolute top-0 right-0 w-full h-full opacity-20">
       <div
@@ -430,7 +467,7 @@ const featuredTours = tours.slice(0, 3);
     </div>
 
     <div class="container-custom relative z-10">
-      <div class="max-w-5xl mx-auto text-center space-y-12">
+      <div class="max-w-5xl mx-auto text-center space-y-12 scroll-child">
         <div class="space-y-6">
           <span
             class="text-[var(--color-secondary)] font-black uppercase tracking-[0.4em] text-xs"
@@ -451,10 +488,13 @@ const featuredTours = tours.slice(0, 3);
           </p>
         </div>
 
-        <div class="flex flex-col items-center gap-8">
+        <div
+          class="flex flex-col items-center gap-8 scroll-child"
+          style="--scroll-delay: 0.2s"
+        >
           <WhatsAppBtn
             text="Contact Our Experts"
-            message="Pura Vida! I'm planning a trip to La Fortuna and I'd like to book an adventure with BeyondArenal."
+            message="Pura Vida! I'm planning a trip to La Fortuna and I'd like to book an adventure with Beyond Arenal."
             className="h-20 px-12 bg-white text-slate-900 hover:bg-[var(--color-secondary)] rounded-[2rem] font-black uppercase tracking-widest transition-all duration-500 flex items-center gap-4 shadow-2xl hover:scale-105"
             trackLocation="home_bottom_cta"
           />
@@ -469,3 +509,68 @@ const featuredTours = tours.slice(0, 3);
     </div>
   </section>
 </Layout>
+
+<style>
+  /* ── Scroll-Driven Reveal System ── */
+
+  /* Base state: invisible, shifted down */
+  .scroll-child {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+      opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--scroll-delay, 0s);
+  }
+
+  /* Revealed state */
+  .scroll-reveal.is-visible .scroll-child {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Parallax float for decorative elements */
+  @keyframes parallax-float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  .scroll-reveal.is-visible .parallax-float {
+    animation: parallax-float 6s ease-in-out infinite;
+  }
+
+  /* Reduced motion: instant reveal, no animations */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-child {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  // IntersectionObserver for scroll-reveal sections
+  const revealSections = document.querySelectorAll(".scroll-reveal");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    },
+    {
+      threshold: 0.08,
+      rootMargin: "0px 0px -60px 0px",
+    },
+  );
+
+  revealSections.forEach((section) => observer.observe(section));
+</script>

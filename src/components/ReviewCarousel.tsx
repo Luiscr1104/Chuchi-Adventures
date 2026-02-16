@@ -14,9 +14,8 @@ const PlatformIcon = ({ source }: { source: string }) => {
             );
         case 'Tripadvisor':
             return (
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M19.1 13.5a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1 0-5zM4.9 13.5a2.5 2.5 0 0 1 0 5 2.5 2.5 0 0 1 0-5zM12 2a10 10 0 0 0-10 10c0 1.2.2 2.3.6 3.4L0 22l6.6-2.6a10 10 0 1 0 5.4-17.4zM19.1 20a4 4 0 0 0 0-8 4 4 0 0 0 0 8zM15.5 8c0 .6-.5 1-1 1s-1-.4-1-1 .5-1 1-1 1 .4 1 1zM4.9 20a4 4 0 0 0 0-8 4 4 0 0 0 0 8zM10.5 8c0 .6-.4 1-1 1s-1-.4-1-1 .4-1 1-1 1 .4 1 1z" />
-                </svg>
+                <svg className="w-6 h-6" viewBox="0 -96 512.2 512.2" fill="currentColor">
+                    <path d="M128.2 127.9C92.7 127.9 64 156.6 64 192c0 35.4 28.7 64.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1.1-35.4-28.6-64.1-64-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S174 166.7 174 192s-20.5 45.9-45.8 45.9z" /><circle cx="128.4" cy="191.9" r="31.9" /><path d="M384.2 127.9c-35.4 0-64.1 28.7-64.1 64.1 0 35.4 28.7 64.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1 0-35.4-28.7-64.1-64.1-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S430 166.7 430 192s-20.5 45.9-45.8 45.9z" /><circle cx="384.4" cy="191.9" r="31.9" /><path d="M474.4 101.2l37.7-37.4h-76.4C392.9 29 321.8 0 255.9 0c-66 0-136.5 29-179.3 63.8H0l37.7 37.4C14.4 124.4 0 156.5 0 192c0 70.8 57.4 128.2 128.2 128.2 32.5 0 62.2-12.1 84.8-32.1l43.4 31.9 42.9-31.2-.5-1.2c22.7 20.2 52.5 32.5 85.3 32.5 70.8 0 128.2-57.4 128.2-128.2-.1-35.4-14.6-67.5-37.9-90.7zM368 64.8c-60.7 7.6-108.3 57.6-111.9 119.5-3.7-62-51.4-112.1-112.3-119.5 30.6-22 69.6-32.8 112.1-32.8S337.4 42.8 368 64.8zM128.2 288.2C75 288.2 32 245.1 32 192s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2zm256 0c-53.1 0-96.2-43.1-96.2-96.2s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2z" /></svg>
             );
         default:
             return <Quote className="w-5 h-5 text-slate-300" />;
@@ -79,8 +78,8 @@ export default function ReviewCarousel({ reviews }: ReviewCarouselProps) {
                             </div>
 
                             <div className={`p-2 rounded-xl flex items-center gap-2 ${review.source === 'Google' ? 'text-blue-500 bg-blue-50' :
-                                    review.source === 'Tripadvisor' ? 'text-emerald-600 bg-emerald-50' :
-                                        'text-slate-400 bg-slate-50'
+                                review.source === 'Tripadvisor' ? 'text-emerald-600 bg-emerald-50' :
+                                    'text-slate-400 bg-slate-50'
                                 }`}>
                                 <PlatformIcon source={review.source || ''} />
                                 <span className="text-[9px] font-black uppercase tracking-tighter pr-1">

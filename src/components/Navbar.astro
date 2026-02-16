@@ -13,7 +13,7 @@ const categories = [...new Set(tours.map((tour) => tour.category))];
         <!-- Logo -->
         <div class="flex-shrink-0 flex items-center">
           <a href="/" class="flex items-center gap-2">
-            <img src="/brand.svg" alt="BeyondArenal" class="h-14 w-auto" />
+            <img src="/brand.svg" alt="Beyond Arenal" class="h-14 w-auto" />
           </a>
         </div>
 
@@ -92,7 +92,7 @@ const categories = [...new Set(tours.map((tour) => tour.category))];
         class="flex items-center justify-center gap-3 py-3 overflow-x-auto scrollbar-hide"
       >
         {
-          categories.map((category, i) => (
+          (categories as string[]).map((category, i) => (
             <>
               <a
                 href={`/tours?category=${category}`}

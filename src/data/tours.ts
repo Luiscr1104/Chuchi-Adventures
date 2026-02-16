@@ -102,6 +102,10 @@ export interface Tour {
 
   /** “Qué llevar” si querés mostrarlo */
   whatToBring?: string[];
+
+  /** TripAdvisor ratings */
+  rating?: number;
+  reviewsCount?: number;
 }
 
 export const tours: Tour[] = [
@@ -132,7 +136,9 @@ export const tours: Tour[] = [
     variants: [
       { id: 'standard', label: 'Standard Raft', price: { rack: 83 }, includesTransport: true },
       { id: 'hot-springs', label: 'With Hot Springs', price: { rack: 125 }, includesTransport: true, includesHotSprings: true }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 138
   },
   {
     id: 'river-002',
@@ -157,7 +163,9 @@ export const tours: Tour[] = [
     variants: [
       { id: 'standard', label: 'Standard Kayak', price: { rack: 88 }, includesTransport: true },
       { id: 'hot-springs', label: 'With Hot Springs', price: { rack: 130 }, includesTransport: true, includesHotSprings: true }
-    ]
+    ],
+    rating: 4.5,
+    reviewsCount: 96
   },
   {
     id: 'river-003',
@@ -183,7 +191,9 @@ export const tours: Tour[] = [
     variants: [
       { id: 'standard', label: 'Standard (with transport)', price: { rack: 105 }, includesTransport: true, includesLunch: true },
       { id: 'baldi', label: 'With Baldi Hot Springs', price: { rack: 155 }, includesTransport: true, includesLunch: true, includesHotSprings: true, hotSpringsProvider: 'Baldi' }
-    ]
+    ],
+    rating: 5,
+    reviewsCount: 104
   },
   {
     id: 'river-004',
