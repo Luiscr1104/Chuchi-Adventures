@@ -15,6 +15,7 @@ export default function Hero() {
                     src="https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/54a5c2c2-3d08-4516-0804-2e722847be00/public"
                     alt="La Fortuna Landscape"
                     className="w-full h-full object-cover"
+                    fetchpriority="high"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-slate-900/40"></div>
                 <div className="absolute inset-0 bg-black/10 backdrop-blur-[2px]"></div>

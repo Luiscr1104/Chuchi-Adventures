@@ -18,6 +18,14 @@ const featuredTours = tours.slice(0, 3);
   description="Book top-rated tours in La Fortuna & Peñas Blancas: Safari Float, Kayak, Rafting, Canyoning. Boutique groups ✓ Local guides ✓ Instant WhatsApp booking."
   image="/images/og/home.webp"
 >
+  <!-- LCP discovery: Preload Hero Image -->
+  <link
+    rel="preload"
+    as="image"
+    href="https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/54a5c2c2-3d08-4516-0804-2e722847be00/public"
+    slot="head"
+  />
+
   <!-- FAQPage Schema -->
   <script
     type="application/ld+json"
@@ -54,7 +62,7 @@ const featuredTours = tours.slice(0, 3);
     })}
   />
   <!-- Main Hero -->
-  <Hero client:load />
+  <Hero client:idle />
 
   <!-- Featured Expeditions -->
   <section
@@ -148,7 +156,7 @@ const featuredTours = tours.slice(0, 3);
         </p>
       </div>
       <div class="max-w-5xl mx-auto scroll-child" style="--scroll-delay: 0.2s">
-        <TransportFilter client:load />
+        <TransportFilter client:visible />
       </div>
     </div>
   </section>
