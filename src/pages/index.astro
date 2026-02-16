@@ -14,10 +14,45 @@ const featuredTours = tours.slice(0, 3);
 ---
 
 <Layout
-  title="Tours and Activities in La Fortuna Costa Rica"
-  description="Book top-rated tours in La Fortuna & Peñas Blancas: Safari Float, Kayak, Rafting, Canyoning and more. Fast booking via WhatsApp."
+  title="La Fortuna Tours & Adventures | Beyond Arenal"
+  description="Book top-rated tours in La Fortuna & Peñas Blancas: Safari Float, Kayak, Rafting, Canyoning. Boutique groups ✓ Local guides ✓ Instant WhatsApp booking."
   image="/images/og/home.webp"
 >
+  <!-- FAQPage Schema -->
+  <script
+    type="application/ld+json"
+    slot="head"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What if it rains?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "We embrace the rain! Tours typically run unless conditions are unsafe. Rainforest experiences are often best in the mist.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "What should I bring?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Comfortable shoes, sunscreen, insect repellent, and a sense of adventure. Specific gear list provided upon booking.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Are tours private?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "We specialize in boutique, small groups to ensure an authentic and personalized experience.",
+          },
+        },
+      ],
+    })}
+  />
   <!-- Main Hero -->
   <Hero client:load />
 
@@ -421,6 +456,7 @@ const featuredTours = tours.slice(0, 3);
             text="Contact Our Experts"
             message="Pura Vida! I'm planning a trip to La Fortuna and I'd like to book an adventure with BeyondArenal."
             className="h-20 px-12 bg-white text-slate-900 hover:bg-[var(--color-secondary)] rounded-[2rem] font-black uppercase tracking-widest transition-all duration-500 flex items-center gap-4 shadow-2xl hover:scale-105"
+            trackLocation="home_bottom_cta"
           />
           <div
             class="flex items-center gap-3 text-white/30 text-[10px] font-black uppercase tracking-[0.2em]"

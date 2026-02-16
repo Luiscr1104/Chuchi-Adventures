@@ -6,15 +6,15 @@ import { Input } from './ui/input';
 import { Label } from './ui/label';
 import { generateTransportQuoteLink } from '../lib/whatsapp';
 
-// Stub for Google Analytics
+// Push WhatsApp click event to the dataLayer for GTM
 const trackLead = () => {
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-        (window as any).gtag('event', 'generate_lead', {
-            event_category: 'transport',
-            event_label: 'whatsapp_quote'
+    if (typeof window !== 'undefined') {
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        (window as any).dataLayer.push({
+            event: 'whatsapp_click',
+            wa_location: 'transport_quote_form',
         });
     }
-    console.log('Lead tracked: generate_lead');
 };
 
 export default function TransportFilter() {
@@ -134,6 +134,8 @@ export default function TransportFilter() {
                                 target="_blank"
                                 onClick={trackLead}
                                 className="block group"
+                                data-track-wa
+                                data-wa-location="transport_quote_form"
                             >
                                 <Button className="w-full h-16 md:h-20 rounded-[1.5rem] bg-[var(--color-primary)] text-white font-black uppercase tracking-[0.2em] text-xs shadow-2xl shadow-emerald-500/20 hover:scale-[1.02] active:scale-95 transition-all duration-500 flex items-center justify-between px-8">
                                     Get Quote

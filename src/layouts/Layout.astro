@@ -13,17 +13,49 @@ interface Props {
 
 const {
   title,
-  description = "Book top-rated tours in La Fortuna & Peñas Blancas: Safari Float, Kayak, Rafting, Canyoning and more. Fast booking via WhatsApp.",
-  image = "/images/og/home.webp", // Default OG image
+  description = "Book top-rated tours in La Fortuna & Peñas Blancas: Safari Float, Kayak, Rafting, Canyoning. Boutique groups ✓ Local guides ✓ Instant WhatsApp booking.",
+  image = "/images/og/home.webp",
   noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImageURL = new URL(image, Astro.site);
+
+// Global Organization schema
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "TourOperator",
+  name: "Beyond Arenal",
+  alternateName: "BeyondArenal",
+  url: "https://beyondarenal.com",
+  logo: new URL("/logoBlack.svg", Astro.site).href,
+  description:
+    "Boutique tour operator in La Fortuna, Costa Rica. Locally owned & operated since 2014.",
+  telephone: "+506-8820-1065",
+  email: "luiscr1104@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Peñas Blancas",
+    addressLocality: "San Ramón",
+    addressRegion: "Alajuela",
+    addressCountry: "CR",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 10.3534,
+    longitude: -84.5831,
+  },
+  sameAs: ["https://www.facebook.com/profile.php?id=61587983755668"],
+  priceRange: "$$",
+  areaServed: {
+    "@type": "Place",
+    name: "La Fortuna, Arenal, Costa Rica",
+  },
+};
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <!-- Google Tag Manager -->
@@ -46,9 +78,10 @@ const socialImageURL = new URL(image, Astro.site);
     <meta name="generator" content={Astro.generator} />
 
     <!-- SEO -->
-    <title>{title} | Beyond Arenal</title>
+    <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="en" href={canonicalURL} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <!-- Open Graph / Kevin -->
@@ -77,6 +110,12 @@ const socialImageURL = new URL(image, Astro.site);
       rel="stylesheet"
     />
 
+    <!-- Organization Schema -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(organizationSchema)}
+    />
+
     <!-- Slot for additional head elements (like Schema) -->
     <slot name="head" />
   </head>
@@ -94,7 +133,21 @@ const socialImageURL = new URL(image, Astro.site);
     <main class="flex-grow">
       <slot />
     </main>
-    <WhatsAppBtn isFloating={true} />
+    <WhatsAppBtn isFloating={true} trackLocation="floating_button" />
     <Footer />
+
+    <!-- Global WhatsApp Click Tracking -->
+    <script is:inline>
+      document.addEventListener("click", function (e) {
+        var link = e.target.closest("[data-track-wa]");
+        if (!link) return;
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: "whatsapp_click",
+          wa_location: link.getAttribute("data-wa-location") || "unknown",
+          wa_url: link.href || "",
+        });
+      });
+    </script>
   </body>
 </html>

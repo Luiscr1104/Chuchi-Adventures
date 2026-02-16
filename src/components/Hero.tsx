@@ -67,7 +67,7 @@ export default function Hero() {
                                         Explore Now
                                     </Button>
                                 </a>
-                                <a href="https://wa.me/50688201065" target="_blank">
+                                <a href="https://wa.me/50688201065" target="_blank" data-track-wa data-wa-location="hero_private_trip">
                                     <Button variant="outline" size="lg" className="h-16 px-10 rounded-2xl bg-white/5 backdrop-blur-md text-white border-white/20 hover:bg-white/10 transition-all duration-500 font-bold uppercase tracking-widest text-sm">
                                         Private Trip
                                     </Button>
