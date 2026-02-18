@@ -39,11 +39,13 @@ export default function TourCard({ tour }: TourCardProps) {
             viewport={{ once: true }}
             whileHover={{ y: -6 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="h-full group"
         >
-            <a href={`/tours/${tour.slug}`} className="relative block h-full bg-white rounded-[2rem] border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-500 overflow-hidden">
+            <a
+                href={`/tours/${tour.slug}`}
+                className="relative flex flex-col h-full bg-white rounded-[2rem] border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-500 overflow-hidden"
+            >
                 {/* Image Section */}
-                <div className="relative aspect-[16/10] overflow-hidden">
+                <div className="relative aspect-[16/10] overflow-hidden flex-shrink-0">
                     <img
                         src={getOptimizedImageUrl(tour.image, 800)}
                         srcSet={tour.image.startsWith('http') ? `${getOptimizedImageUrl(tour.image, 400)} 400w, ${getOptimizedImageUrl(tour.image, 800)} 800w` : undefined}
@@ -73,7 +75,7 @@ export default function TourCard({ tour }: TourCardProps) {
                 </div>
 
                 {/* Content Section */}
-                <div className="p-8 flex flex-col h-[calc(100%-10rem)]">
+                <div className="p-5 sm:p-8 flex flex-col flex-1">
                     {/* Top Row: TripAdvisor Integration */}
                     <div className="flex items-center gap-3 mb-4">
                         <div className="w-4 h-4 text-emerald-600">
