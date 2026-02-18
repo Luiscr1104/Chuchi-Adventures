@@ -254,6 +254,61 @@ const schema = {
             </section>
           )
         }
+
+        <!-- Authority Section -->
+        <section
+          class="py-12 px-8 rounded-[3rem] bg-slate-50 border border-slate-100 space-y-8"
+        >
+          <div class="space-y-2 text-center">
+            <h3
+              class="text-3xl font-bold text-slate-900 tracking-tight uppercase"
+            >
+              Why book with us?
+            </h3>
+            <p class="text-slate-500 font-medium">
+              Direct operator benefits you won't find on big booking sites.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {
+              [
+                {
+                  icon: "🛡️",
+                  title: "Direct Operator",
+                  desc: "No middleman. You talk directly with the experts who run the tour.",
+                },
+                {
+                  icon: "✨",
+                  title: "Boutique Experience",
+                  desc: "We specialize in small, intimate groups for a personalized touch.",
+                },
+                {
+                  icon: "📍",
+                  title: "Local Guides",
+                  desc: "Our guides were born and raised here, offering authentic insights.",
+                },
+                {
+                  icon: "💳",
+                  title: "Best Price Guarantee",
+                  desc: "Book direct for the lowest rates and no hidden booking fees.",
+                },
+              ].map((benefit) => (
+                <div class="flex items-start gap-4 p-4">
+                  <div class="text-3xl">{benefit.icon}</div>
+                  <div>
+                    <h4 class="font-bold text-slate-900 uppercase tracking-widest text-[10px] mb-1">
+                      {benefit.title}
+                    </h4>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                      {benefit.desc}
+                    </p>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </section>
       </div>
 
       <!-- Sidebar / Booking Card (4 cols) -->
@@ -269,7 +324,22 @@ const schema = {
             </div>
 
             <div class="relative z-10 space-y-8">
-              <div>
+              <div class="flex flex-col gap-4">
+                <div
+                  class="flex items-center gap-2 bg-[var(--color-primary)]/20 text-[var(--color-secondary)] px-4 py-1.5 rounded-full w-fit"
+                >
+                  <span class="relative flex h-2 w-2">
+                    <span
+                      class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-secondary)] opacity-75"
+                    ></span>
+                    <span
+                      class="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-secondary)]"
+                    ></span>
+                  </span>
+                  <span class="text-[10px] font-black uppercase tracking-widest"
+                    >Limited Spots Available</span
+                  >
+                </div>
                 <span
                   class="text-[var(--color-secondary)] text-xs font-bold uppercase tracking-[0.2em]"
                   >Booking Information</span

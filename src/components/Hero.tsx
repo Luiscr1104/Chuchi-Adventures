@@ -71,7 +71,7 @@ export default function Hero() {
                             >
                                 <a href="#tours">
                                     <Button size="lg" className="h-16 px-10 rounded-2xl bg-[var(--color-secondary)] text-slate-900 hover:bg-white transition-all duration-500 font-black uppercase tracking-widest text-sm shadow-2xl shadow-emerald-500/20">
-                                        Explore Now
+                                        Book Your Arenal Adventure Today
                                     </Button>
                                 </a>
                                 <a href="https://wa.me/50688201065" target="_blank" data-track-wa data-wa-location="hero_private_trip">

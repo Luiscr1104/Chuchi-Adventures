@@ -115,7 +115,7 @@ export const tours: Tour[] = [
   {
     id: 'combo-top-001',
     slug: 'arenal-top-4-attractions-incl-hot-springs',
-    title: 'The Ultimate Arenal Day: Volcano, Waterfall, Bridges & Hot Springs (All-Inclusive)',
+    title: 'Best Arenal Volcano Tour: Waterfall, Bridges & Hot Springs',
     shortDescription: 'The #1 Best-Selling Combo in La Fortuna. Experience the "Big 4" highlights in one flawless day.',
     description: 'Stop worrying about logistics and start living the adventure. This is the <strong>Ultimate Arenal Experience</strong>—the only tour that combines the <strong>top 4 adventures</strong> in La Fortuna into one seamless, all-inclusive day.<br /><br /><strong>Why this is our #1 Best-Seller:</strong><br />You will walk the mystical <strong>Hanging Bridges</strong>, swim in the pristine <strong>La Fortuna Waterfall</strong>, hike the ancient lava flows of <strong>Arenal Volcano</strong>, and finish with a relaxing soak in <strong>Hot Springs with a gourmet dinner</strong>.<br /><br />We handle everything: luxury transport, entrance fees, naturalist guides, lunch, and dinner. You just bring the sense of wonder.',
     duration: '10 hours',
@@ -148,7 +148,7 @@ export const tours: Tour[] = [
   {
     id: 'river-003',
     slug: 'white-water-rafting-sarapiqui',
-    title: 'Sarapiquí River Rafting: Class II-III Family Adventure (Safety Certified)',
+    title: 'Best White Water Rafting Sarapiquí: Class II-III Family Adventure',
     shortDescription: 'The perfect mix of adrenaline and safety. Ideal for families and first-timers wanting real jungle adventure.',
     description: 'Navigate the thrilling yet safe rapids of the <strong>Sarapiquí River</strong> ("The Jungle Run"). Perfect for families and beginners who want a taste of <strong>real whitewater action</strong> without the extreme danger.<br /><br />Between rapids, you’ll float through calm pools to spot unsuspecting wildlife on the riverbanks. Certified guides, top-tier equipment, and pure tropical fun.',
     duration: '5 hours',
@@ -209,7 +209,7 @@ export const tours: Tour[] = [
   {
     id: 'river-001',
     slug: 'safari-float-penas-blancas-raft',
-    title: 'Wildlife Safari Float: Spot Monkeys & Sloths (No Paddling Required)',
+    title: 'Best Wildlife Safari Float La Fortuna: Spot Monkeys & Sloths',
     shortDescription: '100% relaxation, 100% wildlife. Sit back while we row you through the jungle.',
     description: '<strong>Put your camera in one hand and a drink in the other.</strong> This is the ultimate "lazy river" experience for nature lovers. Our expert guides do all the paddling while you focus on spotting <strong>monkeys, sloths, caimans, and river turtles</strong> offering a unique perspective of the Peñas Blancas River.',
     duration: '4 hours',
@@ -360,7 +360,7 @@ export const tours: Tour[] = [
   {
     id: 'hiking-004',
     slug: 'rio-celeste-hiking-tenorio',
-    title: 'Río Celeste National Park: The Magical Blue River & Waterfall Hike',
+    title: 'Rio Celeste Waterfall Hike from La Fortuna: The Magical Blue River',
     shortDescription: 'Witness the magic of nature. Hike to the famous blue river and waterfall in Tenorio Volcano National Park.',
     description: '<strong>See it to believe it.</strong> A chemical reaction between volcanic minerals creates an optical phenomenon that turns this river an intense, surreal shade of blue.<br /><br />On this hike through the <strong>Tenorio Volcano National Park</strong>, you’ll visit the iconic <strong>Waterfall</strong>, the "Teñideros" (where the river changes color), and the bubbling thermal pots. It’s a bit of a workout, but the photos are worth every step.',
     duration: 'Full day',
@@ -415,7 +415,19 @@ export const tours: Tour[] = [
     difficulty: 'Easy',
     category: 'Wildlife',
     highlights: ['Sloth Spotting', 'Naturalist Guide', 'Easy Walk'],
-    image: '/images/tours/float/20240415_082403.webp',
+    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/d888445d-8e10-4c98-e8b3-ef14be9c8e00/public',
+    images: [
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/e03f3383-c845-4b07-233d-acdcc184ca00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/931b09c9-7254-49c0-87dd-b5705ee4b800/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/a4ca736d-1a8a-4107-0ed5-06f590416000/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/73722799-6517-41d8-36f8-ee9963201400/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/fa0e34ca-5fbe-401f-5a4b-fec88ef1a100/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/b05ce929-e487-464a-3f30-556b19a09c00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/cfc70b3e-c2f9-48b8-47e1-660cb2932500/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/c1445e19-389d-4225-c1bb-14946c197800/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/97d06009-414c-4cc9-fa53-1e2c3ea40b00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/a48ef8a2-9b0b-48e9-3f3c-a58e8d85d400/public'
+    ],
     isResale: true,
     variants: [
       { id: 'standard', label: 'Standard', price: { rack: 79 }, includesTransport: true }
@@ -548,7 +560,16 @@ export const tours: Tour[] = [
     difficulty: 'Moderate',
     category: 'Combo',
     highlights: ['Volcano Hike', 'La Fortuna Waterfall', 'Typical Lunch'],
-    image: '/images/tours/tubing/tour-photo.jpg',
+    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/31ff8702-fb01-4810-a47e-819fa6b6c600/public',
+    images: [
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/4af0dd6f-30c8-408d-131a-91c2451bc400/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/400d9c5f-d7cb-437a-84da-84f434688c00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/c43721f6-ba93-473e-0422-d3913e73f400/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/304a6d73-59e7-4897-eab0-27bf1e9bc400/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/6d99005c-b835-4e62-9aff-1a953e552000/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/e482a807-7096-429a-cc19-7fe7e0fe5600/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/d80ff05f-7e97-4408-5246-b00cfbac2800/public'
+    ],
     isResale: true,
     variants: [
       { id: 'standard', label: 'Standard', price: { rack: 152 }, includesTransport: true, includesLunch: true },

@@ -59,11 +59,21 @@ export default function TourCard({ tour }: TourCardProps) {
                         <div className="bg-white/90 backdrop-blur-md text-slate-900 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm">
                             {tour.category}
                         </div>
+                        {tour.id === 'combo-001' && (
+                            <div className="bg-[var(--color-primary)] text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm animate-pulse">
+                                Selling Fast
+                            </div>
+                        )}
+                        {tour.category === 'Wildlife' && (
+                            <div className="bg-amber-400 text-slate-900 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm">
+                                Small Groups
+                            </div>
+                        )}
                     </div>
                 </div>
 
                 {/* Content Section */}
-                <div className="p-8">
+                <div className="p-8 flex flex-col h-[calc(100%-10rem)]">
                     {/* Top Row: TripAdvisor Integration */}
                     <div className="flex items-center gap-3 mb-4">
                         <div className="w-4 h-4 text-emerald-600">
@@ -76,27 +86,27 @@ export default function TourCard({ tour }: TourCardProps) {
                         </span>
                     </div>
 
-                    <h3 className="text-2xl font-bold leading-tight text-slate-900 mb-4 group-hover:text-[var(--color-primary)] transition-colors duration-300">
+                    <h3 className="text-xl font-bold leading-tight text-slate-900 mb-3 group-hover:text-[var(--color-primary)] transition-colors duration-300 line-clamp-2">
                         {tour.title}
                     </h3>
 
-                    <p className="text-slate-500 text-[15px] leading-relaxed line-clamp-2 mb-8">
+                    <p className="text-slate-500 text-xs leading-relaxed line-clamp-3 mb-6">
                         {tour.shortDescription || tour.description}
                     </p>
 
-                    <div className="flex items-center justify-between mt-auto">
+                    <div className="flex items-center justify-between mt-auto pt-6 border-t border-slate-50">
                         <div className="flex flex-col">
-                            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Duration</span>
-                            <div className="flex items-center gap-1.5 text-slate-900 font-bold text-sm">
-                                <Clock className="w-4 h-4 text-slate-500" />
+                            <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Duration</span>
+                            <div className="flex items-center gap-1.5 text-slate-700 font-bold text-xs">
+                                <Clock className="w-3 h-3 text-slate-400" />
                                 {tour.duration}
                             </div>
                         </div>
 
                         <div className="flex flex-col items-end">
-                            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">From</span>
-                            <div className="text-2xl font-black text-slate-900 leading-none">
-                                <span className="text-[0.6em] align-top mt-1 mr-0.5 opacity-60">$</span>
+                            <span className="text-[9px] font-black text-[var(--color-primary)] uppercase tracking-widest mb-1">From only</span>
+                            <div className="text-xl font-black text-slate-900 leading-none flex items-start">
+                                <span className="text-[10px] mt-1 mr-0.5 opacity-40">$</span>
                                 {minPrice}
                             </div>
                         </div>
