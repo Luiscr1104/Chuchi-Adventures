@@ -1,0 +1,127 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import RestaurantCard from "../../components/RestaurantCard.astro";
+import { restaurants } from "../../data/restaurants";
+import { Utensils } from "lucide-react";
+
+const title = "Best Local Eats in La Fortuna & Chachagua | Boutique Food Guide";
+const description =
+    "Discover the most authentic local flavors near Arenal Volcano. Our curated guide to the best restaurants in Chachagua and La Fortuna, handpicked by local experts.";
+---
+
+<Layout title={title} description={description}>
+    <main class="bg-slate-50 min-h-screen">
+        <!-- Hero Section -->
+        <section class="relative py-24 md:py-32 bg-slate-900 overflow-hidden">
+            <!-- Background Text Reveal -->
+            <div
+                class="absolute inset-0 opacity-[0.03] pointer-events-none select-none flex items-center justify-center"
+            >
+                <span
+                    class="text-[20rem] font-black uppercase tracking-tighter italic"
+                    >FLAVORS</span
+                >
+            </div>
+
+            <div class="container-custom relative z-10 text-center">
+                <div class="flex items-center justify-center gap-4 mb-8">
+                    <div class="w-12 h-px bg-[var(--color-secondary)]"></div>
+                    <span
+                        class="text-[var(--color-secondary)] font-black uppercase tracking-[0.4em] text-[10px]"
+                        >Arenal Culinary Guide</span
+                    >
+                    <div class="w-12 h-px bg-[var(--color-secondary)]"></div>
+                </div>
+
+                <h1
+                    class="text-5xl md:text-8xl font-bold text-white tracking-tighter leading-[0.85] uppercase mb-8"
+                >
+                    BEST LOCAL <br />
+                    <span class="text-slate-400 font-normal italic"
+                        >EATS NEARBY.</span
+                    >
+                </h1>
+
+                <p
+                    class="text-white/60 text-xl font-light max-w-2xl mx-auto leading-relaxed"
+                >
+                    From shocks of spicy flavor to artisanal wood-fired
+                    masterpieces. The local table is set for your arrival.
+                </p>
+            </div>
+        </section>
+
+        <!-- Content Grid -->
+        <section class="py-24 md:py-32 relative">
+            <div class="container-custom">
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+                >
+                    {
+                        restaurants.map((restaurant) => (
+                            <RestaurantCard restaurant={restaurant} />
+                        ))
+                    }
+                </div>
+
+                <!-- Guide Commitment -->
+                <div
+                    class="mt-32 p-12 md:p-20 bg-white rounded-[4rem] shadow-xl border border-slate-100 flex flex-col md:flex-row items-center gap-16 overflow-hidden relative group"
+                >
+                    <!-- Text Decoration -->
+                    <div
+                        class="absolute top-10 right-10 text-9xl opacity-[0.02] font-black pointer-events-none group-hover:opacity-[0.05] transition-opacity"
+                    >
+                        TRUST
+                    </div>
+
+                    <div
+                        class="flex-shrink-0 w-32 h-32 rounded-[2.5rem] bg-slate-900 flex items-center justify-center text-4xl shadow-2xl"
+                    >
+                        <Utensils
+                            class="text-[var(--color-secondary)] w-12 h-12"
+                        />
+                    </div>
+
+                    <div class="space-y-6 relative z-10">
+                        <h2
+                            class="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight uppercase"
+                        >
+                            The Beyond Arenal <span
+                                class="text-slate-400 font-normal italic"
+                                >Quality Commitment.</span
+                            >
+                        </h2>
+                        <p
+                            class="text-slate-500 text-lg font-medium leading-relaxed max-w-3xl"
+                        >
+                            We don't accept commissions for these features.
+                            Every spot on this list is here because our guides
+                            personally eat here, love the food, and trust the
+                            hygiene and service. Authenticity is our only
+                            filter.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    /* Reveal Animations */
+    .container-custom {
+        animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes fade-up {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>

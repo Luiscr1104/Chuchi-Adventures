@@ -72,15 +72,22 @@ const currentYear = new Date().getFullYear();
                             (
                                 [
                                     "Tours",
-                                    "Spa",
+                                    "Spa & Wellness",
                                     "Transport",
+                                    "Local Eats",
                                     "About Us",
                                     "Contact",
                                 ] as string[]
                             ).map((item) => (
                                 <li>
                                     <a
-                                        href={`/${item.toLowerCase().replace(" ", "")}`}
+                                        href={
+                                            item === "Local Eats"
+                                                ? "/restaurants"
+                                                : item === "Spa & Wellness"
+                                                  ? "/spa"
+                                                  : `/${item.toLowerCase().replace(" ", "")}`
+                                        }
                                         class="hover:text-white transition-colors flex items-center gap-2 group"
                                     >
                                         <div class="w-1 h-1 bg-[var(--color-secondary)] opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -101,6 +108,7 @@ const currentYear = new Date().getFullYear();
                         {
                             (
                                 [
+                                    "Combo",
                                     "Water",
                                     "Hiking",
                                     "Adrenaline",
@@ -113,7 +121,9 @@ const currentYear = new Date().getFullYear();
                                         class="hover:text-white transition-colors flex items-center gap-2 group"
                                     >
                                         <div class="w-1 h-1 bg-[var(--color-primary)] opacity-0 group-hover:opacity-100 transition-opacity" />
-                                        {cat} Tours
+                                        {cat === "Combo"
+                                            ? "Best Combos"
+                                            : cat + " Tours"}
                                     </a>
                                 </li>
                             ))

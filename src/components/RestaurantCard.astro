@@ -1,0 +1,210 @@
+---
+import type { Restaurant } from "../data/restaurants";
+import {
+    Star,
+    MapPin,
+    Phone,
+    Coffee,
+    Wine,
+    Utensils,
+    CheckCircle2,
+    Accessibility,
+    Heart,
+} from "lucide-react";
+
+interface Props {
+    restaurant: Restaurant;
+}
+
+const { restaurant } = Astro.props;
+---
+
+<div
+    class="group relative bg-white rounded-[2.5rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-700 border border-slate-100/50 hover:-translate-y-2 flex flex-col h-full scroll-child"
+>
+    <!-- Restaurant Image & Link Wrap -->
+    <a
+        href={`/restaurants/${restaurant.slug}`}
+        class="block relative h-48 overflow-hidden"
+    >
+        {
+            restaurant.images && restaurant.images.length > 0 && (
+                <img
+                    src={restaurant.images[0]}
+                    alt={restaurant.name}
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+            )
+        }
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
+        >
+        </div>
+        {
+            restaurant.images && restaurant.images.length > 1 && (
+                <div class="absolute bottom-4 right-4 bg-black/50 backdrop-blur-md text-white px-2 py-1 rounded-lg text-[10px] font-bold">
+                    +{restaurant.images.length - 1} Photos
+                </div>
+            )
+        }
+    </a>
+
+    <!-- Card Header / Identity -->
+    <div class="p-8 space-y-6 flex-grow">
+        <div class="flex justify-between items-start">
+            <div class="space-y-1">
+                <a
+                    href={`/restaurants/${restaurant.slug}`}
+                    class="block group/title"
+                >
+                    <div class="flex items-center gap-2">
+                        {
+                            restaurant.highlights.includes("Buen café") && (
+                                <Coffee class="w-4 h-4 text-amber-600" />
+                            )
+                        }
+                        {
+                            restaurant.highlights.includes(
+                                "Buenos cócteles",
+                            ) && <Wine class="w-4 h-4 text-rose-600" />
+                        }
+                        <span
+                            class="text-[10px] font-black uppercase tracking-widest text-slate-400 group-hover/title:text-[var(--color-primary)] transition-colors"
+                        >
+                            {
+                                restaurant.id === "pollo-chachagua"
+                                    ? "Comfort Food"
+                                    : "Local Gem"
+                            }
+                        </span>
+                    </div>
+                    <h3
+                        class="text-2xl font-bold text-slate-900 leading-tight group-hover/title:text-[var(--color-primary)] transition-colors"
+                    >
+                        {restaurant.name}
+                    </h3>
+                </a>
+            </div>
+            <div class="flex flex-col items-end">
+                <div
+                    class="flex items-center gap-1 bg-yellow-50 px-3 py-1 rounded-full"
+                >
+                    <Star class="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    <span class="font-bold text-slate-900"
+                        >{restaurant.rating}</span
+                    >
+                </div>
+                <span class="text-[10px] text-slate-400 font-medium mt-1"
+                    >({restaurant.reviews} reviews)</span
+                >
+            </div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid grid-cols-2 gap-4 pt-4">
+            <div class="space-y-1">
+                <span
+                    class="text-[9px] font-black uppercase tracking-tighter text-slate-400"
+                    >Price Range</span
+                >
+                <p class="text-sm font-bold text-slate-900">
+                    {restaurant.priceRange}
+                </p>
+            </div>
+            <div class="space-y-1">
+                <span
+                    class="text-[9px] font-black uppercase tracking-tighter text-slate-400"
+                    >Popular For</span
+                >
+                <p class="text-sm font-medium text-slate-600">
+                    {restaurant.popularFor.slice(0, 2).join(" & ")}
+                </p>
+            </div>
+        </div>
+
+        <!-- Accessibility & Services -->
+        <div class="flex flex-wrap gap-2 pt-2">
+            {
+                restaurant.accessibility.length > 0 && (
+                    <div class="flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 rounded-xl border border-slate-100 group-hover:border-[var(--color-primary)]/20 transition-colors">
+                        <Accessibility class="w-3.5 h-3.5 text-slate-400" />
+                        <span class="text-[10px] font-bold text-slate-500">
+                            Accessible
+                        </span>
+                    </div>
+                )
+            }
+            {
+                restaurant.serviceOptions
+                    .map((option) => (
+                        <div class="flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 rounded-xl border border-slate-100">
+                            <CheckCircle2 class="w-3.5 h-3.5 text-emerald-500" />
+                            <span class="text-[10px] font-bold text-slate-500">
+                                {option}
+                            </span>
+                        </div>
+                    ))
+                    .slice(0, 2)
+            }
+        </div>
+
+        <!-- Best Review Snip -->
+        {
+            restaurant.bestReview && (
+                <div class="relative p-6 bg-slate-50 rounded-3xl mt-4 border border-slate-100/50 italic text-slate-500 text-sm leading-relaxed">
+                    <span class="absolute -top-3 left-6 text-4xl text-slate-200 leading-none font-serif">
+                        “
+                    </span>
+                    <p class="line-clamp-3 relative z-10">
+                        {restaurant.bestReview.text}
+                    </p>
+                    <p class="mt-4 not-italic font-bold text-slate-900 text-[10px] uppercase tracking-widest">
+                        — {restaurant.bestReview.author}
+                    </p>
+                </div>
+            )
+        }
+    </div>
+
+    <!-- Card Footer -->
+    <div class="p-8 border-t border-slate-50 bg-slate-50/50 space-y-4">
+        <div class="flex items-start gap-3">
+            <MapPin class="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
+            <p
+                class="text-[11px] text-slate-500 font-medium leading-tight line-clamp-2"
+            >
+                {restaurant.address}
+            </p>
+        </div>
+
+        <div class="flex items-center justify-between">
+            <a
+                href={`tel:${restaurant.phone}`}
+                class="flex items-center gap-2 text-slate-900 font-black uppercase tracking-widest text-[10px] hover:text-[var(--color-primary)] transition-colors"
+            >
+                <Phone class="w-3.5 h-3.5" />
+                {restaurant.phone}
+            </a>
+
+            <div class="flex items-center gap-3">
+                <div class="flex -space-x-2">
+                    {
+                        [...Array(3)].map((_, i) => (
+                            <div class="w-6 h-6 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center overflow-hidden">
+                                <img
+                                    src={`https://i.pravatar.cc/100?u=${restaurant.id}-${i}`}
+                                    alt="user"
+                                    class="grayscale"
+                                />
+                            </div>
+                        ))
+                    }
+                </div>
+                <span
+                    class="text-[9px] font-bold text-slate-400 uppercase tracking-tighter"
+                    >Recommended</span
+                >
+            </div>
+        </div>
+    </div>
+</div>

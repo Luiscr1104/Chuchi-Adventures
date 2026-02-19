@@ -1,0 +1,429 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { restaurants } from "../../data/restaurants";
+import {
+    Star,
+    MapPin,
+    Phone,
+    Coffee,
+    Wine,
+    Utensils,
+    CheckCircle2,
+    Accessibility,
+    Heart,
+    Clock,
+    ChevronRight,
+    ArrowLeft,
+} from "lucide-react";
+import WhatsAppBtn from "../../components/WhatsAppBtn.astro";
+
+export async function getStaticPaths() {
+    return restaurants.map((restaurant) => ({
+        params: { slug: restaurant.slug },
+        props: { restaurant },
+    }));
+}
+
+const { restaurant } = Astro.props;
+
+const title = `${restaurant.name} | Best Local Food in Chachagua/La Fortuna`;
+const description = `Visit ${restaurant.name} in Arenal. Rated ${restaurant.rating}/5. ${restaurant.bestReview?.text.slice(0, 100)}... Book your local dining experience.`;
+---
+
+<Layout title={title} description={description}>
+    <main class="bg-white min-h-screen">
+        <!-- Header / Breadcrumbs -->
+        <nav class="py-6 border-b border-slate-100 bg-slate-50/50">
+            <div class="container-custom">
+                <div
+                    class="flex items-center gap-4 text-[10px] font-black uppercase tracking-widest text-slate-400"
+                >
+                    <a
+                        href="/"
+                        class="hover:text-[var(--color-primary)] transition-colors"
+                        >Home</a
+                    >
+                    <ChevronRight class="w-3 h-3" />
+                    <a
+                        href="/restaurants"
+                        class="hover:text-[var(--color-primary)] transition-colors"
+                        >Restaurants</a
+                    >
+                    <ChevronRight class="w-3 h-3" />
+                    <span class="text-slate-900">{restaurant.name}</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero / Gallery Section -->
+        <section class="py-12 md:py-20 overflow-hidden">
+            <div class="container-custom">
+                <div
+                    class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+                >
+                    <!-- Text Identity -->
+                    <div class="lg:col-span-12 space-y-6 mb-12">
+                        <div class="flex flex-wrap items-center gap-4">
+                            <span
+                                class="px-4 py-1.5 rounded-full bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest"
+                            >
+                                Local Choice
+                            </span>
+                            <div
+                                class="flex items-center gap-1 text-yellow-400"
+                            >
+                                {
+                                    [...Array(5)].map((_, i) => (
+                                        <Star
+                                            class={`w-5 h-5 ${i < Math.floor(restaurant.rating) ? "fill-current" : "opacity-30"}`}
+                                        />
+                                    ))
+                                }
+                                <span
+                                    class="ml-2 text-slate-900 font-black text-xl"
+                                    >{restaurant.rating}</span
+                                >
+                                <span class="text-slate-400 text-sm font-medium"
+                                    >({restaurant.reviews} Google Reviews)</span
+                                >
+                            </div>
+                        </div>
+                        <h1
+                            class="text-6xl md:text-9xl font-bold text-slate-900 tracking-tighter leading-[0.8] uppercase"
+                        >
+                            {restaurant.name.split(" ")[0]}
+                            <br />
+                            <span class="text-slate-300 font-normal italic"
+                                >{
+                                    restaurant.name
+                                        .split(" ")
+                                        .slice(1)
+                                        .join(" ")
+                                }</span
+                            >
+                        </h1>
+                    </div>
+
+                    <!-- Main Visuals -->
+                    <div class="lg:col-span-8 space-y-8">
+                        <div
+                            class="relative aspect-[16/9] rounded-[3rem] overflow-hidden shadow-2xl group"
+                        >
+                            <img
+                                src={restaurant.images[0]}
+                                alt={restaurant.name}
+                                class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
+                            />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"
+                            >
+                            </div>
+                        </div>
+
+                        <!-- Secondary Gallery -->
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                            {
+                                restaurant.images.slice(1).map((img, i) => (
+                                    <div class="aspect-square rounded-[2rem] overflow-hidden shadow-lg border border-slate-100/50 group">
+                                        <img
+                                            src={img}
+                                            alt={`${restaurant.name} ${i + 1}`}
+                                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                        />
+                                    </div>
+                                ))
+                            }
+                            {
+                                /* Optional Empty placeholders to keep grid uniform if short on images */
+                            }
+                            <div
+                                class="aspect-square rounded-[2rem] bg-slate-50 border-2 border-dashed border-slate-200 flex items-center justify-center text-slate-300"
+                            >
+                                <Heart class="w-8 h-8 opacity-20" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions / Highlights Sidebar -->
+                    <aside class="lg:col-span-4 space-y-8">
+                        <div
+                            class="p-10 bg-slate-900 rounded-[3rem] text-white shadow-3xl space-y-10 relative overflow-hidden"
+                        >
+                            <div
+                                class="absolute -top-10 -right-10 w-40 h-40 bg-[var(--color-primary)] opacity-10 blur-[60px] rounded-full"
+                            >
+                            </div>
+
+                            <div class="space-y-4 relative z-10">
+                                <h3
+                                    class="text-xs font-black uppercase tracking-[0.4em] text-[var(--color-secondary)]"
+                                >
+                                    Experience Highlights
+                                </h3>
+                                <div class="space-y-4">
+                                    {
+                                        restaurant.highlights.map((h) => (
+                                            <div class="flex items-center gap-4 group">
+                                                <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-[var(--color-secondary)] group-hover:text-slate-900 transition-all">
+                                                    {h.includes("café") && (
+                                                        <Coffee class="w-5 h-5" />
+                                                    )}
+                                                    {h.includes("cócteles") && (
+                                                        <Wine class="w-5 h-5" />
+                                                    )}
+                                                    {h.includes("postres") && (
+                                                        <Utensils class="w-5 h-5" />
+                                                    )}
+                                                </div>
+                                                <span class="font-bold text-lg">
+                                                    {h}
+                                                </span>
+                                            </div>
+                                        ))
+                                    }
+                                </div>
+                            </div>
+
+                            <div
+                                class="pt-8 border-t border-white/10 space-y-6"
+                            >
+                                <div class="flex items-center justify-between">
+                                    <span
+                                        class="text-[10px] font-black uppercase text-white/40 tracking-widest"
+                                        >Price Range</span
+                                    >
+                                    <span
+                                        class="font-bold text-[var(--color-secondary)]"
+                                        >{restaurant.priceRange}</span
+                                    >
+                                </div>
+                                <WhatsAppBtn
+                                    text="Check Availability"
+                                    className="w-full justify-center bg-white text-slate-950 py-6 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] shadow-2xl hover:bg-[var(--color-secondary)] transition-all"
+                                />
+                            </div>
+                        </div>
+
+                        <!-- Business Contact -->
+                        <div
+                            class="p-10 border border-slate-100 rounded-[3rem] space-y-8"
+                        >
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <MapPin
+                                        class="w-5 h-5 text-slate-900 mt-1"
+                                    />
+                                    <div>
+                                        <p
+                                            class="text-[9px] font-black uppercase text-slate-400 tracking-widest mb-1"
+                                        >
+                                            Address
+                                        </p>
+                                        <p
+                                            class="text-sm font-medium text-slate-600 leading-relaxed"
+                                        >
+                                            {restaurant.address}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <Phone class="w-5 h-5 text-slate-900" />
+                                    <div>
+                                        <p
+                                            class="text-[9px] font-black uppercase text-slate-400 tracking-widest mb-1"
+                                        >
+                                            Contact
+                                        </p>
+                                        <a
+                                            href={`tel:${restaurant.phone}`}
+                                            class="text-lg font-bold text-slate-900 hover:text-[var(--color-primary)] transition-colors"
+                                            >{restaurant.phone}</a
+                                        >
+                                    </div>
+                                </div>
+                                {
+                                    restaurant.hours && (
+                                        <div class="flex items-start gap-4">
+                                            <Clock class="w-5 h-5 text-slate-900 mt-1" />
+                                            <div class="flex-grow">
+                                                <p class="text-[9px] font-black uppercase text-slate-400 tracking-widest mb-1">
+                                                    Opening Hours
+                                                </p>
+                                                <div class="space-y-1 mt-2">
+                                                    <div class="flex justify-between text-xs font-bold text-slate-900">
+                                                        <span>Typical</span>
+                                                        <span>
+                                                            {
+                                                                restaurant
+                                                                    .hours[
+                                                                    "lunes"
+                                                                ]
+                                                            }
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                }
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- More Details Section -->
+        <section class="py-24 bg-slate-50 border-y border-slate-100">
+            <div class="container-custom">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+                    <!-- Public Review -->
+                    <div class="space-y-10">
+                        <div class="space-y-2">
+                            <span
+                                class="text-[10px] font-black uppercase tracking-[0.4em] text-[var(--color-primary)]"
+                                >Social Proof</span
+                            >
+                            <h2
+                                class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight uppercase"
+                            >
+                                What <span
+                                    class="text-slate-400 font-normal italic"
+                                    >Explorers Say.</span>
+                            </h2>
+                        </div>
+
+                        {
+                            restaurant.bestReview && (
+                                <div class="p-12 bg-white rounded-[4rem] shadow-xl relative overflow-hidden group">
+                                    <div class="absolute -top-10 -right-10 text-[15rem] leading-none text-slate-50 font-serif pointer-events-none group-hover:text-slate-100 transition-colors">
+                                        “
+                                    </div>
+                                    <div class="relative z-10 space-y-8">
+                                        <p class="text-xl md:text-2xl text-slate-600 italic leading-relaxed font-light">
+                                            {restaurant.bestReview.text}
+                                        </p>
+                                        <div class="flex items-center gap-4">
+                                            <div class="w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center font-black">
+                                                {restaurant.bestReview.author.charAt(
+                                                    0,
+                                                )}
+                                            </div>
+                                            <div>
+                                                <p class="font-black uppercase tracking-widest text-xs text-slate-900">
+                                                    {
+                                                        restaurant.bestReview
+                                                            .author
+                                                    }
+                                                </p>
+                                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
+                                                    Local Guide • Tripadvisor
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        }
+                    </div>
+
+                    <!-- Fine Details Grid -->
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <h3
+                                class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400"
+                            >
+                                Environment
+                            </h3>
+                            <ul class="space-y-3">
+                                {
+                                    restaurant.atmosphere.map((a) => (
+                                        <li class="flex items-center gap-3 text-sm font-bold text-slate-900">
+                                            <CheckCircle2 class="w-4 h-4 text-emerald-500" />
+                                            {a}
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+                        <div class="space-y-6">
+                            <h3
+                                class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400"
+                            >
+                                Inclusion
+                            </h3>
+                            <ul class="space-y-3">
+                                {
+                                    restaurant.accessibility.map((a) => (
+                                        <li class="flex items-center gap-3 text-sm font-bold text-slate-900">
+                                            <Accessibility class="w-4 h-4 text-[var(--color-primary)]" />
+                                            {a.split(" ").slice(0, 3).join(" ")}
+                                            ...
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+                        <div class="space-y-6">
+                            <h3
+                                class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400"
+                            >
+                                Offerings
+                            </h3>
+                            <ul class="space-y-2 flex flex-wrap gap-2 pt-2">
+                                {
+                                    restaurant.offers
+                                        .slice(0, 6)
+                                        .map((o) => (
+                                            <li class="px-3 py-1 bg-white rounded-lg border border-slate-200 text-[10px] font-bold text-slate-500 uppercase tracking-tighter shadow-sm">
+                                                {o}
+                                            </li>
+                                        ))
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTAs & Closing -->
+        <section class="py-32 bg-white">
+            <div class="container-custom text-center space-y-12">
+                <h2
+                    class="text-4xl md:text-6xl font-bold text-slate-900 tracking-tighter uppercase leading-none"
+                >
+                    Ready for an <br />
+                    <span
+                        class="text-slate-400 underline decoration-[var(--color-secondary)] decoration-8 underline-offset-8"
+                        >Epic Lunch?</span
+                    >
+                </h2>
+                <div
+                    class="flex flex-col md:flex-row items-center justify-center gap-6"
+                >
+                    <a
+                        href="/restaurants"
+                        class="btn-secondary px-10 py-5 rounded-2xl flex items-center gap-3 hover:translate-x-[-4px] transition-transform"
+                    >
+                        <ArrowLeft class="w-4 h-4" />
+                        View All Eateries
+                    </a>
+                    <WhatsAppBtn
+                        text="Book Travel + Table"
+                        message={`Hola! I saw ${restaurant.name} on your guide. Can you help me arrange transport and a booking?`}
+                        className="btn-primary px-10 py-5 rounded-2xl"
+                    />
+                </div>
+            </div>
+        </section>
+    </main>
+</Layout>
+
+<style>
+    h1,
+    h2,
+    h3 {
+        text-wrap: balance;
+    }
+</style>
