@@ -25,26 +25,26 @@ const socialImageURL = new _URL(image, Astro.site);
 // Global Organization schema
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "TourOperator",
+  "@type": ["TourOperator", "TravelAgency"],
   name: "Beyond Arenal",
-  alternateName: "Beyond Arenal",
+  alternateName: ["Beyond Arenal Tours", "Beyond Arenal La Fortuna"],
   url: "https://beyondarenal.com",
   logo: new _URL("/logoBlack.svg", Astro.site).href,
   description:
-    "Boutique tour operator in La Fortuna, Costa Rica. Locally owned & operated since 2014.",
+    "Direct Tour Operator and Travel Agency in La Fortuna, Costa Rica. Boutique small-group adventures and private tours since 2014.",
   telephone: "+506-8820-1065",
   email: "luiscr1104@gmail.com",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Peñas Blancas",
-    addressLocality: "San Ramón",
+    addressLocality: "La Fortuna",
     addressRegion: "Alajuela",
     addressCountry: "CR",
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 10.3534,
-    longitude: -84.5831,
+    latitude: 10.4678, // Adjusted to be closer to La Fortuna center
+    longitude: -84.6427,
   },
   sameAs: [
     "https://www.facebook.com/profile.php?id=61587983755668",

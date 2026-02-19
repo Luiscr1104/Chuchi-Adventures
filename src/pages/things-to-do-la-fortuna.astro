@@ -1,0 +1,141 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { tours } from "../data/tours";
+import TourCard from "../components/TourCard";
+import { ArrowRight, MapPin, Compass, Info } from "lucide-react";
+
+const title =
+    "25 Best Things to do in La Fortuna & Arenal | Beyond Arenal Guide";
+const description =
+    "Discover the ultimate list of things to do in La Fortuna, Costa Rica. From Arenal Volcano hikes to hidden waterfalls and rafting. Expert local guide by Beyond Arenal.";
+
+// Group tours by category for the hub page
+const categories = [
+    {
+        name: "Combo Adventures",
+        slug: "Combo",
+        icon: "✨",
+        desc: "Maximize your time with these all-inclusive day trips.",
+    },
+    {
+        name: "Wildlife & Nature",
+        slug: "Wildlife",
+        icon: "🦜",
+        desc: "Experience the rich biodiversity of Arenal safely.",
+    },
+    {
+        name: "Water & Rafting",
+        slug: "Water",
+        icon: "🌊",
+        desc: "Cool off in the rivers and lakes of La Fortuna.",
+    },
+    {
+        name: "Hiking & Volcano",
+        slug: "Hiking",
+        icon: "🌋",
+        desc: "Walk on ancient lava flows and deep primary forest.",
+    },
+    {
+        name: "Adrenaline",
+        slug: "Adrenaline",
+        icon: "⚡",
+        desc: "For those looking to push their limits in the jungle.",
+    },
+];
+---
+
+<Layout title={title} description={description}>
+    <section class="relative py-24 bg-slate-900 overflow-hidden">
+        <div class="container-custom relative z-10 text-center text-white">
+            <span
+                class="text-[var(--color-secondary)] font-black uppercase tracking-[0.4em] text-xs mb-6 block"
+                >The Ultimate Guide</span
+            >
+            <h1
+                class="text-5xl md:text-8xl font-bold tracking-tighter mb-8 uppercase"
+            >
+                Things to do <br />
+                <span class="text-slate-400">in La Fortuna.</span>
+            </h1>
+            <p
+                class="text-white/60 text-xl max-w-2xl mx-auto font-light leading-relaxed"
+            >
+                Planning your trip to Arenal? We've curated the most authentic
+                experiences, from world-famous landmarks to hidden local
+                secrets.
+            </p>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="container-custom">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    categories.map((cat) => (
+                        <div class="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 hover:shadow-2xl transition-all group">
+                            <div class="text-4xl mb-6">{cat.icon}</div>
+                            <h2 class="text-2xl font-bold text-slate-900 mb-4">
+                                {cat.name}
+                            </h2>
+                            <p class="text-slate-500 text-sm mb-8 leading-relaxed">
+                                {cat.desc}
+                            </p>
+                            <div class="space-y-4">
+                                {tours
+                                    .filter((t) => t.category === cat.slug)
+                                    .slice(0, 3)
+                                    .map((tour) => (
+                                        <a
+                                            href={`/tours/${tour.slug}`}
+                                            class="flex items-center justify-between group/link text-sm font-bold text-slate-700 hover:text-[var(--color-primary)] transition-colors"
+                                        >
+                                            {tour.title}
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover/link:opacity-100 transition-all -translate-x-2 group-hover/link:translate-x-0" />
+                                        </a>
+                                    ))}
+                            </div>
+                            <a
+                                href={`/tours?category=${cat.slug}`}
+                                class="mt-10 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-slate-900 transition-colors"
+                            >
+                                Explore All {cat.name}
+                                <Compass className="w-3 h-3" />
+                            </a>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+
+    <!-- High Intent CTA -->
+    <section class="py-32 bg-slate-50">
+        <div class="container-custom text-center max-w-4xl mx-auto">
+            <div
+                class="p-16 rounded-[4rem] bg-white shadow-2xl space-y-8 border border-slate-100"
+            >
+                <h2
+                    class="text-4xl font-bold text-slate-900 uppercase tracking-tight"
+                >
+                    Need a Personalized Itinerary?
+                </h2>
+                <p class="text-slate-500 text-lg">
+                    Don't spend hours researching. Our local experts can help
+                    you build the perfect trip to La Fortuna in minutes.
+                </p>
+                <div class="flex flex-col items-center gap-4">
+                    <a
+                        href="https://wa.me/50688201065?text=Hola!%20I'm%20planning%20my%20trip%20to%20La%20Fortuna%20and%20need%20help%20building%20my%20itinerary."
+                        class="px-12 py-6 bg-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-[var(--color-primary)] transition-all shadow-xl"
+                    >
+                        Chat with a Local Expert
+                    </a>
+                    <span
+                        class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400"
+                        >Response time: &lt; 5 minutes</span
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>

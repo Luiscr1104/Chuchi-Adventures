@@ -431,12 +431,12 @@ const description = `Visit ${restaurant.name} in Arenal. Rated ${restaurant.rati
                             >
                                 Offerings
                             </h3>
-                            <ul class="space-y-2 flex flex-wrap gap-2 pt-2">
+                            <ul class="flex flex-wrap gap-3 pt-2">
                                 {
                                     restaurant.offers
                                         .slice(0, 6)
                                         .map((o) => (
-                                            <li class="px-3 py-1 bg-white rounded-lg border border-slate-200 text-[10px] font-bold text-slate-500 uppercase tracking-tighter shadow-sm">
+                                            <li class="inline-flex items-center justify-center px-4 h-8 bg-white rounded-xl border border-slate-200 text-[10px] font-black text-slate-500 uppercase tracking-tighter shadow-sm leading-none">
                                                 {o}
                                             </li>
                                         ))

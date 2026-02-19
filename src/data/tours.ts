@@ -115,7 +115,7 @@ export const tours: Tour[] = [
   {
     id: 'combo-top-001',
     slug: 'arenal-top-4-attractions-incl-hot-springs',
-    title: 'Best Arenal Volcano Tour: Waterfall, Bridges & Hot Springs',
+    title: 'Arenal Volcano "Big 4" Combo: Waterfall, Hanging Bridges & Hot Springs',
     shortDescription: 'The #1 Best-Selling Combo in La Fortuna. Experience the "Big 4" highlights in one flawless day.',
     description: 'Stop worrying about logistics and start living the adventure. This is the <strong>Ultimate Arenal Experience</strong>—the only tour that combines the <strong>top 4 adventures</strong> in La Fortuna into one seamless, all-inclusive day.<br /><br /><strong>Why this is our #1 Best-Seller:</strong><br />You will walk the mystical <strong>Hanging Bridges</strong>, swim in the pristine <strong>La Fortuna Waterfall</strong>, hike the ancient lava flows of <strong>Arenal Volcano</strong>, and finish with a relaxing soak in <strong>Hot Springs with a gourmet dinner</strong>.<br /><br />We handle everything: luxury transport, entrance fees, naturalist guides, lunch, and dinner. You just bring the sense of wonder.',
     duration: '10 hours',
