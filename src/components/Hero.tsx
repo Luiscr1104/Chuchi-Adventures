@@ -70,13 +70,18 @@ export default function Hero() {
                                 className="flex flex-wrap gap-5"
                             >
                                 <a href="#tours">
-                                    <Button size="lg" className="h-16 px-10 rounded-2xl bg-[var(--color-secondary)] text-slate-900 hover:bg-white transition-all duration-500 font-black uppercase tracking-widest text-sm shadow-2xl shadow-emerald-500/20">
-                                        Book Your Arenal Adventure Today
+                                    <Button size="lg" className="h-16 px-10 rounded-2xl bg-white text-slate-900 hover:bg-[var(--color-secondary)] transition-all duration-500 font-black uppercase tracking-widest text-sm shadow-2xl">
+                                        Book Your Adventure
                                     </Button>
                                 </a>
-                                <a href="https://wa.me/50688201065" target="_blank" data-track-wa data-wa-location="hero_private_trip">
+                                <a
+                                    href={`https://wa.me/50688201065?text=${encodeURIComponent("Hola Beyond Arenal! I'm interested in a Private Tour in La Fortuna. Can you help me?")}`}
+                                    target="_blank"
+                                    data-track-wa
+                                    data-wa-location="hero_private_trip"
+                                >
                                     <Button variant="outline" size="lg" className="h-16 px-10 rounded-2xl bg-white/5 backdrop-blur-md text-white border-white/20 hover:bg-white/10 transition-all duration-500 font-bold uppercase tracking-widest text-sm">
-                                        Private Trip
+                                        Private Tour
                                     </Button>
                                 </a>
                             </motion.div>
