@@ -21,6 +21,8 @@ export interface Restaurant {
     kids: string[];
     parking: string[];
     images: string[];
+    googleMapsUrl: string;
+    wazeUrl: string;
     hours?: { [key: string]: string };
     bestReview?: {
         author: string;
@@ -81,6 +83,8 @@ export const restaurants: Restaurant[] = [
             "https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/3c52faa0-0cd2-404c-c7da-5aa67a26b500/public",
             "https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/3b83a4c1-00d6-4e7b-398b-fff59d44ab00/public"
         ],
+        googleMapsUrl: "https://maps.app.goo.gl/aKWNQNJ9WaWogxM58",
+        wazeUrl: "https://waze.com/ul?q=Restaurante+Ross+Chachagua",
         hours: {
             "jueves": "11 a. m.–10 p. m.",
             "viernes": "11 a. m.–10 p. m.",
@@ -133,6 +137,8 @@ export const restaurants: Restaurant[] = [
             "https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/c1b39cb9-74c8-4fa0-2d90-2654d7c48600/public",
             "https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/43bb23da-a88c-4522-4bd7-ea6248d45200/public"
         ],
+        googleMapsUrl: "https://maps.app.goo.gl/byL8THeyA6eBRXnv5",
+        wazeUrl: "https://waze.com/ul?q=Restaurante+Diego+Ulate",
         bestReview: {
             author: "C K",
             text: "This food was absolutely DELICIOUS!!! We ordered the shrimp ceviche, 2 person assortment, and the beef fajita and more (mango smoothie and passion fruit smoothie).In total, it only cost $45! (2 kids 3 adults) The 2 person assortment included a sort of chicken that was so delicious! They also gave us a bunch of starters like nachos with this amazing bean dip, fries, salad, corn chips, and small drinks like this tomato chili drink and a (horchata?) looking drink. One of the staff was so nice to us and stopped by often to check on us. Even though we don’t speak Spanish, he (luckily) spoke some English. The place was decorated nicely and not too crowded (Christmas Eve?) around 6pm.I love this place would recommend (vibes are so chill!)",
@@ -179,6 +185,8 @@ export const restaurants: Restaurant[] = [
             "https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/be96d3bc-61fc-4d2f-f82d-be9ac56e9a00/public",
             "https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/98edba5a-c2e9-48a7-d3d9-29dc09c7eb00/public"
         ],
+        googleMapsUrl: "https://maps.app.goo.gl/ug7jmPRBDueCrGwL6",
+        wazeUrl: "https://waze.com/ul?q=Pollo+Chachagua",
         hours: {
             "jueves": "11 a. m.–9 p. m.",
             "viernes": "11 a. m.–9 p. m.",

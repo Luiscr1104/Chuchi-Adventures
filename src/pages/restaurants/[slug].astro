@@ -14,6 +14,8 @@ import {
     Clock,
     ChevronRight,
     ArrowLeft,
+    Navigation,
+    ExternalLink,
 } from "lucide-react";
 import WhatsAppBtn from "../../components/WhatsAppBtn.astro";
 
@@ -89,7 +91,7 @@ const description = `Visit ${restaurant.name} in Arenal. Rated ${restaurant.rati
                             </div>
                         </div>
                         <h1
-                            class="text-6xl md:text-9xl font-bold text-slate-900 tracking-tighter leading-[0.8] uppercase"
+                            class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-slate-900 tracking-tighter leading-[0.9] md:leading-[0.8] uppercase break-words"
                         >
                             {restaurant.name.split(" ")[0]}
                             <br />
@@ -268,6 +270,64 @@ const description = `Visit ${restaurant.name} in Arenal. Rated ${restaurant.rati
                                 }
                             </div>
                         </div>
+
+                        <!-- Navigation & Directions -->
+                        <div
+                            class="p-10 bg-gradient-to-br from-white to-slate-50 border border-slate-100 rounded-[3rem] space-y-8 shadow-sm"
+                        >
+                            <div class="space-y-2">
+                                <h3
+                                    class="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400"
+                                >
+                                    Navigation
+                                </h3>
+                                <p class="text-xs text-slate-500 font-medium">
+                                    Quick access for your clients:
+                                </p>
+                            </div>
+
+                            <div class="grid grid-cols-1 gap-4">
+                                <a
+                                    href={restaurant.googleMapsUrl}
+                                    target="_blank"
+                                    class="flex items-center justify-between px-6 py-4 bg-white border border-slate-200 rounded-2xl hover:border-[var(--color-primary)] hover:shadow-lg transition-all group"
+                                >
+                                    <div class="flex items-center gap-4">
+                                        <div
+                                            class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors"
+                                        >
+                                            <MapPin class="w-5 h-5" />
+                                        </div>
+                                        <span class="font-bold text-slate-900"
+                                            >Google Maps</span
+                                        >
+                                    </div>
+                                    <ExternalLink
+                                        class="w-4 h-4 text-slate-300 group-hover:text-[var(--color-primary)]"
+                                    />
+                                </a>
+
+                                <a
+                                    href={restaurant.wazeUrl}
+                                    target="_blank"
+                                    class="flex items-center justify-between px-6 py-4 bg-white border border-slate-200 rounded-2xl hover:border-[#33f1ff] hover:shadow-lg transition-all group"
+                                >
+                                    <div class="flex items-center gap-4">
+                                        <div
+                                            class="w-10 h-10 rounded-xl bg-[#33f1ff]/10 flex items-center justify-center text-[#242629] group-hover:bg-[#33f1ff] transition-colors"
+                                        >
+                                            <Navigation class="w-5 h-5" />
+                                        </div>
+                                        <span class="font-bold text-slate-900"
+                                            >Waze Navigation</span
+                                        >
+                                    </div>
+                                    <ExternalLink
+                                        class="w-4 h-4 text-slate-300 group-hover:text-[#33f1ff]"
+                                    />
+                                </a>
+                            </div>
+                        </div>
                     </aside>
                 </div>
             </div>
@@ -289,7 +349,8 @@ const description = `Visit ${restaurant.name} in Arenal. Rated ${restaurant.rati
                             >
                                 What <span
                                     class="text-slate-400 font-normal italic"
-                                    >Explorers Say.</span>
+                                    >Explorers Say.</span
+                                >
                             </h2>
                         </div>
 
