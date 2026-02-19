@@ -6,6 +6,7 @@ import {
     Phone,
     MapPin,
     ExternalLink,
+    Music2,
 } from "lucide-react";
 const currentYear = new Date().getFullYear();
 ---
@@ -32,7 +33,7 @@ const currentYear = new Date().getFullYear();
                 <!-- Social Links -->
                 <div class="flex gap-4">
                     <a
-                        href="https://www.instagram.com/"
+                        href="https://www.instagram.com/beyondarenal/"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[var(--color-secondary)] hover:text-slate-950 transition-all duration-500 group"
@@ -50,6 +51,17 @@ const currentYear = new Date().getFullYear();
                         aria-label="Follow us on Facebook"
                     >
                         <Facebook
+                            className="w-5 h-5 group-hover:scale-110 transition-transform"
+                        />
+                    </a>
+                    <a
+                        href="https://www.tiktok.com/@beyondarenal"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[var(--color-secondary)] hover:text-slate-950 transition-all duration-500 group"
+                        aria-label="Follow us on TikTok"
+                    >
+                        <Music2
                             className="w-5 h-5 group-hover:scale-110 transition-transform"
                         />
                     </a>
