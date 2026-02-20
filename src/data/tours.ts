@@ -113,6 +113,30 @@ export const tours: Tour[] = [
   // ⭐ TOP FEATURED TOURS
   // =========================
   {
+    id: 'horseback-001',
+    slug: 'exclusive-horseback-riding-chachagua',
+    title: '⭐ Exclusive: Horseback Riding Tour in Chachagua',
+    shortDescription: '🔥 OUR #1 RECOMMENDED TOUR. A scenic, unforgettable horseback ride culminating at a beautiful river. Spaces fill up fast!',
+    description: '<strong>🚨 HIGHLY RECOMMENDED - OUR EXCLUSIVE TOUR 🚨</strong><br /><br />Experience an unforgettable horseback riding adventure in the heart of Chachagua. This guided tour takes you on a scenic ride through beautiful natural landscapes as you travel on horseback to a nearby river.<br /><br />Along the way, you’ll enjoy the fresh air, peaceful surroundings, and the excitement of exploring nature on horseback. Once we arrive at the river, you’ll have free time to relax, cool off, and enjoy the refreshing water in a calm and natural setting.<br /><br />The tour also includes a light snack to recharge and enjoy the moment even more. This experience is perfect for nature lovers, adventure seekers, and anyone looking to connect with Costa Rica’s natural beauty in a unique and relaxing way.<br /><br />✨ <strong>No experience required – suitable for all levels.</strong> Book now to secure your spot!',
+    duration: '1.5 hours',
+    difficulty: 'Easy',
+    category: 'Relax',
+    highlights: ['Exclusive Chachagua Route', 'River Swim & Snack', 'No Experience Needed'],
+    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/57cca4a8-f383-47f3-6db9-1adab2683900/public',
+    images: [
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/57cca4a8-f383-47f3-6db9-1adab2683900/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/4c378fd1-9690-4063-86f0-a92028c18300/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/82a12fe9-a1b5-40db-8883-bbb5772c9600/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/6e39c230-0709-4c79-01b9-eb2caecead00/public'
+    ],
+    isResale: false,
+    variants: [
+      { id: 'standard', label: 'Standard Experience', price: { rack: 65 }, includesTransport: false }
+    ],
+    rating: 5,
+    reviewsCount: 350
+  },
+  {
     id: 'combo-top-001',
     slug: 'arenal-top-4-attractions-incl-hot-springs',
     title: 'Arenal Volcano "Big 4" Combo: Waterfall, Hanging Bridges & Hot Springs',

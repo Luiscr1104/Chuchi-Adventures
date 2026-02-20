@@ -185,6 +185,14 @@ const featuredTours = tours.slice(0, 3);
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 scroll-child">
         {[
           {
+            tag: "Selling Fast - Limited",
+            title: "Exclusive: Horseback Riding Tour in Chachagua",
+            desc: '"Our #1 recommended experience. A scenic ride ending at a beautiful river."',
+            price: "65",
+            id: "horseback-001",
+            icon: "🐎"
+          },
+          {
             tag: "Most Popular",
             title: "Mini Combo #1 – Volcano Hike + Waterfall + Lunch",
             desc: '"The absolute best-seller. See all the highlights in one flawless day."',
@@ -199,19 +207,15 @@ const featuredTours = tours.slice(0, 3);
             price: "83",
             id: "river-001",
             icon: "👨‍👩‍👧"
-          },
-          {
-            tag: "Best Adrenaline",
-            title: "Extreme Canyoning: 5 Waterfalls & Jungle Rappel",
-            desc: '"For those who want to feel alive. Rappel down thundering waterfalls."',
-            price: "105",
-            id: "adrenaline-001",
-            icon: "⚡"
           }
         ].map(pick => (
           <a
             href={`/tours/${tours.find(t => t.id === pick.id)?.slug}`}
-            class="group relative bg-white rounded-[3rem] p-10 shadow-xl hover:shadow-2xl transition-all duration-700 border border-slate-100/50 hover:-translate-y-4 overflow-hidden"
+            class={`group relative rounded-[3rem] p-10 shadow-xl hover:shadow-2xl transition-all duration-700 hover:-translate-y-4 overflow-hidden ${
+              pick.id === 'horseback-001' 
+                ? 'bg-gradient-to-br from-emerald-50 to-emerald-100/50 border-2 border-emerald-500 shadow-[0_20px_40px_-15px_rgba(16,185,129,0.3)] ring-4 ring-emerald-500/20 scale-[1.02]' 
+                : 'bg-white border border-slate-100/50'
+            }`}
           >
              <!-- Decorative background text -->
              <div class="absolute -top-10 -right-10 text-9xl opacity-[0.03] font-black group-hover:opacity-[0.06] transition-opacity pointer-events-none uppercase italic leading-none">{pick.tag.split(' ')[0]}</div>

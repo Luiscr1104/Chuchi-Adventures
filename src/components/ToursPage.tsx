@@ -10,7 +10,12 @@ interface ToursPageProps {
 
 export default function ToursPage({ tours }: ToursPageProps) {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [filteredTours, setFilteredTours] = useState<Tour[]>(tours);
+
+  // Vercel Best Practice: rerender-derived-state-no-effect
+  // Derive filtered tours during render instead of using state + useEffect
+  const filteredTours = selectedCategory
+    ? tours.filter(tour => tour.category === selectedCategory)
+    : tours;
 
   // Get unique categories from tours
   const categories = [...new Set(tours.map(tour => tour.category))];
@@ -32,15 +37,6 @@ export default function ToursPage({ tours }: ToursPageProps) {
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
-
-  // Update filtered tours when category changes
-  useEffect(() => {
-    if (selectedCategory) {
-      setFilteredTours(tours.filter(tour => tour.category === selectedCategory));
-    } else {
-      setFilteredTours(tours);
-    }
-  }, [selectedCategory, tours]);
 
   // Handle category selection
   const handleCategoryChange = (category: string | null) => {
