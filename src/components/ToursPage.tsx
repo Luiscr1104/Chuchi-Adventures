@@ -15,7 +15,7 @@ export default function ToursPage({ tours }: ToursPageProps) {
   // Derive filtered tours during render instead of using state + useEffect
   const filteredTours = selectedCategory
     ? tours.filter(tour => tour.category === selectedCategory)
-    : tours;
+    : tours.filter(tour => tour.category !== 'Combo');
 
   // Get unique categories from tours
   const categories = [...new Set(tours.map(tour => tour.category))];
