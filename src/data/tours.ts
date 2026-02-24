@@ -113,9 +113,119 @@ export const tours: Tour[] = [
   // ⭐ TOP FEATURED TOURS
   // =========================
   {
+    id: 'horseback-001',
+    slug: 'exclusive-horseback-riding-chachagua',
+    title: '⭐ Exclusive: Horseback Riding Tour in Chachagua',
+    shortDescription: '🔥 OUR #1 RECOMMENDED TOUR. A scenic, unforgettable horseback ride culminating at a beautiful river. Spaces fill up fast!',
+    description: '<strong>🚨 HIGHLY RECOMMENDED - OUR EXCLUSIVE TOUR 🚨</strong><br /><br />Experience an unforgettable horseback riding adventure in the heart of Chachagua. This guided tour takes you on a scenic ride through beautiful natural landscapes as you travel on horseback to a nearby river.<br /><br />Along the way, you’ll enjoy the fresh air, peaceful surroundings, and the excitement of exploring nature on horseback. Once we arrive at the river, you’ll have free time to relax, cool off, and enjoy the refreshing water in a calm and natural setting.<br /><br />The tour also includes a light snack to recharge and enjoy the moment even more. This experience is perfect for nature lovers, adventure seekers, and anyone looking to connect with Costa Rica’s natural beauty in a unique and relaxing way.<br /><br />✨ <strong>No experience required – suitable for all levels.</strong> Book now to secure your spot!',
+    duration: '1.5 hours',
+    difficulty: 'Easy',
+    category: 'Relax',
+    highlights: ['Exclusive Chachagua Route', 'River Swim & Snack', 'No Experience Needed'],
+    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/57cca4a8-f383-47f3-6db9-1adab2683900/public',
+    images: [
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/57cca4a8-f383-47f3-6db9-1adab2683900/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/4c378fd1-9690-4063-86f0-a92028c18300/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/82a12fe9-a1b5-40db-8883-bbb5772c9600/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/6e39c230-0709-4c79-01b9-eb2caecead00/public'
+    ],
+    isResale: false,
+    variants: [
+      { id: 'standard', label: 'Standard Experience', price: { rack: 50 }, includesTransport: false }
+    ],
+    rating: 5,
+    reviewsCount: 350
+  },
+  {
+    id: 'culture-001',
+    slug: 'chocolate-tour-roots-experience',
+    title: 'Chocolate Tour – Roots Experience',
+    shortDescription: 'Sensory and cultural cacao experience.',
+    description: 'A sensory and cultural cacao experience based on Costa Rican ancestral traditions.',
+    duration: '1.5 hours',
+    difficulty: 'Easy',
+    category: 'Relax',
+    highlights: ['Ancestral Tradition', 'Cacao Ritual', 'Organic Chocolate'],
+    image: '/images/tours/chocolate/chocolate1.webp',
+    isResale: false,
+    variants: [
+      { id: 'standard', label: 'Standard', price: { rack: 40 }, includesTransport: false }
+    ],
+    rating: 5,
+    reviewsCount: 156
+  },
+  {
+    id: 'hiking-007',
+    slug: 'night-walk-tour-la-fortuna',
+    title: 'Night Walk Tour',
+    shortDescription: 'Guided nocturnal walk to observe nighttime wildlife.',
+    description: 'Guided nocturnal walk to observe frogs, insects, reptiles and other nighttime wildlife.',
+    duration: '2.5 hours',
+    difficulty: 'Moderate',
+    category: 'Wildlife',
+    highlights: ['Nocturnal Wildlife', 'Frog Spotting', 'Jungle after dark'],
+    image: '/images/tours/float/IMG_9604.webp',
+    isResale: true,
+    variants: [
+      { id: 'standard', label: 'Standard', price: { rack: 50 }, includesTransport: true }
+    ],
+    rating: 5,
+    reviewsCount: 92
+  },
+  {
+    id: 'river-003',
+    slug: 'white-water-rafting-rio-balsa',
+    title: 'White water rafting II/III Rio Balsa',
+    shortDescription: 'The perfect mix of adrenaline and safety on the Rio Balsa. Ideal for families and first-timers.',
+    description: 'Navigate the thrilling yet safe rapids of the <strong>Rio Balsa</strong>. Perfect for families and beginners who want a taste of <strong>real whitewater action</strong> without the extreme danger.<br /><br />Between rapids, you’ll float through calm pools to spot unsuspecting wildlife on the riverbanks. Certified guides, top-tier equipment, and pure tropical fun.',
+    duration: '5 hours',
+    difficulty: 'Moderate',
+    category: 'Water',
+    highlights: ['Class II-III Rapids', 'Tropical Scenery', 'Expert Guides'],
+    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/ae599075-4079-44cf-3a21-898f605b7700/public',
+    images: [
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/7083f061-3934-4ce2-77d3-94c011654500/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/1fdc92ec-4708-4073-89e4-9df00ae5ba00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/24adcae3-3104-4bd7-be4f-1ccd04704e00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/31559580-4e5a-4e9f-8233-05c556fa2900/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/5e153782-217e-4273-4dfb-096ce115e800/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/90d3135c-c9b9-4df6-fb31-df1b1c028300/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/e81971df-e68a-4621-950a-1ea3cdd48000/public'
+    ],
+    isResale: true,
+    variants: [
+      { id: 'standard', label: 'Standard (with transport)', price: { rack: 78 }, includesTransport: true, includesLunch: true }
+    ],
+    rating: 5,
+    reviewsCount: 104
+  },
+  {
+    id: 'adv-001',
+    slug: 'canyoning-waterfall-rappelling-arenal',
+    title: 'Canyoning Waterfall Rappelling',
+    shortDescription: 'Not for the faint of heart. Rappel down thundering waterfalls in the deep jungle.',
+    description: '<strong>Gravity is optional.</strong> This is the most heart-pounding tour in Arenal. You won’t just look at waterfalls—you’ll rappel down the face of them.<br /><br />Conquer <strong>5 different waterfalls</strong>, cliff jumps, and the famous "Monkey Drop". If you want to feel alive, this is the tour for you.',
+    duration: '4 hours',
+    difficulty: 'Hard',
+    category: 'Adrenaline',
+    highlights: ['Waterfall Rappel', 'Ziplines', 'Canyon Hike'],
+    image: '/images/tours/canyoning/canyoning1.webp',
+    isResale: true,
+    schedule: [
+      { start: '07:00' },
+      { start: '10:00' },
+      { start: '13:00' }
+    ],
+    variants: [
+      { id: 'standard', label: 'Standard (with transport)', price: { rack: 105 }, includesTransport: true, includesLunch: true }
+    ],
+    rating: 5,
+    reviewsCount: 235
+  },
+  {
     id: 'river-001',
     slug: 'safari-float-penas-blancas-raft',
-    title: 'Best Wildlife Safari Float La Fortuna: Spot Monkeys & Sloths',
+    title: 'Safari Float en rio Peñas Blancas',
     shortDescription: '100% relaxation, 100% wildlife. Sit back while we row you through the jungle.',
     description: '<strong>Put your camera in one hand and a drink in the other.</strong> This is the ultimate "lazy river" experience for nature lovers. Our expert guides do all the paddling while you focus on spotting <strong>monkeys, sloths, caimans, and river turtles</strong> offering a unique perspective of the Peñas Blancas River.',
     duration: '4 hours',
@@ -145,128 +255,27 @@ export const tours: Tour[] = [
     reviewsCount: 138
   },
   {
-    id: 'horseback-001',
-    slug: 'exclusive-horseback-riding-chachagua',
-    title: '⭐ Exclusive: Horseback Riding Tour in Chachagua',
-    shortDescription: '🔥 OUR #1 RECOMMENDED TOUR. A scenic, unforgettable horseback ride culminating at a beautiful river. Spaces fill up fast!',
-    description: '<strong>🚨 HIGHLY RECOMMENDED - OUR EXCLUSIVE TOUR 🚨</strong><br /><br />Experience an unforgettable horseback riding adventure in the heart of Chachagua. This guided tour takes you on a scenic ride through beautiful natural landscapes as you travel on horseback to a nearby river.<br /><br />Along the way, you’ll enjoy the fresh air, peaceful surroundings, and the excitement of exploring nature on horseback. Once we arrive at the river, you’ll have free time to relax, cool off, and enjoy the refreshing water in a calm and natural setting.<br /><br />The tour also includes a light snack to recharge and enjoy the moment even more. This experience is perfect for nature lovers, adventure seekers, and anyone looking to connect with Costa Rica’s natural beauty in a unique and relaxing way.<br /><br />✨ <strong>No experience required – suitable for all levels.</strong> Book now to secure your spot!',
-    duration: '1.5 hours',
-    difficulty: 'Easy',
-    category: 'Relax',
-    highlights: ['Exclusive Chachagua Route', 'River Swim & Snack', 'No Experience Needed'],
-    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/57cca4a8-f383-47f3-6db9-1adab2683900/public',
-    images: [
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/57cca4a8-f383-47f3-6db9-1adab2683900/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/4c378fd1-9690-4063-86f0-a92028c18300/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/82a12fe9-a1b5-40db-8883-bbb5772c9600/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/6e39c230-0709-4c79-01b9-eb2caecead00/public'
-    ],
-    isResale: false,
-    variants: [
-      { id: 'standard', label: 'Standard Experience', price: { rack: 50 }, includesTransport: false }
-    ],
-    rating: 5,
-    reviewsCount: 350
-  },
-  {
-    id: 'adv-001',
-    slug: 'canyoning-waterfall-rappelling-arenal',
-    title: 'Extreme Canyoning: 5 Waterfalls & Jungle Trekking (Adrenaline Junkies)',
-    shortDescription: 'Not for the faint of heart. Rappel down thundering waterfalls in the deep jungle.',
-    description: '<strong>Gravity is optional.</strong> This is the most heart-pounding tour in Arenal. You won’t just look at waterfalls—you’ll rappel down the face of them.<br /><br />Conquer <strong>5 different waterfalls</strong>, cliff jumps, and the famous "Monkey Drop". If you want to feel alive, this is the tour for you.',
-    duration: '4 hours',
-    difficulty: 'Hard',
-    category: 'Adrenaline',
-    highlights: ['Waterfall Rappel', 'Ziplines', 'Canyon Hike'],
-    image: '/images/tours/canyoning/canyoning1.webp',
-    isResale: true,
-    schedule: [
-      { start: '07:00' },
-      { start: '10:00' },
-      { start: '13:00' }
-    ],
-    variants: [
-      { id: 'standard', label: 'Standard (with transport)', price: { rack: 105 }, includesTransport: true, includesLunch: true }
-    ],
-    rating: 5,
-    reviewsCount: 235
-  },
-  {
-    id: 'culture-001',
-    slug: 'chocolate-tour-roots-experience',
-    title: 'Chocolate Tour – Roots Experience',
-    shortDescription: 'Sensory and cultural cacao experience.',
-    description: 'A sensory and cultural cacao experience based on Costa Rican ancestral traditions.',
-    duration: '1.5 hours',
-    difficulty: 'Easy',
-    category: 'Relax',
-    highlights: ['Ancestral Tradition', 'Cacao Ritual', 'Organic Chocolate'],
-    image: '/images/tours/chocolate/chocolate1.webp',
-    isResale: false,
-    variants: [
-      { id: 'standard', label: 'Standard', price: { rack: 40 }, includesTransport: false }
-    ],
-    rating: 5,
-    reviewsCount: 156
-  },
-  {
-    id: 'river-003',
-    slug: 'white-water-rafting-sarapiqui',
-    title: 'Best White Water Rafting Sarapiquí: Class II-III Family Adventure',
-    shortDescription: 'The perfect mix of adrenaline and safety. Ideal for families and first-timers wanting real jungle adventure.',
-    description: 'Navigate the thrilling yet safe rapids of the <strong>Sarapiquí River</strong> ("The Jungle Run"). Perfect for families and beginners who want a taste of <strong>real whitewater action</strong> without the extreme danger.<br /><br />Between rapids, you’ll float through calm pools to spot unsuspecting wildlife on the riverbanks. Certified guides, top-tier equipment, and pure tropical fun.',
-    duration: '5 hours',
+    id: 'adv-002',
+    slug: 'arenal-river-tubing-adventure',
+    title: 'Arenal River Tubing',
+    shortDescription: 'Fun and refreshing river tubing experience.',
+    description: 'Fun and refreshing river tubing experience combining mild rapids and jungle scenery.',
+    duration: '3 hours',
     difficulty: 'Moderate',
     category: 'Water',
-    highlights: ['Class II-III Rapids', 'Tropical Scenery', 'Expert Guides'],
-    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/ae599075-4079-44cf-3a21-898f605b7700/public',
-    images: [
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/7083f061-3934-4ce2-77d3-94c011654500/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/1fdc92ec-4708-4073-89e4-9df00ae5ba00/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/24adcae3-3104-4bd7-be4f-1ccd04704e00/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/31559580-4e5a-4e9f-8233-05c556fa2900/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/5e153782-217e-4273-4dfb-096ce115e800/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/90d3135c-c9b9-4df6-fb31-df1b1c028300/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/e81971df-e68a-4621-950a-1ea3cdd48000/public'
-    ],
-    isResale: true,
+    highlights: ['River Tubing', 'Refreshing Swim', 'Adrenaline Mix'],
+    image: '/images/tours/tubing/tour-photo.jpg',
+    isResale: false,
     variants: [
-      { id: 'standard', label: 'Standard (with transport)', price: { rack: 105 }, includesTransport: true, includesLunch: true },
-      { id: 'baldi', label: 'With Baldi Hot Springs', price: { rack: 155 }, includesTransport: true, includesLunch: true, includesHotSprings: true, hotSpringsProvider: 'Baldi' }
+      { id: 'standard', label: 'Standard', price: { rack: 60 }, includesTransport: false }
     ],
     rating: 5,
-    reviewsCount: 104
+    reviewsCount: 42
   },
   // =========================
   // 🌊 RIVER & WATER TOURS
   // =========================
-  {
-    id: 'river-002',
-    slug: 'safari-float-penas-blancas-kayak',
-    title: 'Safari Float – Peñas Blancas River (Kayak)',
-    shortDescription: 'Active safari float experience paddling your own kayak.',
-    description: 'An active safari float experience paddling your own kayak while observing wildlife along the river.',
-    duration: '4 hours',
-    difficulty: 'Moderate',
-    category: 'Water',
-    highlights: ['Paddling Experience', 'River Wildlife', 'Nature Connection'],
-    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/12d6f914-6be6-4bcf-c5cd-7e6260c2b500/public',
-    images: [
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/bb0296d3-cb96-4fe3-12de-942258978e00/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/43371d85-e38a-499d-4fde-a196d0ff8800/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/be8f2550-b705-40a1-aeaf-a27e91334700/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/242ed38d-d7bb-4fd3-37bc-b90a336a9c00/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/4ff344ce-58d1-40e0-091e-5a0d3c840200/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/1fddb5f5-adbb-4003-8177-667d76991a00/public'
-    ],
-    isResale: true,
-    variants: [
-      { id: 'standard', label: 'Standard Kayak', price: { rack: 88 }, includesTransport: true },
-      { id: 'hot-springs', label: 'With Hot Springs', price: { rack: 130 }, includesTransport: true, includesHotSprings: true }
-    ],
-    rating: 4.5,
-    reviewsCount: 96
-  },
+
   {
     id: 'river-004',
     slug: 'arenal-lake-kayak',
@@ -293,24 +302,7 @@ export const tours: Tour[] = [
     rating: 4.5,
     reviewsCount: 64
   },
-  {
-    id: 'river-005',
-    slug: 'pontoon-boat-rental-arenal-lake',
-    title: 'Pontoon Boat Rental – Arenal Lake',
-    shortDescription: 'Private pontoon boat rental for groups.',
-    description: 'Private pontoon boat rental with captain for groups, perfect for relaxation and sightseeing.',
-    duration: '2-4 hours',
-    difficulty: 'Easy',
-    category: 'Relax',
-    highlights: ['Private Boat', 'Captain Included', 'Scenic Views'],
-    image: '/images/tours/float/_ANF0260.webp',
-    isResale: true,
-    variants: [
-      { id: 'standard', label: 'Private Boat (per boat)', price: { rack: 248 }, includesTransport: false }
-    ],
-    rating: 5,
-    reviewsCount: 28
-  },
+
 
   // =========================
   // 🌿 NATURE & HIKING TOURS
@@ -337,36 +329,27 @@ export const tours: Tour[] = [
       'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/f586dacd-575f-4ce6-8b4e-f04197e4ab00/public'
     ],
     isResale: true,
+    childPolicy: {
+      minAge: 4,
+      discountedAges: { from: 4, to: 11 },
+      discountPercent: 50
+    },
+    schedule: [
+      { start: '07:50' },
+      { start: '11:30' },
+      { start: '14:30' }
+    ],
     variants: [
-      { id: 'standard', label: 'Standard Hike', price: { rack: 77 }, includesTransport: true },
-      { id: 'baldi', label: 'With Baldi Hot Springs', price: { rack: 120 }, includesTransport: true, includesHotSprings: true, hotSpringsProvider: 'Baldi' },
-      { id: 'ecotermales', label: 'With Ecotermales', price: { rack: 140 }, includesTransport: true, includesHotSprings: true, hotSpringsProvider: 'Ecotermales' }
+      { id: 'standard', label: 'Standard', price: { rack: 77.97, rackChild: 38.98 }, includesTransport: true }
     ],
     rating: 5,
     reviewsCount: 156
   },
-  {
-    id: 'hiking-002',
-    slug: 'arenal-volcano-national-park-hike',
-    title: 'Arenal Volcano National Park Hike',
-    shortDescription: 'Explore the Arenal Volcano National Park trails.',
-    description: 'Explore the Arenal Volcano National Park trails while learning about volcanic history and biodiversity.',
-    duration: '4 hours',
-    difficulty: 'Moderate',
-    category: 'Hiking',
-    highlights: ['National Park', 'History & Bio', 'Lava Rock'],
-    image: '/images/tours/tubing/tour-photo.jpg',
-    isResale: true,
-    variants: [
-      { id: 'standard', label: 'Standard', price: { rack: 102 }, includesTransport: true }
-    ],
-    rating: 5,
-    reviewsCount: 89
-  },
+
   {
     id: 'hiking-004',
     slug: 'rio-celeste-hiking-tenorio',
-    title: 'Rio Celeste Waterfall Hike from La Fortuna: The Magical Blue River',
+    title: 'Blue River Hike',
     shortDescription: 'Witness the magic of nature. Hike to the famous blue river and waterfall in Tenorio Volcano National Park.',
     description: '<strong>See it to believe it.</strong> A chemical reaction between volcanic minerals creates an optical phenomenon that turns this river an intense, surreal shade of blue.<br /><br />On this hike through the <strong>Tenorio Volcano National Park</strong>, you’ll visit the iconic <strong>Waterfall</strong>, the "Teñideros" (where the river changes color), and the bubbling thermal pots. It’s a bit of a workout, but the photos are worth every step.',
     duration: 'Full day',
@@ -386,30 +369,20 @@ export const tours: Tour[] = [
       'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/83e030dc-8726-4b6c-2514-e82034a9d700/public'
     ],
     isResale: true,
+    childPolicy: {
+      minAge: 5,
+      discountedAges: { from: 5, to: 11 },
+      discountPercent: 25
+    },
+    schedule: [
+      { start: '07:50' },
+      { start: '15:30' }
+    ],
     variants: [
-      { id: 'standard', label: 'Standard', price: { rack: 140 }, includesTransport: true, includesLunch: true },
-      { id: 'baldi', label: 'With Baldi Hot Springs', price: { rack: 195 }, includesTransport: true, includesLunch: true, includesHotSprings: true, hotSpringsProvider: 'Baldi' }
+      { id: 'standard', label: 'Standard', price: { rack: 140.15, rackChild: 105.11 }, includesTransport: true, includesLunch: true }
     ],
     rating: 5,
     reviewsCount: 342
-  },
-  {
-    id: 'hiking-005',
-    slug: 'jungle-trekking-culture-experience',
-    title: 'Jungle Trekking & Culture Experience',
-    shortDescription: 'Deep jungle hike combined with culture.',
-    description: 'A deep jungle hike combined with Costa Rican cultural experiences and a traditional lunch.',
-    duration: '5 hours',
-    difficulty: 'Hard',
-    category: 'Hiking',
-    highlights: ['Ancestral Culture', 'Primary Forest', 'Traditional Food'],
-    image: '/images/tours/chocolate/chocolate3.webp',
-    isResale: true,
-    variants: [
-      { id: 'standard', label: 'Min 4 participants', price: { rack: 110 }, includesTransport: true, includesLunch: true }
-    ],
-    rating: 5,
-    reviewsCount: 45
   },
   {
     id: 'hiking-006',
@@ -435,30 +408,22 @@ export const tours: Tour[] = [
       'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/a48ef8a2-9b0b-48e9-3f3c-a58e8d85d400/public'
     ],
     isResale: true,
+    childPolicy: {
+      minAge: 4,
+      discountedAges: { from: 4, to: 11 },
+      discountPercent: 40
+    },
+    schedule: [
+      { start: '15:40' },
+      { start: '17:40' }
+    ],
     variants: [
-      { id: 'standard', label: 'Standard', price: { rack: 79 }, includesTransport: true }
+      { id: 'standard', label: 'Standard', price: { rack: 79.10, rackChild: 47.46 }, includesTransport: true }
     ],
     rating: 5,
     reviewsCount: 167
   },
-  {
-    id: 'hiking-007',
-    slug: 'night-walk-tour-la-fortuna',
-    title: 'Night Walk Tour',
-    shortDescription: 'Guided nocturnal walk to observe nighttime wildlife.',
-    description: 'Guided nocturnal walk to observe frogs, insects, reptiles and other nighttime wildlife.',
-    duration: '2.5 hours',
-    difficulty: 'Moderate',
-    category: 'Wildlife',
-    highlights: ['Nocturnal Wildlife', 'Frog Spotting', 'Jungle after dark'],
-    image: '/images/tours/float/IMG_9604.webp',
-    isResale: true,
-    variants: [
-      { id: 'standard', label: 'Standard', price: { rack: 79 }, includesTransport: true }
-    ],
-    rating: 5,
-    reviewsCount: 92
-  },
+
 
   // =========================
   // 🦜 WILDLIFE & WETLANDS
@@ -466,7 +431,7 @@ export const tours: Tour[] = [
   {
     id: 'wild-001',
     slug: 'unique-cano-negro-wildlife-refuge',
-    title: 'Unique Caño Negro Wildlife Refuge',
+    title: 'Caño Negro Wildlife Refuge',
     shortDescription: 'Boat safari through Caño Negro Wetlands.',
     description: 'Boat safari through Caño Negro Wetlands, one of Costa Rica’s most important wildlife refuges.',
     duration: 'Full day',
@@ -482,10 +447,17 @@ export const tours: Tour[] = [
       '/images/tours/caño-negro/cañoNegro5.webp'
     ],
     isResale: true,
+    childPolicy: {
+      minAge: 4,
+      discountedAges: { from: 4, to: 11 },
+      discountPercent: 30
+    },
+    schedule: [
+      { start: '07:15' },
+      { start: '15:00' }
+    ],
     variants: [
-      { id: 'standard', label: 'With Transport', price: { rack: 96 }, includesTransport: true, includesLunch: true },
-      { id: 'no-transport', label: 'Without Transport', price: { rack: 70 }, includesTransport: false, includesLunch: true },
-      { id: 'hot-springs', label: 'With Hot Springs', price: { rack: 192 }, includesTransport: true, includesLunch: true, includesHotSprings: true }
+      { id: 'standard', label: 'Standard', price: { rack: 96.05, rackChild: 67.24 }, includesTransport: true, includesLunch: true }
     ],
     rating: 5,
     reviewsCount: 124
@@ -527,24 +499,7 @@ export const tours: Tour[] = [
     rating: 5,
     reviewsCount: 148
   },
-  {
-    id: 'adv-002',
-    slug: 'arenal-river-tubing-adventure',
-    title: 'Arenal River Tubing',
-    shortDescription: 'Fun and refreshing river tubing experience.',
-    description: 'Fun and refreshing river tubing experience combining mild rapids and jungle scenery.',
-    duration: '3 hours',
-    difficulty: 'Moderate',
-    category: 'Water',
-    highlights: ['River Tubing', 'Refreshing Swim', 'Adrenaline Mix'],
-    image: '/images/tours/tubing/tour-photo.jpg',
-    isResale: false,
-    variants: [
-      { id: 'standard', label: 'Standard', price: { rack: 60 }, includesTransport: false }
-    ],
-    rating: 5,
-    reviewsCount: 42
-  },
+
 
   // =========================
   // 🧘 RELAXATION & CULTURE
@@ -552,7 +507,7 @@ export const tours: Tour[] = [
   {
     id: 'hiking-003',
     slug: 'hanging-bridges-tour',
-    title: 'Mystic Hanging Bridges: Exclusive Rainforest Canopy Walk',
+    title: 'Hanging Bridges Hike/ Mistico Park',
     shortDescription: 'Walk among the clouds. A guided journey through the secret layers of the rainforest ceiling.',
     description: 'Discover the secrets of the rainforest that can only be seen from above. On this <strong>Exclusive Canopy Walk</strong>, you will traverse a network of suspended bridges that put you eye-to-eye with monkeys, toucans, and the vibrant life of the forest roof.<br /><br />This isn’t just a walk; it’s a masterclass in nature with an expert naturalist who knows exactly where the wildlife hides.',
     duration: '4 hours',
@@ -572,9 +527,13 @@ export const tours: Tour[] = [
       'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/ee6be305-fb64-4109-230e-553fd64a2800/public'
     ],
     isResale: true,
+    childPolicy: {
+      minAge: 4,
+      discountedAges: { from: 4, to: 11 },
+      discountPercent: 50
+    },
     variants: [
-      { id: 'standard', label: 'Standard', price: { rack: 85 }, includesTransport: true },
-      { id: 'hot-springs', label: 'With Hot Springs', price: { rack: 135 }, includesTransport: true, includesHotSprings: true }
+      { id: 'standard', label: 'Standard', price: { rack: 85.88, rackChild: 42.94 }, includesTransport: true }
     ],
     rating: 4.5,
     reviewsCount: 212
@@ -725,61 +684,4 @@ export const tours: Tour[] = [
     reviewsCount: 126
   },
 
-  // =========================
-  // 🔥 HOT SPRINGS EXTENSIONS
-  // =========================
-  {
-    id: 'hotsprings-001',
-    slug: 'any-tour-baldi-hot-springs',
-    title: 'Any Tour + Baldi Hot Springs',
-    shortDescription: 'Upgrade your tour with Baldi Hot Springs.',
-    description: 'Upgrade your tour with Baldi Hot Springs entrance and meal.',
-    duration: '3 hours',
-    difficulty: 'Easy',
-    category: 'HotSprings',
-    highlights: ['Mineral Pools', 'Typical Meal', 'Relaxing Environment'],
-    image: '/images/tours/float/20250209_075018.webp',
-    isResale: true,
-    variants: [
-      { id: 'adult', label: 'Adult Extension', price: { rack: 45 }, includesTransport: false, includesHotSprings: true, hotSpringsProvider: 'Baldi' }
-    ],
-    rating: 5,
-    reviewsCount: 442
-  },
-  {
-    id: 'hotsprings-002',
-    slug: 'any-tour-paradise-hot-springs',
-    title: 'Any Tour + Paradise Hot Springs',
-    shortDescription: 'Relax after your adventure with Paradise.',
-    description: 'Relax after your adventure with Paradise Hot Springs and meal.',
-    duration: '3 hours',
-    difficulty: 'Easy',
-    category: 'HotSprings',
-    highlights: ['Natural Springs', 'Garden Views', 'Quiet Relax'],
-    image: '/images/tours/float/20240415_082456.webp',
-    isResale: true,
-    variants: [
-      { id: 'adult', label: 'Adult Extension', price: { rack: 42 }, includesTransport: false, includesHotSprings: true, hotSpringsProvider: 'Paradise' }
-    ],
-    rating: 5,
-    reviewsCount: 215
-  },
-  {
-    id: 'hotsprings-003',
-    slug: 'any-tour-ecotermales',
-    title: 'Any Tour + Ecotermales',
-    shortDescription: 'Premium hot springs experience with dinner.',
-    description: 'Premium hot springs experience with dinner included.',
-    duration: '3 hours',
-    difficulty: 'Easy',
-    category: 'HotSprings',
-    highlights: ['Premium Thermal Pools', 'Lush Gardens', 'Gourmet Dinner'],
-    image: '/images/tours/float/20240415_082403.webp',
-    isResale: true,
-    variants: [
-      { id: 'adult', label: 'Adult Extension', price: { rack: 65 }, includesTransport: false, includesHotSprings: true, hotSpringsProvider: 'Ecotermales' }
-    ],
-    rating: 5,
-    reviewsCount: 178
-  },
 ];

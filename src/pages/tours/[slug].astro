@@ -341,6 +341,23 @@ const schema = {
 
               <div class="space-y-4">
                 {
+                  tour.schedule && (
+                    <div class="bg-white/5 rounded-2xl p-4 border border-white/10">
+                      <p class="text-white/60 text-xs font-bold uppercase tracking-widest mb-3 flex items-center gap-2">
+                        <Clock className="w-3.5 h-3.5" /> Available Times
+                      </p>
+                      <div class="flex flex-wrap gap-2">
+                        {tour.schedule.map((slot) => (
+                          <span class="bg-white/10 text-white px-3 py-1.5 rounded-xl text-xs font-bold tracking-wider">
+                            {slot.start}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )
+                }
+
+                {
                   tour.childPolicy && (
                     <div class="bg-white/5 rounded-2xl p-4 border border-white/10">
                       <p class="text-white/60 text-xs font-bold uppercase tracking-widest mb-2">
