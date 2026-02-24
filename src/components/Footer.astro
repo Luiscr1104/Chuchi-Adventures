@@ -8,6 +8,7 @@ import {
     ExternalLink,
     Music2,
 } from "lucide-react";
+import Email from "./Email.astro";
 const currentYear = new Date().getFullYear();
 ---
 
@@ -183,9 +184,9 @@ const currentYear = new Date().getFullYear();
                             >
                                 Email
                             </p>
-                            <p class="text-sm font-bold">
-                                luiscr1104@gmail.com
-                            </p>
+                            <div class="text-sm font-bold">
+                                <Email email="luiscr1104@gmail.com" />
+                            </div>
                         </div>
                     </div>
 

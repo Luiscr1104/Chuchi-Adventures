@@ -1,0 +1,52 @@
+---
+interface Props {
+    email: string;
+    className?: string;
+}
+
+const { email, className = "" } = Astro.props;
+
+// Simple obfuscation: reverse the string
+const reversedEmail = email.split("").reverse().join("");
+---
+
+<span
+    class={`email-obfuscated cursor-pointer hover:text-[var(--color-secondary)] transition-colors ${className}`}
+    data-email={reversedEmail}
+    title="Click to copy email"
+>
+    [Contact us]
+</span>
+
+<script>
+    function setupEmailObfuscation() {
+        const elements = document.querySelectorAll(".email-obfuscated");
+        elements.forEach((el) => {
+            const reversed = el.getAttribute("data-email");
+            if (reversed) {
+                const decoded = reversed.split("").reverse().join("");
+
+                // Show truncated or icon initially
+                el.textContent = decoded;
+
+                // Make it clickable
+                el.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    window.location.href = `mailto:${decoded}`;
+                });
+            }
+        });
+    }
+
+    // Run on load
+    setupEmailObfuscation();
+    // Support view transitions if any
+    document.addEventListener("astro:page-load", setupEmailObfuscation);
+</script>
+
+<style>
+    .email-obfuscated {
+        unicode-bidi: bidi-override;
+        /* Optional: hide it slightly until JS runs if you want to be extra safe */
+    }
+</style>
