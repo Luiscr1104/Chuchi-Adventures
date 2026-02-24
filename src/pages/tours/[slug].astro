@@ -346,11 +346,11 @@ const schema = {
                 >
                 <div class="flex flex-col mt-4 gap-2">
                   <div class="flex items-baseline gap-2">
-                    <h2
+                    <div
                       class="text-6xl font-black text-[var(--color-secondary)]"
                     >
                       ${minPrice}
-                    </h2>
+                    </div>
                     <span class="text-white/40 font-medium tracking-wider"
                       >USD / Adult</span
                     >
@@ -358,9 +358,9 @@ const schema = {
                   {
                     tour.variants[0].price.rackChild && (
                       <div class="flex items-baseline gap-2">
-                        <h3 class="text-3xl font-black text-white/90">
+                        <div class="text-3xl font-black text-white/90">
                           ${tour.variants[0].price.rackChild}
-                        </h3>
+                        </div>
                         <span class="text-white/40 font-medium tracking-wider text-sm">
                           USD / Child
                         </span>
