@@ -9,6 +9,7 @@ import { reviews } from "../data/reviews";
 import ReviewCarousel from "../components/ReviewCarousel";
 import { ArrowRight, Star } from "lucide-react";
 import { Image } from "astro:assets";
+import { getOptimizedImageUrl } from "../lib/utils";
 
 // Get featured tours (first 3 or specific ones)
 const featuredTours = tours.slice(0, 3);
@@ -24,6 +25,9 @@ const featuredTours = tours.slice(0, 3);
     rel="preload"
     as="image"
     href="https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/54a5c2c2-3d08-4516-0804-2e722847be00/public"
+    imagesrcset={`${getOptimizedImageUrl("https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/54a5c2c2-3d08-4516-0804-2e722847be00/public", 800)} 800w, ${getOptimizedImageUrl("https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/54a5c2c2-3d08-4516-0804-2e722847be00/public", 1200)} 1200w, https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/54a5c2c2-3d08-4516-0804-2e722847be00/public 1920w`}
+    imagesizes="100vw"
+    fetchpriority="high"
     slot="head"
   />
 
@@ -63,7 +67,7 @@ const featuredTours = tours.slice(0, 3);
     })}
   />
   <!-- Main Hero -->
-  <Hero client:idle />
+  <Hero client:load />
 
   <!-- Strategic Trust Stats (Immediately after Hero) -->
   <div class="bg-white py-10 border-b border-slate-100 overflow-hidden">

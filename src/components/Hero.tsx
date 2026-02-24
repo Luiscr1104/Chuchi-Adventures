@@ -11,8 +11,8 @@ export default function Hero() {
             {/* Background Image with Parallax-like effect */}
             <div className="absolute inset-0 z-0">
                 <motion.img
-                    initial={{ scale: 1.15, opacity: 0.8 }}
-                    animate={{ scale: 1.05, opacity: 1 }}
+                    initial={{ scale: 1.15, opacity: 1 }}
+                    animate={{ scale: 1.05 }}
                     transition={{ duration: 15, ease: "easeOut" }}
                     src={heroImage}
                     srcSet={`${getOptimizedImageUrl(heroImage, 800)} 800w, ${getOptimizedImageUrl(heroImage, 1200)} 1200w, ${heroImage} 1920w`}
