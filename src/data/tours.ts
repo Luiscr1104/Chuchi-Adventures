@@ -113,6 +113,38 @@ export const tours: Tour[] = [
   // ⭐ TOP FEATURED TOURS
   // =========================
   {
+    id: 'river-001',
+    slug: 'safari-float-penas-blancas-raft',
+    title: 'Best Wildlife Safari Float La Fortuna: Spot Monkeys & Sloths',
+    shortDescription: '100% relaxation, 100% wildlife. Sit back while we row you through the jungle.',
+    description: '<strong>Put your camera in one hand and a drink in the other.</strong> This is the ultimate "lazy river" experience for nature lovers. Our expert guides do all the paddling while you focus on spotting <strong>monkeys, sloths, caimans, and river turtles</strong> offering a unique perspective of the Peñas Blancas River.',
+    duration: '4 hours',
+    difficulty: 'Easy',
+    category: 'Wildlife',
+    highlights: ['Naturalist Guide', 'Wildlife Spotting', 'Family Friendly'],
+    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/467761f8-ba2a-4099-6713-395a1a537100/public',
+    images: [
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/09c8eba2-6fb6-48a4-4aac-7a976bb6c000/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/a904a362-61b1-482a-3436-7ff650f0d600/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/b22d405f-59a1-4a65-e796-e1c0f6dd0f00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/c41b7cf3-5bf4-40d2-517d-733f58237300/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/e6b94daa-7b4c-408f-80f0-8be90445db00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/3c4b0bb2-7eea-4c06-de82-9bea97e49900/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/ce347f63-42bd-4b79-e347-9fd44aa3f000/public'
+    ],
+    isResale: true,
+    schedule: [
+      { start: '07:00' },
+      { start: '14:00' }
+    ],
+    variants: [
+      { id: 'standard', label: 'Standard Raft', price: { rack: 73, rackChild: 63 }, includesTransport: true },
+      { id: 'hot-springs', label: 'With Hot Springs', price: { rack: 125 }, includesTransport: true, includesHotSprings: true }
+    ],
+    rating: 5,
+    reviewsCount: 138
+  },
+  {
     id: 'horseback-001',
     slug: 'exclusive-horseback-riding-chachagua',
     title: '⭐ Exclusive: Horseback Riding Tour in Chachagua',
@@ -131,43 +163,51 @@ export const tours: Tour[] = [
     ],
     isResale: false,
     variants: [
-      { id: 'standard', label: 'Standard Experience', price: { rack: 65 }, includesTransport: false }
+      { id: 'standard', label: 'Standard Experience', price: { rack: 50 }, includesTransport: false }
     ],
     rating: 5,
     reviewsCount: 350
   },
   {
-    id: 'combo-top-001',
-    slug: 'arenal-top-4-attractions-incl-hot-springs',
-    title: 'Arenal Volcano "Big 4" Combo: Waterfall, Hanging Bridges & Hot Springs',
-    shortDescription: 'The #1 Best-Selling Combo in La Fortuna. Experience the "Big 4" highlights in one flawless day.',
-    description: 'Stop worrying about logistics and start living the adventure. This is the <strong>Ultimate Arenal Experience</strong>—the only tour that combines the <strong>top 4 adventures</strong> in La Fortuna into one seamless, all-inclusive day.<br /><br /><strong>Why this is our #1 Best-Seller:</strong><br />You will walk the mystical <strong>Hanging Bridges</strong>, swim in the pristine <strong>La Fortuna Waterfall</strong>, hike the ancient lava flows of <strong>Arenal Volcano</strong>, and finish with a relaxing soak in <strong>Hot Springs with a gourmet dinner</strong>.<br /><br />We handle everything: luxury transport, entrance fees, naturalist guides, lunch, and dinner. You just bring the sense of wonder.',
-    duration: '10 hours',
+    id: 'adv-001',
+    slug: 'canyoning-waterfall-rappelling-arenal',
+    title: 'Extreme Canyoning: 5 Waterfalls & Jungle Trekking (Adrenaline Junkies)',
+    shortDescription: 'Not for the faint of heart. Rappel down thundering waterfalls in the deep jungle.',
+    description: '<strong>Gravity is optional.</strong> This is the most heart-pounding tour in Arenal. You won’t just look at waterfalls—you’ll rappel down the face of them.<br /><br />Conquer <strong>5 different waterfalls</strong>, cliff jumps, and the famous "Monkey Drop". If you want to feel alive, this is the tour for you.',
+    duration: '4 hours',
     difficulty: 'Hard',
-    category: 'Combo',
-    highlights: ['Hanging Bridges', 'Waterfall Swim', 'Volcano Hike', 'Hot Springs & Dinner'],
-    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/aec31631-8983-49a5-8914-bf643e24c200/public',
-    images: [
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/5edab093-9ba5-4182-28d9-68bc99e53d00/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/444f653e-489e-4684-3379-25b25fb30400/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/d94aff5d-cdbd-4aff-d628-5891f2c17700/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/b15e2a91-50e9-4ea8-25c8-56ec6416e400/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/32e91e75-d8ce-475c-e0b2-c96b197ae900/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/6c230c13-6da0-4511-1a9d-c9d89785ac00/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/95661570-3574-4aa6-6285-69b60fc88300/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/3394674a-b407-4c62-7871-52e9eaca6400/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/d3446754-91a7-4c3b-a001-e041fe28b300/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/ee6be305-fb64-4109-230e-553fd64a2800/public'
-    ],
+    category: 'Adrenaline',
+    highlights: ['Waterfall Rappel', 'Ziplines', 'Canyon Hike'],
+    image: '/images/tours/canyoning/canyoning1.webp',
     isResale: true,
-    childPolicy: {
-      minAge: 5
-    },
+    schedule: [
+      { start: '07:00' },
+      { start: '10:00' },
+      { start: '13:00' }
+    ],
     variants: [
-      { id: 'standard', label: 'Standard (No Transport)', price: { rack: 242 }, includesTransport: false, includesLunch: true, includesHotSprings: true }
+      { id: 'standard', label: 'Standard (with transport)', price: { rack: 105 }, includesTransport: true, includesLunch: true }
     ],
     rating: 5,
-    reviewsCount: 148
+    reviewsCount: 235
+  },
+  {
+    id: 'culture-001',
+    slug: 'chocolate-tour-roots-experience',
+    title: 'Chocolate Tour – Roots Experience',
+    shortDescription: 'Sensory and cultural cacao experience.',
+    description: 'A sensory and cultural cacao experience based on Costa Rican ancestral traditions.',
+    duration: '1.5 hours',
+    difficulty: 'Easy',
+    category: 'Relax',
+    highlights: ['Ancestral Tradition', 'Cacao Ritual', 'Organic Chocolate'],
+    image: '/images/tours/chocolate/chocolate1.webp',
+    isResale: false,
+    variants: [
+      { id: 'standard', label: 'Standard', price: { rack: 40 }, includesTransport: false }
+    ],
+    rating: 5,
+    reviewsCount: 156
   },
   {
     id: 'river-003',
@@ -197,67 +237,9 @@ export const tours: Tour[] = [
     rating: 5,
     reviewsCount: 104
   },
-  {
-    id: 'hiking-003',
-    slug: 'hanging-bridges-tour',
-    title: 'Mystic Hanging Bridges: Exclusive Rainforest Canopy Walk',
-    shortDescription: 'Walk among the clouds. A guided journey through the secret layers of the rainforest ceiling.',
-    description: 'Discover the secrets of the rainforest that can only be seen from above. On this <strong>Exclusive Canopy Walk</strong>, you will traverse a network of suspended bridges that put you eye-to-eye with monkeys, toucans, and the vibrant life of the forest roof.<br /><br />This isn’t just a walk; it’s a masterclass in nature with an expert naturalist who knows exactly where the wildlife hides.',
-    duration: '4 hours',
-    difficulty: 'Moderate',
-    category: 'Hiking',
-    highlights: ['Forest Canopy', 'Wildlife from Above', 'Scenic Views'],
-    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/c0cd7b4b-e3d7-4e02-d925-3584578ecc00/public',
-    images: [
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/444f653e-489e-4684-3379-25b25fb30400/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/d94aff5d-cdbd-4aff-d628-5891f2c17700/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/b15e2a91-50e9-4ea8-25c8-56ec6416e400/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/32e91e75-d8ce-475c-e0b2-c96b197ae900/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/6c230c13-6da0-4511-1a9d-c9d89785ac00/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/95661570-3574-4aa6-6285-69b60fc88300/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/3394674a-b407-4c62-7871-52e9eaca6400/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/d3446754-91a7-4c3b-a001-e041fe28b300/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/ee6be305-fb64-4109-230e-553fd64a2800/public'
-    ],
-    isResale: true,
-    variants: [
-      { id: 'standard', label: 'Standard', price: { rack: 85 }, includesTransport: true },
-      { id: 'hot-springs', label: 'With Hot Springs', price: { rack: 135 }, includesTransport: true, includesHotSprings: true }
-    ],
-    rating: 4.5,
-    reviewsCount: 212
-  },
   // =========================
   // 🌊 RIVER & WATER TOURS
   // =========================
-  {
-    id: 'river-001',
-    slug: 'safari-float-penas-blancas-raft',
-    title: 'Best Wildlife Safari Float La Fortuna: Spot Monkeys & Sloths',
-    shortDescription: '100% relaxation, 100% wildlife. Sit back while we row you through the jungle.',
-    description: '<strong>Put your camera in one hand and a drink in the other.</strong> This is the ultimate "lazy river" experience for nature lovers. Our expert guides do all the paddling while you focus on spotting <strong>monkeys, sloths, caimans, and river turtles</strong> offering a unique perspective of the Peñas Blancas River.',
-    duration: '4 hours',
-    difficulty: 'Easy',
-    category: 'Wildlife',
-    highlights: ['Naturalist Guide', 'Wildlife Spotting', 'Family Friendly'],
-    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/467761f8-ba2a-4099-6713-395a1a537100/public',
-    images: [
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/09c8eba2-6fb6-48a4-4aac-7a976bb6c000/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/a904a362-61b1-482a-3436-7ff650f0d600/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/b22d405f-59a1-4a65-e796-e1c0f6dd0f00/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/c41b7cf3-5bf4-40d2-517d-733f58237300/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/e6b94daa-7b4c-408f-80f0-8be90445db00/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/3c4b0bb2-7eea-4c06-de82-9bea97e49900/public',
-      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/ce347f63-42bd-4b79-e347-9fd44aa3f000/public'
-    ],
-    isResale: true,
-    variants: [
-      { id: 'standard', label: 'Standard Raft', price: { rack: 83 }, includesTransport: true },
-      { id: 'hot-springs', label: 'With Hot Springs', price: { rack: 125 }, includesTransport: true, includesHotSprings: true }
-    ],
-    rating: 5,
-    reviewsCount: 138
-  },
   {
     id: 'river-002',
     slug: 'safari-float-penas-blancas-kayak',
@@ -513,22 +495,37 @@ export const tours: Tour[] = [
   // 🔥 ADVENTURE TOURS
   // =========================
   {
-    id: 'adv-001',
-    slug: 'canyoning-waterfall-rappelling-arenal',
-    title: 'Extreme Canyoning: 5 Waterfalls & Jungle Trekking (Adrenaline Junkies)',
-    shortDescription: 'Not for the faint of heart. Rappel down thundering waterfalls in the deep jungle.',
-    description: '<strong>Gravity is optional.</strong> This is the most heart-pounding tour in Arenal. You won’t just look at waterfalls—you’ll rappel down the face of them.<br /><br />Conquer <strong>5 different waterfalls</strong>, cliff jumps, and the famous "Monkey Drop". If you want to feel alive, this is the tour for you.',
-    duration: '4 hours',
+    id: 'combo-top-001',
+    slug: 'arenal-top-4-attractions-incl-hot-springs',
+    title: 'Arenal Volcano "Big 4" Combo: Waterfall, Hanging Bridges & Hot Springs',
+    shortDescription: 'The #1 Best-Selling Combo in La Fortuna. Experience the "Big 4" highlights in one flawless day.',
+    description: 'Stop worrying about logistics and start living the adventure. This is the <strong>Ultimate Arenal Experience</strong>—the only tour that combines the <strong>top 4 adventures</strong> in La Fortuna into one seamless, all-inclusive day.<br /><br /><strong>Why this is our #1 Best-Seller:</strong><br />You will walk the mystical <strong>Hanging Bridges</strong>, swim in the pristine <strong>La Fortuna Waterfall</strong>, hike the ancient lava flows of <strong>Arenal Volcano</strong>, and finish with a relaxing soak in <strong>Hot Springs with a gourmet dinner</strong>.<br /><br />We handle everything: luxury transport, entrance fees, naturalist guides, lunch, and dinner. You just bring the sense of wonder.',
+    duration: '10 hours',
     difficulty: 'Hard',
-    category: 'Adrenaline',
-    highlights: ['Waterfall Rappel', 'Ziplines', 'Canyon Hike'],
-    image: '/images/tours/canyoning/canyoning1.webp',
+    category: 'Combo',
+    highlights: ['Hanging Bridges', 'Waterfall Swim', 'Volcano Hike', 'Hot Springs & Dinner'],
+    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/aec31631-8983-49a5-8914-bf643e24c200/public',
+    images: [
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/5edab093-9ba5-4182-28d9-68bc99e53d00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/444f653e-489e-4684-3379-25b25fb30400/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/d94aff5d-cdbd-4aff-d628-5891f2c17700/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/b15e2a91-50e9-4ea8-25c8-56ec6416e400/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/32e91e75-d8ce-475c-e0b2-c96b197ae900/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/6c230c13-6da0-4511-1a9d-c9d89785ac00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/95661570-3574-4aa6-6285-69b60fc88300/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/3394674a-b407-4c62-7871-52e9eaca6400/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/d3446754-91a7-4c3b-a001-e041fe28b300/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/ee6be305-fb64-4109-230e-553fd64a2800/public'
+    ],
     isResale: true,
+    childPolicy: {
+      minAge: 5
+    },
     variants: [
-      { id: 'standard', label: 'Standard (with transport)', price: { rack: 105 }, includesTransport: true, includesLunch: true }
+      { id: 'standard', label: 'Standard (No Transport)', price: { rack: 242 }, includesTransport: false, includesLunch: true, includesHotSprings: true }
     ],
     rating: 5,
-    reviewsCount: 235
+    reviewsCount: 148
   },
   {
     id: 'adv-002',
@@ -553,22 +550,34 @@ export const tours: Tour[] = [
   // 🧘 RELAXATION & CULTURE
   // =========================
   {
-    id: 'culture-001',
-    slug: 'chocolate-tour-roots-experience',
-    title: 'Chocolate Tour – Roots Experience',
-    shortDescription: 'Sensory and cultural cacao experience.',
-    description: 'A sensory and cultural cacao experience based on Costa Rican ancestral traditions.',
-    duration: '1.5 hours',
-    difficulty: 'Easy',
-    category: 'Relax',
-    highlights: ['Ancestral Tradition', 'Cacao Ritual', 'Organic Chocolate'],
-    image: '/images/tours/chocolate/chocolate1.webp',
-    isResale: false,
-    variants: [
-      { id: 'standard', label: 'Standard', price: { rack: 40 }, includesTransport: false }
+    id: 'hiking-003',
+    slug: 'hanging-bridges-tour',
+    title: 'Mystic Hanging Bridges: Exclusive Rainforest Canopy Walk',
+    shortDescription: 'Walk among the clouds. A guided journey through the secret layers of the rainforest ceiling.',
+    description: 'Discover the secrets of the rainforest that can only be seen from above. On this <strong>Exclusive Canopy Walk</strong>, you will traverse a network of suspended bridges that put you eye-to-eye with monkeys, toucans, and the vibrant life of the forest roof.<br /><br />This isn’t just a walk; it’s a masterclass in nature with an expert naturalist who knows exactly where the wildlife hides.',
+    duration: '4 hours',
+    difficulty: 'Moderate',
+    category: 'Hiking',
+    highlights: ['Forest Canopy', 'Wildlife from Above', 'Scenic Views'],
+    image: 'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/c0cd7b4b-e3d7-4e02-d925-3584578ecc00/public',
+    images: [
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/444f653e-489e-4684-3379-25b25fb30400/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/d94aff5d-cdbd-4aff-d628-5891f2c17700/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/b15e2a91-50e9-4ea8-25c8-56ec6416e400/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/32e91e75-d8ce-475c-e0b2-c96b197ae900/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/6c230c13-6da0-4511-1a9d-c9d89785ac00/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/95661570-3574-4aa6-6285-69b60fc88300/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/3394674a-b407-4c62-7871-52e9eaca6400/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/d3446754-91a7-4c3b-a001-e041fe28b300/public',
+      'https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/ee6be305-fb64-4109-230e-553fd64a2800/public'
     ],
-    rating: 5,
-    reviewsCount: 156
+    isResale: true,
+    variants: [
+      { id: 'standard', label: 'Standard', price: { rack: 85 }, includesTransport: true },
+      { id: 'hot-springs', label: 'With Hot Springs', price: { rack: 135 }, includesTransport: true, includesHotSprings: true }
+    ],
+    rating: 4.5,
+    reviewsCount: 212
   },
 
   // =========================
