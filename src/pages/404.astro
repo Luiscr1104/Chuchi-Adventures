@@ -1,0 +1,296 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getOptimizedImageUrl } from "../lib/utils";
+
+const bgImage =
+    "https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?q=80&w=1920&auto=format&fit=crop";
+---
+
+<Layout
+    title="Trail Lost | Beyond Arenal"
+    description="You've wandered off the trail. Let us guide you back to the heart of adventure."
+    noindex={true}
+>
+    <div
+        class="error-page-container bg-slate-950 min-h-screen relative overflow-hidden flex items-center justify-center"
+    >
+        <!-- Cinematic Layered Background -->
+        <div class="absolute inset-0 z-0 overflow-hidden">
+            <!-- Base Image with Ken Burns Effect -->
+            <img
+                src={getOptimizedImageUrl(bgImage, 1920)}
+                alt=""
+                class="w-full h-full object-cover opacity-60 mix-blend-luminosity scale-110 animate-ken-burns"
+            />
+
+            <!-- Gradient Overlays for Depth -->
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent"
+            >
+            </div>
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-slate-950 via-transparent to-slate-950"
+            >
+            </div>
+
+            <!-- Moving Mist Particles -->
+            <div
+                class="mist-layer absolute inset-0 opacity-20 pointer-events-none"
+            >
+            </div>
+
+            <!-- Film Grain / Noise Overlay -->
+            <div
+                class="noise-overlay absolute inset-0 pointer-events-none opacity-[0.03]"
+            >
+            </div>
+        </div>
+
+        <!-- Main Editorial Content -->
+        <div class="container-custom relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Column: Dramatic Typography -->
+                <div
+                    class="lg:col-span-7 flex flex-col justify-center text-left"
+                >
+                    <div class="reveal-container overflow-hidden">
+                        <span
+                            class="block text-[var(--color-secondary)] font-sans text-xs sm:text-sm font-black tracking-[0.5em] uppercase mb-4 opacity-70 animate-slide-up"
+                        >
+                            System Alert // Area Unknown
+                        </span>
+                    </div>
+
+                    <h1
+                        class="font-serif leading-[0.85] text-white tracking-tighter mb-8 group select-none"
+                    >
+                        <span
+                            class="block text-[8rem] sm:text-[12rem] md:text-[15rem] lg:text-[18rem] font-bold italic transition-transform duration-700 group-hover:-translate-y-2"
+                        >
+                            Lost
+                        </span>
+                        <span
+                            class="block text-[6rem] sm:text-[9rem] md:text-[12rem] lg:text-[14rem] font-light -mt-4 sm:-mt-8 md:-mt-12 lg:-mt-16 text-transparent bg-clip-text bg-gradient-to-r from-white/40 to-white/10 decoration-white/20 underline decoration-1 underline-offset-[20px]"
+                        >
+                            Nature
+                        </span>
+                    </h1>
+
+                    <div class="max-w-md animate-fade-in delay-500">
+                        <p
+                            class="text-white/40 text-lg font-light leading-relaxed font-serif italic mb-8 border-l border-white/20 pl-6"
+                        >
+                            "Every corner of the jungle has a story, but this
+                            one hasn't been written yet. The trail you follow
+                            currently ends here."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive CTA Card -->
+                <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                    <div class="relative group">
+                        <!-- Decorative Glow Background -->
+                        <div
+                            class="absolute -inset-1 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] rounded-[2rem] blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"
+                        >
+                        </div>
+
+                        <div
+                            class="relative bg-slate-900/40 backdrop-blur-3xl border border-white/10 rounded-[2rem] p-8 sm:p-12 w-full max-w-sm shadow-2xl transition-all duration-500 group-hover:-translate-y-2"
+                        >
+                            <div class="flex items-center gap-4 mb-10">
+                                <div
+                                    class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white/60 font-sans text-xs"
+                                >
+                                    404
+                                </div>
+                                <div>
+                                    <h3
+                                        class="text-white font-bold text-lg uppercase tracking-widest"
+                                    >
+                                        Navigation
+                                    </h3>
+                                    <p
+                                        class="text-[var(--color-secondary)]/60 text-[10px] font-black uppercase tracking-widest"
+                                    >
+                                        Re-routing recommended
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <a
+                                    href="/"
+                                    class="flex items-center justify-between w-full px-6 py-5 bg-white text-slate-950 rounded-2xl font-black uppercase tracking-widest text-xs transition-all hover:bg-[var(--color-secondary)] group/btn overflow-hidden relative"
+                                >
+                                    <span class="relative z-10"
+                                        >Return to base camp</span
+                                    >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="relative z-10 transition-transform group-hover/btn:translate-x-1"
+                                    >
+                                        <polyline points="9 18 15 12 9 6"
+                                        ></polyline>
+                                    </svg>
+                                </a>
+
+                                <a
+                                    href="/tours"
+                                    class="flex items-center justify-between w-full px-6 py-5 bg-transparent border border-white/20 text-white rounded-2xl font-black uppercase tracking-widest text-xs transition-all hover:bg-white/5 hover:border-white/40 group/btn"
+                                >
+                                    <span>Discover real trails</span>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="transition-transform group-hover/btn:rotate-45"
+                                    >
+                                        <line x1="7" y1="17" x2="17" y2="7"
+                                        ></line>
+                                        <polyline points="7 7 17 7 17 17"
+                                        ></polyline>
+                                    </svg>
+                                </a>
+                            </div>
+
+                            <div
+                                class="mt-12 flex items-center justify-center gap-4 text-white/20 text-[10px] font-bold uppercase tracking-[0.3em]"
+                            >
+                                <span class="w-4 h-px bg-current"></span>
+                                Beyond Arenal
+                                <span class="w-4 h-px bg-current"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Asymmetrical Decorative Elements -->
+        <div
+            class="absolute bottom-10 left-10 text-white/10 font-sans text-[10px] font-black uppercase tracking-[1em] rotate-90 origin-left pointer-events-none"
+        >
+            Coordinates Error // 10.4678 N // 84.6427 W
+        </div>
+    </div>
+</Layout>
+
+<style>
+    /* Ken Burns Effect for the background */
+    @keyframes ken-burns {
+        0% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1.2) translate(-2%, -2%);
+        }
+    }
+    .animate-ken-burns {
+        animation: ken-burns 30s ease-out infinite alternate;
+    }
+
+    /* Slide Up Text Animation */
+    @keyframes slide-up {
+        from {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 0.7;
+        }
+    }
+    .animate-slide-up {
+        animation: slide-up 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+
+    /* Fade in */
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .animate-fade-in {
+        animation: fade-in 1.2s cubic-bezier(0.2, 0, 0.2, 1) both;
+    }
+
+    /* Noise Overlay */
+    .noise-overlay {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Mist Layer Effect */
+    .mist-layer {
+        background: radial-gradient(
+            circle at 50% 50%,
+            transparent 20%,
+            rgba(255, 255, 255, 0.05) 100%
+        );
+        filter: blur(40px);
+        animation: mist-drift 20s linear infinite;
+    }
+
+    @keyframes mist-drift {
+        0% {
+            transform: scale(1) translate(0, 0);
+        }
+        50% {
+            transform: scale(1.1) translate(2%, 2%);
+        }
+        100% {
+            transform: scale(1) translate(0, 0);
+        }
+    }
+
+    /* Custom Cursor / Flashlight Reveal (Optional JS integration could enhance this, but we'll stick to CSS logic) */
+    .error-page-container::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 5;
+        background: radial-gradient(
+            circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            transparent 0%,
+            rgba(15, 23, 42, 0.85) 100%
+        );
+    }
+
+    /* Small script to update mouse position for the flashlight effect */
+</style>
+
+<script>
+    // Dynamic Flashlight Effect
+    const container = document.querySelector(
+        ".error-page-container",
+    ) as HTMLElement;
+    if (container) {
+        window.addEventListener("mousemove", (e) => {
+            const x = (e.clientX / window.innerWidth) * 100;
+            const y = (e.clientY / window.innerHeight) * 100;
+            container.style.setProperty("--mouse-x", `${x}%`);
+            container.style.setProperty("--mouse-y", `${y}%`);
+        });
+    }
+</script>

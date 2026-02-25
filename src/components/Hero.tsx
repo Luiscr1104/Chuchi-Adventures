@@ -14,8 +14,8 @@ export default function Hero() {
                     initial={{ scale: 1.15, opacity: 1 }}
                     animate={{ scale: 1.05 }}
                     transition={{ duration: 15, ease: "easeOut" }}
-                    src={heroImage}
-                    srcSet={`${getOptimizedImageUrl(heroImage, 800)} 800w, ${getOptimizedImageUrl(heroImage, 1200)} 1200w, ${heroImage} 1920w`}
+                    src={getOptimizedImageUrl(heroImage, 1920)}
+                    srcSet={`${getOptimizedImageUrl(heroImage, 800)} 800w, ${getOptimizedImageUrl(heroImage, 1200)} 1200w, ${getOptimizedImageUrl(heroImage, 1920)} 1920w`}
                     sizes="100vw"
                     alt="La Fortuna Landscape"
                     className="w-full h-full object-cover"

@@ -20,11 +20,36 @@ const minPrice =
     ? Math.min(...tour.variants.map((v) => v.price.rack))
     : 0;
 
+// Resolve local images from src/assets for optimization
+import { getOptimizedImageUrl } from "../../lib/utils";
+const imageGlob = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/**/*.{jpeg,jpg,png,tiff,webp,gif,svg,avif}",
+);
+
+function resolveImagePath(imgPath: string): string {
+  if (imgPath.startsWith("http")) return getOptimizedImageUrl(imgPath, 1200);
+  // Convert local path to asset-based path for lookup
+  const assetPath = imgPath.startsWith("/images")
+    ? `/src/assets${imgPath}`
+    : `/src/assets/images/${imgPath}`;
+  // If it exists in the glob, return the original path (Astro will serve it)
+  // Otherwise fall back to public path
+  return imgPath;
+}
+
+const heroImageSrc = tour.image.startsWith("http")
+  ? getOptimizedImageUrl(tour.image, 1920)
+  : tour.image;
+
+const carouselImages = (tour.images || [tour.image]).map((img: string) =>
+  img.startsWith("http") ? getOptimizedImageUrl(img, 1200) : img,
+);
+
 // SEO Metadata Logic
 const _URL = (globalThis as any).URL;
 const seoTitle = `${tour.title} | #1 Rated in La Fortuna`;
 const seoDescription = `Experience ${tour.title}. Small groups, luxury transport & expert local guides. 5-Star Rated. Check availability instantly via WhatsApp. Price: $${minPrice}.`;
-const ogImage = tour.image; // Assuming tour.image is a relative or absolute path we can use directly or it's already a URL.
+const ogImage = tour.image;
 
 // Enhanced Schema
 const schema = {
@@ -63,7 +88,7 @@ const schema = {
   <div class="relative h-[70vh] md:h-[85vh] overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img
-        src={tour.image}
+        src={heroImageSrc}
         alt={tour.title}
         class="w-full h-full object-cover transition-transform duration-[10s] ease-out scale-105 hover:scale-100"
       />
@@ -156,7 +181,7 @@ const schema = {
         >
           <TourCarousel
             client:load
-            images={tour.images || [tour.image]}
+            images={carouselImages}
             title={tour.title}
           />
         </div>

@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import TourCard from "../components/TourCard";
+import TourCardReact from "../components/TourCard";
+import TourCard from "../components/TourCard.astro";
 import Hero from "../components/Hero";
 import TransportFilter from "../components/TransportFilter";
 import WhatsAppBtn from "../components/WhatsAppBtn.astro";
@@ -28,7 +29,6 @@ const featuredTours = tours.slice(0, 3);
     imagesrcset={`${getOptimizedImageUrl("https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/54a5c2c2-3d08-4516-0804-2e722847be00/public", 800)} 800w, ${getOptimizedImageUrl("https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/54a5c2c2-3d08-4516-0804-2e722847be00/public", 1200)} 1200w, https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/54a5c2c2-3d08-4516-0804-2e722847be00/public 1920w`}
     imagesizes="100vw"
     fetchpriority="high"
-    slot="head"
   />
 
   <!-- FAQPage Schema -->
@@ -263,7 +263,7 @@ const featuredTours = tours.slice(0, 3);
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 scroll-child"
         style="--scroll-delay: 0.15s"
       >
-        {featuredTours.map((tour) => <TourCard tour={tour} client:visible />)}
+        {featuredTours.map((tour) => <TourCard tour={tour} />)}
       </div>
 
       <div class="mt-20 flex justify-center">
