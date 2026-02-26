@@ -1,0 +1,133 @@
+---
+import { Instagram, Facebook, Music2 } from "lucide-react";
+
+const socialLinks = [
+    {
+        name: "Instagram",
+        url: "https://www.instagram.com/beyondarenal/",
+        icon: Instagram,
+        color: "hover:bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:text-white",
+    },
+    {
+        name: "Facebook",
+        url: "https://www.facebook.com/profile.php?id=61587983755668",
+        icon: Facebook,
+        color: "hover:bg-[#1877F2] hover:text-white",
+    },
+    {
+        name: "TikTok",
+        url: "https://www.tiktok.com/@beyondarenal",
+        icon: Music2,
+        color: "hover:bg-black hover:text-white",
+    },
+];
+---
+
+<div
+    class="fixed right-6 top-1/2 -translate-y-1/2 z-[60] hidden xl:flex flex-col gap-3 group/dock social-dock-entrance"
+>
+    <div
+        class="relative flex flex-col gap-1.5 p-2 rounded-[2rem] bg-white/30 backdrop-blur-2xl border border-white/50 shadow-[0_20px_50px_rgba(0,0,0,0.1),0_1px_1px_rgba(255,255,255,0.8)_inset] transition-all duration-700 hover:scale-[1.05] hover:bg-white/50 group-hover/dock:shadow-[0_40px_80px_rgba(0,0,0,0.15)] overflow-hidden"
+    >
+        <!-- Light Sweep Effect -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden rounded-[2rem]">
+            <div class="light-sweep"></div>
+        </div>
+
+        <div class="pt-2"></div>
+
+        {
+            socialLinks.map((link, index) => {
+                const Icon = link.icon;
+                return (
+                    <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class={`social-item group relative w-12 h-12 rounded-2xl flex items-center justify-center text-slate-700 transition-all duration-500 hover:shadow-xl hover:-translate-x-1 ${link.color}`}
+                        style={`animation-delay: ${index * 100}ms`}
+                        aria-label={`Follow us on ${link.name}`}
+                    >
+                        <Icon className="w-5 h-5 transition-transform duration-500 group-hover:scale-125" />
+
+                        <span class="absolute right-full mr-4 px-3 py-1.5 rounded-xl bg-slate-900/90 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-[0.2em] opacity-0 pointer-events-none transition-all duration-500 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 shadow-2xl border border-white/10 whitespace-nowrap">
+                            {link.name}
+                        </span>
+                        
+                        <!-- Hover Glow -->
+                        <div class="absolute inset-0 rounded-2xl bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                    </a>
+                );
+            })
+        }
+
+        <div class="mt-2 pt-2 border-t border-slate-950/5 flex flex-col gap-1.5">
+            <a
+                href="https://wa.me/50688201065"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-12 h-12 rounded-2xl flex items-center justify-center bg-[#25D366]/5 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all duration-500 hover:shadow-[0_10px_30px_rgba(37,211,102,0.3)] hover:-translate-x-1 group/wa"
+                aria-label="Contact on WhatsApp"
+            >
+                <svg
+                    class="w-6 h-6 transition-transform duration-500 group-hover/wa:scale-110"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+                    ></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .vertical-text {
+        writing-mode: vertical-rl;
+    }
+
+    .social-dock-entrance {
+        animation: slideIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        opacity: 0;
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translate(2rem, -50%);
+        }
+        to {
+            opacity: 1;
+            transform: translate(0, -50%);
+        }
+    }
+
+    .light-sweep {
+        position: absolute;
+        top: -100%;
+        left: -100%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+            45deg,
+            transparent 45%,
+            rgba(255, 255, 255, 0.3) 50%,
+            transparent 55%
+        );
+        animation: sweep 8s infinite ease-in-out;
+        pointer-events: none;
+    }
+
+    @keyframes sweep {
+        0% { transform: translate(-30%, -30%); }
+        20% { transform: translate(30%, 30%); }
+        100% { transform: translate(30%, 30%); }
+    }
+
+    .social-item {
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+    }
+</style>
