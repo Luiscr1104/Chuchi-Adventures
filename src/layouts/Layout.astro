@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import WhatsAppBtn from "../components/WhatsAppBtn.astro";
 import SocialDock from "../components/SocialDock.astro";
+import Analytics from "@vercel/analytics/astro";
 
 interface Props {
   title: string;
@@ -126,6 +127,9 @@ const organizationSchema = {
 
     <!-- Slot for additional head elements (like Schema) -->
     <slot name="head" />
+
+    <!-- Vercel Web Analytics -->
+    <Analytics />
   </head>
   <body class="flex flex-col min-h-screen bg-slate-50">
     <!-- Google Tag Manager (noscript) -->
