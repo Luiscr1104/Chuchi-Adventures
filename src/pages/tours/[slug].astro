@@ -68,7 +68,20 @@ const schema = {
     priceCurrency: "USD",
     availability: "https://schema.org/InStock",
     url: new _URL(Astro.url.pathname, Astro.site).href,
-    validFrom: new Date().toISOString(),
+    priceValidUntil: "2026-12-31",
+    hasMerchantReturnPolicy: false,
+    shippingDetails: {
+      "@type": "OfferShippingDetails",
+      shippingRate: {
+        "@type": "MonetaryAmount",
+        value: 0,
+        currency: "USD",
+      },
+      shippingDestination: {
+        "@type": "DefinedRegion",
+        addressCountry: "CR",
+      },
+    },
   },
   aggregateRating: {
     "@type": "AggregateRating",
