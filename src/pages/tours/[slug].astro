@@ -69,8 +69,11 @@ const schema = {
     availability: "https://schema.org/InStock",
     url: new _URL(Astro.url.pathname, Astro.site).href,
     priceValidUntil: "2026-12-31",
-    hasMerchantReturnPolicy: false,
-    shippingDetails: {
+    hasMerchantReturnPolicy: {
+      "@type": "MerchantReturnPolicy",
+      applicableCountry: "CR",
+      returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted"
+    },
       "@type": "OfferShippingDetails",
       shippingRate: {
         "@type": "MonetaryAmount",
