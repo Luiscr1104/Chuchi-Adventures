@@ -7,6 +7,8 @@ import {
   CarouselNext
 } from './ui/carousel';
 
+import { getOptimizedImageUrl } from '../lib/utils';
+
 interface TourCarouselProps {
   images: string[];
   title: string;
@@ -83,7 +85,9 @@ export default function TourCarousel({ images, title, className }: TourCarouselP
                 <div className="relative aspect-[16/10] md:aspect-[21/9] overflow-hidden bg-stone-50">
                   <img
                     ref={el => imgRefs.current[index] = el}
-                    src={image}
+                    src={image.startsWith('http') ? getOptimizedImageUrl(image, 1200, 75) : image}
+                    srcSet={image.startsWith('http') ? `${getOptimizedImageUrl(image, 600, 75)} 600w, ${getOptimizedImageUrl(image, 1200, 75)} 1200w` : undefined}
+                    sizes={image.startsWith('http') ? "(max-width: 768px) 100vw, 75vw" : undefined}
                     alt={`${title} - Photo ${index + 1}`}
                     onLoad={() => handleImageLoad(index)}
                     onError={() => handleImageError(index)}

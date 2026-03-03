@@ -53,10 +53,10 @@ const rating = tour.rating || 5;
           />
         ) : (
           <img
-            src={getOptimizedImageUrl(tour.image, 800)}
+            src={getOptimizedImageUrl(tour.image, 800, 75)}
             srcset={
               tour.image.startsWith("http")
-                ? `${getOptimizedImageUrl(tour.image, 400)} 400w, ${getOptimizedImageUrl(tour.image, 800)} 800w`
+                ? `${getOptimizedImageUrl(tour.image, 400, 75)} 400w, ${getOptimizedImageUrl(tour.image, 800, 75)} 800w`
                 : undefined
             }
             sizes={

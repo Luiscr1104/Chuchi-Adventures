@@ -27,7 +27,8 @@ const imageGlob = import.meta.glob<{ default: ImageMetadata }>(
 );
 
 function resolveImagePath(imgPath: string): string {
-  if (imgPath.startsWith("http")) return getOptimizedImageUrl(imgPath, 1200);
+  if (imgPath.startsWith("http"))
+    return getOptimizedImageUrl(imgPath, 1200, 75);
   // Convert local path to asset-based path for lookup
   const assetPath = imgPath.startsWith("/images")
     ? `/src/assets${imgPath}`
@@ -38,11 +39,15 @@ function resolveImagePath(imgPath: string): string {
 }
 
 const heroImageSrc = tour.image.startsWith("http")
-  ? getOptimizedImageUrl(tour.image, 1920)
+  ? getOptimizedImageUrl(tour.image, 1920, 75)
   : tour.image;
 
+const heroSrcSet = tour.image.startsWith("http")
+  ? `${getOptimizedImageUrl(tour.image, 640, 75)} 640w, ${getOptimizedImageUrl(tour.image, 1024, 75)} 1024w, ${getOptimizedImageUrl(tour.image, 1920, 75)} 1920w`
+  : undefined;
+
 const carouselImages = (tour.images || [tour.image]).map((img: string) =>
-  img.startsWith("http") ? getOptimizedImageUrl(img, 1200) : img,
+  img.startsWith("http") ? getOptimizedImageUrl(img, 1200, 75) : img,
 );
 
 // SEO Metadata Logic
@@ -106,7 +111,12 @@ const schema = {
     <div class="absolute inset-0 z-0">
       <img
         src={heroImageSrc}
+        srcset={heroSrcSet}
+        sizes="100vw"
         alt={tour.title}
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
         class="w-full h-full object-cover transition-transform duration-[10s] ease-out scale-105 hover:scale-100"
       />
       <!-- Dynamic Overlay Mesh -->
