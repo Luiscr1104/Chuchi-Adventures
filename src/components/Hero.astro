@@ -11,8 +11,8 @@ const heroImage =
     <!-- Background Image with Ken Burns effect -->
     <div class="absolute inset-0 z-0">
         <img
-            src={getOptimizedImageUrl(heroImage, 1920, 75)}
-            srcset={`${getOptimizedImageUrl(heroImage, 640, 75)} 640w, ${getOptimizedImageUrl(heroImage, 1024, 75)} 1024w, ${getOptimizedImageUrl(heroImage, 1920, 75)} 1920w`}
+            src={getOptimizedImageUrl(heroImage, 1920)}
+            srcset={`${getOptimizedImageUrl(heroImage, 640)} 640w, ${getOptimizedImageUrl(heroImage, 1024)} 1024w, ${getOptimizedImageUrl(heroImage, 1920)} 1920w`}
             sizes="100vw"
             alt="La Fortuna Landscape"
             class="w-full h-full object-cover hero-bg"

@@ -12,7 +12,7 @@ export function cn(...inputs: ClassValue[]) {
  * @param width The desired width in pixels
  * @param quality Image quality 1-100 (default 75)
  */
-export function getOptimizedImageUrl(url: string, width: number = 600, quality: number = 70) {
+export function getOptimizedImageUrl(url: string, width: number = 600, quality: number = 65) {
     if (!url) return '';
 
     // Cloudflare Image Delivery — flexible variants
