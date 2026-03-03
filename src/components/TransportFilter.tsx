@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Calendar, Clock, Users, MapPin, ArrowRight, Plane, Car } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -33,10 +32,7 @@ export default function TransportFilter() {
 
 
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+        <div
             className="w-full max-w-7xl mx-auto"
         >
             <div className="relative bg-white rounded-[2rem] md:rounded-[3rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.2)] overflow-hidden border border-slate-100">
@@ -170,6 +166,6 @@ export default function TransportFilter() {
                     </div>
                 </div>
             </div>
-        </motion.div>
+        </div>
     );
 }

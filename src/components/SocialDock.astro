@@ -1,23 +1,21 @@
 ---
-import { Instagram, Facebook, Music2 } from "lucide-react";
-
 const socialLinks = [
     {
         name: "Instagram",
         url: "https://www.instagram.com/beyondarenal/",
-        icon: Instagram,
+        icon: "instagram",
         color: "hover:bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:text-white",
     },
     {
         name: "Facebook",
         url: "https://www.facebook.com/profile.php?id=61587983755668",
-        icon: Facebook,
+        icon: "facebook",
         color: "hover:bg-[#1877F2] hover:text-white",
     },
     {
         name: "TikTok",
         url: "https://www.tiktok.com/@beyondarenal",
-        icon: Music2,
+        icon: "tiktok",
         color: "hover:bg-black hover:text-white",
     },
 ];
@@ -37,28 +35,33 @@ const socialLinks = [
         <div class="pt-2"></div>
 
         {
-            socialLinks.map((link, index) => {
-                const Icon = link.icon;
-                return (
-                    <a
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class={`social-item group relative w-12 h-12 rounded-2xl flex items-center justify-center text-slate-700 transition-all duration-500 hover:shadow-xl hover:-translate-x-1 ${link.color}`}
-                        style={`animation-delay: ${index * 100}ms`}
-                        aria-label={`Follow us on ${link.name}`}
-                    >
-                        <Icon className="w-5 h-5 transition-transform duration-500 group-hover:scale-125" />
+            socialLinks.map((link, index) => (
+                <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class={`social-item group relative w-12 h-12 rounded-2xl flex items-center justify-center text-slate-700 transition-all duration-500 hover:shadow-xl hover:-translate-x-1 ${link.color}`}
+                    style={`animation-delay: ${index * 100}ms`}
+                    aria-label={`Follow us on ${link.name}`}
+                >
+                    {link.icon === 'instagram' && (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 transition-transform duration-500 group-hover:scale-125"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    )}
+                    {link.icon === 'facebook' && (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 transition-transform duration-500 group-hover:scale-125"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    )}
+                    {link.icon === 'tiktok' && (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 transition-transform duration-500 group-hover:scale-125"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                    )}
 
-                        <span class="absolute right-full mr-4 px-3 py-1.5 rounded-xl bg-slate-900/90 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-[0.2em] opacity-0 pointer-events-none transition-all duration-500 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 shadow-2xl border border-white/10 whitespace-nowrap">
-                            {link.name}
-                        </span>
-                        
-                        <!-- Hover Glow -->
-                        <div class="absolute inset-0 rounded-2xl bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                    </a>
-                );
-            })
+                    <span class="absolute right-full mr-4 px-3 py-1.5 rounded-xl bg-slate-900/90 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-[0.2em] opacity-0 pointer-events-none transition-all duration-500 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 shadow-2xl border border-white/10 whitespace-nowrap">
+                        {link.name}
+                    </span>
+                    
+                    <!-- Hover Glow -->
+                    <div class="absolute inset-0 rounded-2xl bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                </a>
+            ))
         }
 
         <div class="mt-2 pt-2 border-t border-slate-950/5 flex flex-col gap-1.5">

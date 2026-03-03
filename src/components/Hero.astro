@@ -1,0 +1,213 @@
+---
+import { getOptimizedImageUrl } from "../lib/utils";
+
+const heroImage =
+    "https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/54a5c2c2-3d08-4516-0804-2e722847be00/public";
+---
+
+<section
+    class="relative h-[95vh] flex items-center justify-center overflow-hidden bg-slate-900"
+>
+    <!-- Background Image with Ken Burns effect -->
+    <div class="absolute inset-0 z-0">
+        <img
+            src={getOptimizedImageUrl(heroImage, 1920, 75)}
+            srcset={`${getOptimizedImageUrl(heroImage, 640, 75)} 640w, ${getOptimizedImageUrl(heroImage, 1024, 75)} 1024w, ${getOptimizedImageUrl(heroImage, 1920, 75)} 1920w`}
+            sizes="100vw"
+            alt="La Fortuna Landscape"
+            class="w-full h-full object-cover hero-bg"
+            fetchpriority="high"
+            loading="eager"
+            decoding="sync"
+        />
+        <div
+            class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-slate-900/40"
+        >
+        </div>
+        <div class="absolute inset-0 bg-black/10 backdrop-blur-[2px]"></div>
+    </div>
+
+    <div class="relative z-10 w-full">
+        <div class="container-custom mx-auto px-4">
+            <div class="max-w-6xl">
+                <div class="flex items-center gap-3 mb-8 hero-subtitle">
+                    <div class="h-px w-12 bg-[var(--color-secondary)]"></div>
+                    <span
+                        class="text-[var(--color-secondary)] font-bold tracking-[0.3em] uppercase text-xs md:text-sm"
+                    >
+                        Experience Costa Rica
+                    </span>
+                </div>
+
+                <h1
+                    class="text-4xl sm:text-6xl md:text-8xl lg:text-[7rem] font-bold text-white leading-[0.9] tracking-tighter mb-12 drop-shadow-2xl uppercase hero-title"
+                >
+                    AUTHENTIC <br />
+                    <span class="text-[var(--color-secondary)]">LA FORTUNA</span
+                    ><br />
+                    ADVENTURES.
+                </h1>
+
+                <div
+                    class="flex flex-col md:flex-row items-start md:items-center gap-12 pt-12 border-t border-white/20 max-w-4xl"
+                >
+                    <p
+                        class="text-lg md:text-2xl text-white/80 max-w-md font-light leading-relaxed hero-paragraph"
+                    >
+                        Boutique adventures in <span
+                            class="text-white font-medium italic underline decoration-[var(--color-secondary)] underline-offset-8"
+                            >La Fortuna</span
+                        > designed for those who seek the authentic.
+                    </p>
+
+                    <div class="flex flex-wrap gap-5 hero-cta">
+                        <a href="#tours">
+                            <button
+                                class="h-16 px-10 rounded-2xl bg-white text-slate-900 hover:bg-[var(--color-secondary)] transition-all duration-500 font-black uppercase tracking-widest text-sm shadow-2xl cursor-pointer"
+                            >
+                                Book Your Adventure
+                            </button>
+                        </a>
+                        <a
+                            href={`https://wa.me/50688201065?text=${encodeURIComponent("Hola Beyond Arenal! I'm interested in a Private Tour in La Fortuna. Can you help me?")}`}
+                            target="_blank"
+                            data-track-wa
+                            data-wa-location="hero_private_trip"
+                        >
+                            <button
+                                class="h-16 px-10 rounded-2xl bg-white/5 backdrop-blur-md text-white border border-white/20 hover:bg-white/10 transition-all duration-500 font-bold uppercase tracking-widest text-sm cursor-pointer"
+                            >
+                                Private Tour
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subtle scroll indicator -->
+    <div
+        class="absolute bottom-12 right-12 z-20 flex flex-col items-center gap-6 hero-scroll-indicator"
+    >
+        <span
+            class="text-white/40 text-[10px] font-bold uppercase tracking-[0.5em] vertical-text transform rotate-180 mb-4 whitespace-nowrap"
+        >
+            Scroll to discover
+        </span>
+        <div
+            class="w-px h-24 bg-gradient-to-b from-white to-transparent relative overflow-hidden"
+        >
+            <div
+                class="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-transparent via-[var(--color-secondary)] to-transparent scroll-pulse"
+            >
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .vertical-text {
+        writing-mode: vertical-rl;
+    }
+
+    /* Ken Burns background zoom */
+    .hero-bg {
+        transform: scale(1.15);
+        animation: heroBgZoom 15s ease-out forwards;
+    }
+    @keyframes heroBgZoom {
+        to {
+            transform: scale(1.05);
+        }
+    }
+
+    /* Subtitle slide in from left */
+    .hero-subtitle {
+        opacity: 0;
+        transform: translateX(-20px);
+        animation: heroSlideIn 0.8s ease-out forwards;
+    }
+    @keyframes heroSlideIn {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* Title rise up */
+    .hero-title {
+        opacity: 0;
+        transform: translateY(40px);
+        animation: heroRiseUp 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+    }
+    @keyframes heroRiseUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Paragraph fade in */
+    .hero-paragraph {
+        opacity: 0;
+        animation: heroFadeIn 1s ease-out 0.8s forwards;
+    }
+    @keyframes heroFadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* CTA scale in */
+    .hero-cta {
+        opacity: 0;
+        transform: scale(0.9);
+        animation: heroScaleIn 0.5s ease-out 1s forwards;
+    }
+    @keyframes heroScaleIn {
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* Scroll indicator fade */
+    .hero-scroll-indicator {
+        opacity: 0;
+        animation: heroFadeIn 2s ease-out 1.5s forwards;
+    }
+
+    /* Scroll indicator pulse animation */
+    .scroll-pulse {
+        animation: scrollPulse 4s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(96px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+        .hero-bg,
+        .hero-subtitle,
+        .hero-title,
+        .hero-paragraph,
+        .hero-cta,
+        .hero-scroll-indicator {
+            opacity: 1;
+            transform: none;
+            animation: none;
+        }
+        .scroll-pulse {
+            animation: none;
+        }
+    }
+</style>

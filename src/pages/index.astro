@@ -1,15 +1,13 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import TourCardReact from "../components/TourCard";
 import TourCard from "../components/TourCard.astro";
-import Hero from "../components/Hero";
+import Hero from "../components/Hero.astro";
 import TransportFilter from "../components/TransportFilter";
 import WhatsAppBtn from "../components/WhatsAppBtn.astro";
 import { tours } from "../data/tours";
 import { reviews } from "../data/reviews";
-import ReviewCarousel from "../components/ReviewCarousel";
-import { ArrowRight } from "lucide-react";
+import ReviewCarousel from "../components/ReviewCarousel.astro";
 import { Image } from "astro:assets";
 import { getOptimizedImageUrl } from "../lib/utils";
 
@@ -78,7 +76,7 @@ const latestPosts = (await getCollection("blog"))
     })}
   />
   <!-- Main Hero -->
-  <Hero client:idle />
+  <Hero />
 
   <!-- Strategic Trust Stats (Immediately after Hero) -->
   <div class="bg-white py-10 border-b border-slate-100 overflow-hidden">
@@ -391,7 +389,7 @@ const latestPosts = (await getCollection("blog"))
           >
         </div>
 
-        <ReviewCarousel client:visible reviews={reviews} />
+        <ReviewCarousel reviews={reviews} />
       </div>
     </div>
   </section>
@@ -623,7 +621,19 @@ const latestPosts = (await getCollection("blog"))
               class="inline-flex items-center gap-4 text-slate-900 font-black uppercase tracking-widest text-xs border-b-2 border-slate-900 pb-2 hover:text-[var(--color-primary)] hover:border-[var(--color-primary)] transition-all"
             >
               Discover Our Story
-              <ArrowRight class="w-4 h-4" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-4 h-4"
+                ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg
+              >
             </a>
           </div>
         </div>
@@ -713,7 +723,20 @@ const latestPosts = (await getCollection("blog"))
               <div
                 class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-emerald-900 transition-colors"
               >
-                <ArrowRight class="w-4 h-4" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-4 h-4"
+                  ><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"
+                  ></path></svg
+                >
               </div>
             </a>
           </div>
