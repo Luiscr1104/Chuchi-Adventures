@@ -47,9 +47,9 @@ export default function TourCard({ tour }: TourCardProps) {
                 {/* Image Section */}
                 <div className="relative aspect-[16/10] overflow-hidden flex-shrink-0">
                     <img
-                        src={getOptimizedImageUrl(tour.image, 800, 75)}
-                        srcSet={tour.image.startsWith('http') ? `${getOptimizedImageUrl(tour.image, 400, 75)} 400w, ${getOptimizedImageUrl(tour.image, 800, 75)} 800w` : undefined}
-                        sizes={tour.image.startsWith('http') ? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px" : undefined}
+                        src={getOptimizedImageUrl(tour.image, 600, 70)}
+                        srcSet={tour.image.startsWith('http') ? `${getOptimizedImageUrl(tour.image, 400, 70)} 400w, ${getOptimizedImageUrl(tour.image, 600, 70)} 600w, ${getOptimizedImageUrl(tour.image, 800, 70)} 800w` : undefined}
+                        sizes={tour.image.startsWith('http') ? "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px" : undefined}
                         alt={tour.title}
                         loading="lazy"
                         decoding="async"
