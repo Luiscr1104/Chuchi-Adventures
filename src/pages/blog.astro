@@ -1,18 +1,229 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import { getOptimizedImageUrl } from "../lib/utils";
+import { ArrowRight, Clock, User } from "lucide-react";
+
+const allPosts = (await getCollection("blog"))
+  .filter((post) => !post.data.isDraft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const featuredPost = allPosts[0];
+const remainingPosts = allPosts.slice(1);
+
+const title = "Adventure Journal | Beyond Arenal";
+const description =
+  "Premium travel insights and local stories from the heart of La Fortuna, Costa Rica.";
 ---
 
-<Layout title="Blog" description="Travel tips and stories from Costa Rica.">
-  <div class="pt-32 pb-20 text-center container-custom">
-    <h1 class="text-4xl font-bold text-slate-900 mb-6">Travel Journal</h1>
-    <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-12">
-      Under construction. Soon we will share the best travel stories and tips for visiting La Fortuna and Costa Rica.
-    </p>
-    
-    <div class="bg-white p-12 rounded-2xl shadow-sm border border-slate-100 max-w-md mx-auto">
-       <span class="text-6xl mb-4 block">🚧</span>
-       <h3 class="text-xl font-bold mb-2">Coming Soon</h3>
-       <p class="text-slate-500">We are writing amazing content for you.</p>
+<Layout title={title} description={description}>
+  <!-- Hero / Featured Post -->
+  <section class="pt-32 pb-20 relative overflow-hidden bg-white">
+    <div class="container-custom relative z-10">
+      <div class="flex flex-col lg:flex-row gap-12 lg:items-center">
+        <div class="lg:w-1/2 order-2 lg:order-1">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[10px] font-bold uppercase tracking-[0.2em] mb-8"
+          >
+            <span class="relative flex h-2 w-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+              ></span>
+              <span
+                class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"
+              ></span>
+            </span>
+            Latest Insight
+          </div>
+
+          <h1
+            class="text-5xl md:text-7xl font-light text-slate-900 mb-8 leading-[1.1] font-serif"
+          >
+            {
+              featuredPost.data.title
+                .split(":")
+                .map((part, i) =>
+                  i === 0 ? (
+                    <span>{part}</span>
+                  ) : (
+                    <span class="block text-emerald-600 italic font-medium">
+                      {part}
+                    </span>
+                  ),
+                )
+            }
+          </h1>
+
+          <p class="text-xl text-slate-600 mb-10 leading-relaxed max-w-xl">
+            {featuredPost.data.description}
+          </p>
+
+          <div
+            class="flex flex-wrap items-center gap-6 mb-12 text-sm text-slate-400 font-medium"
+          >
+            <div class="flex items-center gap-2">
+              <User size={16} />
+              <span>{featuredPost.data.author}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Clock size={16} />
+              <span>5 min read</span>
+            </div>
+          </div>
+
+          <a
+            href={`/blog/${featuredPost.slug}`}
+            class="inline-flex items-center justify-center gap-4 px-10 py-5 bg-slate-900 text-white rounded-full font-bold hover:bg-emerald-600 transition-all duration-300 group shadow-xl shadow-slate-900/10"
+          >
+            Read the Full Story
+            <ArrowRight
+              size={20}
+              class="group-hover:translate-x-2 transition-transform"
+            />
+          </a>
+        </div>
+
+        <div class="lg:w-1/2 order-1 lg:order-2">
+          <div class="relative group">
+            <div
+              class="absolute -inset-4 bg-emerald-100/50 rounded-[3rem] blur-2xl group-hover:bg-emerald-200/50 transition-colors duration-500"
+            >
+            </div>
+            <div
+              class="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-2xl"
+            >
+              <img
+                src={getOptimizedImageUrl(featuredPost.data.image, 1200)}
+                alt={featuredPost.data.title}
+                class="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-1000"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent"
+              >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Editorial Grid -->
+  <section class="py-24 bg-slate-50 border-t border-slate-100">
+    <div class="container-custom">
+      <div
+        class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8"
+      >
+        <div>
+          <h2 class="text-4xl md:text-5xl font-serif text-slate-900 mb-4">
+            The <span class="italic text-emerald-600">Collection</span>
+          </h2>
+          <p class="text-slate-500 font-medium tracking-wide">
+            CURATED STORIES FROM THE RAINFOREST
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        {
+          remainingPosts.map((post, index) => (
+            <article
+              class={`group flex flex-col ${index === 1 ? "lg:translate-y-12" : ""}`}
+            >
+              <a
+                href={`/blog/${post.slug}`}
+                class="relative aspect-[16/11] overflow-hidden rounded-3xl mb-8 block bg-slate-200 group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-500"
+              >
+                <img
+                  src={getOptimizedImageUrl(post.data.image, 800)}
+                  alt={post.data.title}
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-3xl" />
+              </a>
+
+              <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-600">
+                    {post.data.tags[0]}
+                  </span>
+                  <span class="w-1 h-1 rounded-full bg-slate-300" />
+                  <time class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                    {post.data.pubDate.toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
+                  </time>
+                </div>
+
+                <h3 class="text-2xl font-bold text-slate-900 leading-tight group-hover:text-emerald-700 transition-colors">
+                  <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+                </h3>
+
+                <p class="text-slate-500 text-sm leading-relaxed line-clamp-3">
+                  {post.data.description}
+                </p>
+
+                <div class="pt-4">
+                  <a
+                    href={`/blog/${post.slug}`}
+                    class="text-[11px] font-black uppercase tracking-[0.3em] text-slate-900 hover:text-emerald-600 flex items-center gap-2 transition-colors"
+                  >
+                    Continue Reading →
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter / Community CTA -->
+  <section class="py-32 bg-slate-900 relative overflow-hidden">
+    <div class="absolute top-0 left-0 w-full h-full opacity-10">
+      <div
+        class="absolute -top-24 -left-24 w-96 h-96 bg-emerald-500 rounded-full blur-[120px]"
+      >
+      </div>
+      <div
+        class="absolute -bottom-24 -right-24 w-96 h-96 bg-emerald-500 rounded-full blur-[120px]"
+      >
+      </div>
+    </div>
+
+    <div class="container-custom relative z-10 text-center">
+      <h2 class="text-4xl md:text-6xl font-serif text-white mb-8">
+        Ready for your <span class="italic text-emerald-400">own</span> story?
+      </h2>
+      <p class="text-slate-400 text-xl mb-12 max-w-2xl mx-auto">
+        Don't just read about adventure. Experience it first-hand with our local
+        expert guides.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+        <a
+          href="/tours"
+          class="btn-primary w-full sm:w-auto px-12 py-5 rounded-full text-base font-bold shadow-2xl shadow-emerald-500/20"
+        >
+          Explore Our Tours
+        </a>
+        <a
+          href="https://wa.me/50688201065"
+          target="_blank"
+          class="w-full sm:w-auto px-12 py-5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold backdrop-blur-md border border-white/20 transition-all"
+        >
+          Inquire Privately
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  .font-serif {
+    font-family: "Cormorant Garamond", serif;
+  }
+</style>

@@ -1,0 +1,295 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { getOptimizedImageUrl } from "../../lib/utils";
+import { Calendar, User, ArrowLeft, Share2 } from "lucide-react";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("blog");
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// SEO Article Schema
+const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.data.title,
+    description: post.data.description,
+    image: post.data.image,
+    datePublished: post.data.pubDate.toISOString(),
+    author: {
+        "@type": "Person",
+        name: post.data.author,
+    },
+    publisher: {
+        "@type": "Organization",
+        name: "Beyond Arenal",
+        logo: {
+            "@type": "ImageObject",
+            url: "https://beyondarenal.com/logoBlack.svg",
+        },
+    },
+};
+// WhatsApp Pre-filled Link
+const whatsappBase = "https://wa.me/50688201065";
+const encodedMessage = encodeURIComponent(
+    `Hola Beyond Arenal! Vengo del blog y me interesa saber más sobre "${post.data.title}"`,
+);
+const whatsappLink = `${whatsappBase}?text=${encodedMessage}`;
+---
+
+<Layout
+    title={post.data.title}
+    description={post.data.description}
+    image={post.data.image}
+>
+    <script
+        type="application/ld+json"
+        set:html={JSON.stringify(articleSchema)}
+        slot="head"
+    />
+
+    <!-- Reading Progress Bar -->
+    <div
+        id="progress-container"
+        class="fixed top-0 left-0 w-full h-1.5 z-[100] pointer-events-none"
+    >
+        <div
+            id="progress-bar"
+            class="h-full bg-emerald-500 w-0 transition-all duration-150"
+        >
+        </div>
+    </div>
+
+    <script>
+        const progressBar = document.getElementById("progress-bar");
+        window.addEventListener("scroll", () => {
+            const winScroll =
+                document.body.scrollTop || document.documentElement.scrollTop;
+            const height =
+                document.documentElement.scrollHeight -
+                document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            if (progressBar) progressBar.style.width = scrolled + "%";
+        });
+    </script>
+
+    <!-- Immersive Header -->
+    <header
+        class="relative h-[80vh] min-h-[600px] flex items-end pb-24 overflow-hidden bg-slate-900"
+    >
+        <div class="absolute inset-0 z-0">
+            <img
+                src={getOptimizedImageUrl(post.data.image, 1800)}
+                alt={post.data.title}
+                class="w-full h-full object-cover opacity-60 scale-105"
+            />
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/20 to-transparent"
+            >
+            </div>
+        </div>
+
+        <div class="container-custom relative z-10">
+            <div class="max-w-4xl">
+                <a
+                    href="/blog"
+                    class="inline-flex items-center gap-2 text-emerald-400 font-bold text-xs uppercase tracking-[0.3em] mb-8 hover:text-white transition-colors group"
+                >
+                    <ArrowLeft
+                        size={14}
+                        class="group-hover:-translate-x-1 transition-transform"
+                    />
+                    Back to Journal
+                </a>
+
+                <div class="flex flex-wrap items-center gap-4 mb-6">
+                    {
+                        post.data.tags.map((tag) => (
+                            <span class="px-3 py-1 bg-emerald-500/10 backdrop-blur-md text-emerald-300 rounded-full text-[10px] font-bold uppercase tracking-widest border border-emerald-500/20">
+                                {tag}
+                            </span>
+                        ))
+                    }
+                </div>
+
+                <h1
+                    class="text-5xl md:text-7xl lg:text-8xl font-light text-white leading-[1.1] font-serif mb-10"
+                >
+                    {post.data.title}
+                </h1>
+
+                <div
+                    class="flex flex-wrap items-center gap-8 text-slate-300 text-sm font-medium"
+                >
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 border border-emerald-500/20"
+                        >
+                            <User size={18} />
+                        </div>
+                        <span>{post.data.author}</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <Calendar size={18} class="text-emerald-400" />
+                        <time datetime={post.data.pubDate.toISOString()}>
+                            {
+                                post.data.pubDate.toLocaleDateString("en-US", {
+                                    month: "long",
+                                    day: "numeric",
+                                    year: "numeric",
+                                })
+                            }
+                        </time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div
+        class="bg-white relative z-10 -mt-12 rounded-t-[3rem] shadow-[0_-20px_50px_rgba(0,0,0,0.1)]"
+    >
+        <div class="container-custom pt-24 pb-32">
+            <div class="flex flex-col lg:flex-row gap-20">
+                <!-- Sidebar / Meta -->
+                <aside class="lg:w-1/4 order-2 lg:order-1">
+                    <div class="sticky top-32 space-y-12">
+                        <div class="hidden lg:block space-y-4">
+                            <p
+                                class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400"
+                            >
+                                Share Story
+                            </p>
+                            <div class="flex gap-3">
+                                <button
+                                    class="w-10 h-10 rounded-full border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-slate-900 hover:text-white transition-all"
+                                >
+                                    <Share2 size={16} />
+                                </button>
+                            </div>
+                        </div>
+
+                        <div
+                            class="p-8 bg-slate-50 rounded-[2rem] border border-slate-100"
+                        >
+                            <p
+                                class="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-600 mb-6 text-center"
+                            >
+                                Beyond Arenal Choice
+                            </p>
+                            <h4
+                                class="text-xl font-serif text-slate-900 mb-4 text-center"
+                            >
+                                Exclusive Horseback Riding Chachagua
+                            </h4>
+                            <img
+                                src="https://imagedelivery.net/Lh5ivcu1Gl9SRBAdYRSP2g/57cca4a8-f383-47f3-6db9-1adab2683900/public"
+                                alt="Recommended Tour"
+                                class="w-full h-40 object-cover rounded-2xl mb-6 shadow-lg shadow-emerald-900/5"
+                            />
+                            <a
+                                href={whatsappLink}
+                                target="_blank"
+                                class="flex items-center justify-center w-full py-4 bg-slate-900 text-white rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-emerald-600 transition-colors"
+                            >
+                                WhatsApp Inquiry
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Article Content -->
+                <main class="lg:w-3/4 order-1 lg:order-2">
+                    <div
+                        class="prose prose-slate prose-2xl max-w-none
+                        prose-headings:font-serif prose-headings:font-light prose-headings:text-slate-900
+                        prose-headings:mt-24 prose-headings:mb-12
+                        prose-p:text-slate-600 prose-p:leading-[2.1] prose-p:mb-14 prose-p:text-pretty
+                        prose-strong:text-slate-900 prose-strong:font-bold
+                        prose-blockquote:border-none prose-blockquote:bg-slate-50 prose-blockquote:p-12 prose-blockquote:my-16 prose-blockquote:rounded-[2.5rem] prose-blockquote:font-serif prose-blockquote:text-3xl prose-blockquote:italic prose-blockquote:text-slate-800 prose-blockquote:relative
+                        prose-img:rounded-[2rem] prose-img:shadow-2xl prose-img:my-16
+                        prose-table:text-base prose-table:border-collapse prose-table:my-16
+                        prose-th:bg-slate-50 prose-th:p-6 prose-th:text-slate-900 prose-th:font-bold prose-th:border prose-th:border-slate-100
+                        prose-td:p-6 prose-td:text-slate-600 prose-td:border prose-td:border-slate-100
+                        prose-li:mb-4
+                        before:prose-p:first:content-none"
+                    >
+                        <Content />
+                    </div>
+
+                    <!-- Footer CTA / Conversion -->
+                    <footer class="mt-24">
+                        <div
+                            class="bg-emerald-900 rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden text-center"
+                        >
+                            <div
+                                class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/leaf.png')] opacity-5"
+                            >
+                            </div>
+                            <div class="relative z-10 max-w-2xl mx-auto">
+                                <span
+                                    class="text-emerald-400 font-black uppercase tracking-[0.4em] text-[10px] mb-8 block"
+                                    >Puro Sentimiento</span
+                                >
+                                <h2
+                                    class="text-4xl md:text-6xl font-serif mb-8 italic"
+                                >
+                                    Your Arenal Adventure <span class="block"
+                                        >Starts Here.</span
+                                    >
+                                </h2>
+                                <p
+                                    class="text-emerald-100 text-xl mb-12 opacity-80"
+                                >
+                                    Direct operator service. Small groups.
+                                    Authentic connections. Discover the heart of
+                                    San Carlos with our local experts.
+                                </p>
+                                <div
+                                    class="flex flex-col sm:flex-row gap-6 justify-center"
+                                >
+                                    <a
+                                        href="/tours"
+                                        class="px-12 py-5 bg-white text-emerald-900 rounded-full font-bold text-lg hover:shadow-2xl hover:-translate-y-1 transition-all"
+                                    >
+                                        Explore Our Tours
+                                    </a>
+                                    <a
+                                        href={whatsappLink}
+                                        target="_blank"
+                                        class="px-12 py-5 bg-emerald-800/50 backdrop-blur-md text-white rounded-full font-bold text-lg flex items-center justify-center gap-3 border border-emerald-700/50 hover:bg-emerald-800 transition-all"
+                                    >
+                                        Chat with Us
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </main>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style is:global>
+    .font-serif {
+        font-family: "Cormorant Garamond", serif;
+    }
+
+    /* Premium Drop Cap restricted to the very first paragraph */
+    .prose > p:first-of-type::first-letter {
+        initial-letter: 2;
+        -webkit-initial-letter: 2;
+        color: #10b981; /* emerald-600 */
+        font-family: inherit;
+        font-weight: 800;
+        margin-right: 0.75rem;
+    }
+</style>

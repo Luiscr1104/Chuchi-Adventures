@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import TourCardReact from "../components/TourCard";
 import TourCard from "../components/TourCard.astro";
@@ -14,6 +15,12 @@ import { getOptimizedImageUrl } from "../lib/utils";
 
 // Get featured tours (first 3 or specific ones)
 const featuredTours = tours.slice(0, 3);
+
+// Get latest blog posts
+const latestPosts = (await getCollection("blog"))
+  .filter((post) => !post.data.isDraft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
 <Layout
@@ -751,6 +758,94 @@ const featuredTours = tours.slice(0, 3);
             </p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Teaser Section: Latest Stories -->
+  <section class="py-32 bg-white overflow-hidden scroll-reveal">
+    <div class="container-custom">
+      <div
+        class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 scroll-child"
+      >
+        <div class="max-w-2xl">
+          <span
+            class="text-emerald-600 font-black uppercase tracking-[0.4em] text-[10px] mb-4 block"
+          >
+            Adventure Journal
+          </span>
+          <h2
+            class="text-5xl md:text-7xl font-serif text-slate-900 leading-none"
+          >
+            Latest <span class="text-emerald-600 italic">Stories</span>
+          </h2>
+        </div>
+        <a
+          href="/blog"
+          class="group flex items-center gap-4 text-slate-900 font-bold hover:text-emerald-600 transition-colors uppercase tracking-widest text-xs"
+        >
+          View all stories
+          <div
+            class="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center group-hover:bg-emerald-600 group-hover:border-emerald-600 group-hover:text-white transition-all duration-500"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        {
+          latestPosts.map((post, index) => (
+            <article
+              class="group scroll-child"
+              style={`--scroll-delay: ${0.1 * (index + 1)}s`}
+            >
+              <a
+                href={`/blog/${post.slug}`}
+                class="block mb-8 overflow-hidden rounded-[2.5rem] aspect-[4/3] relative bg-slate-100 shadow-xl group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-500"
+              >
+                <img
+                  src={getOptimizedImageUrl(post.data.image, 800)}
+                  alt={post.data.title}
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent" />
+              </a>
+              <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-[10px] font-black uppercase tracking-[0.2em] text-emerald-600">
+                    {post.data.tags[0]}
+                  </span>
+                  <span class="w-1 h-1 rounded-full bg-slate-300" />
+                  <time class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                    {post.data.pubDate.toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
+                  </time>
+                </div>
+                <h3 class="text-2xl font-bold text-slate-900 leading-tight group-hover:text-emerald-700 transition-colors">
+                  <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+                </h3>
+              </div>
+            </article>
+          ))
+        }
       </div>
     </div>
   </section>
