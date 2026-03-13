@@ -56,6 +56,32 @@ const seoTitle = `${tour.title} | #1 Rated in La Fortuna`;
 const seoDescription = `Experience ${tour.title}. Small groups, luxury transport & expert local guides. 5-Star Rated. Check availability instantly via WhatsApp. Price: $${minPrice}.`;
 const ogImage = tour.image;
 
+// Breadcrumb Schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://beyondarenal.com",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Tours",
+      item: "https://beyondarenal.com/tours",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: tour.title,
+      item: new _URL(Astro.url.pathname, Astro.site).href,
+    },
+  ],
+};
+
 // Enhanced Schema
 const schema = {
   "@context": "https://schema.org",
@@ -105,6 +131,11 @@ const schema = {
     type="application/ld+json"
     slot="head"
     set:html={JSON.stringify(schema)}
+  />
+  <script
+    type="application/ld+json"
+    slot="head"
+    set:html={JSON.stringify(breadcrumbSchema)}
   />
   <!-- Premium Hero Section (Editorial Style) -->
   <div class="relative h-[70vh] md:h-[85vh] overflow-hidden">

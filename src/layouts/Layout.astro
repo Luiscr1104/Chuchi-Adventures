@@ -91,7 +91,7 @@ const organizationSchema = {
     </script>
     <!-- End Google Tag Manager -->
 
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/logoBlack.svg" />
     <meta name="generator" content={Astro.generator} />
 
@@ -100,13 +100,14 @@ const organizationSchema = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     <link rel="alternate" hreflang="en" href={canonicalURL} />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
+    {noindex ? <meta name="robots" content="noindex, nofollow" /> : <meta name="robots" content="index, follow" />}
 
     <!-- Open Graph / Kevin -->
     <meta property="og:locale" content="en_US" />
     <meta
       property="og:type"
-      content={Astro.url.pathname.startsWith("/tours/") ? "article" : "website"}
+      content={Astro.url.pathname.startsWith("/tours/") ? "product" : Astro.url.pathname.startsWith("/blog/") ? "article" : "website"}
     />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
