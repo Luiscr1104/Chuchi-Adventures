@@ -132,7 +132,7 @@ const organizationSchema = {
       crossorigin
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
@@ -161,8 +161,9 @@ const organizationSchema = {
         style="display:none;visibility:hidden"></iframe></noscript
     >
     <!-- End Google Tag Manager (noscript) -->
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-white focus:text-slate-900 focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:font-bold">Skip to main content</a>
     <Navbar />
-    <main class="flex-grow">
+    <main id="main" class="flex-grow">
       <slot />
     </main>
     <WhatsAppBtn isFloating={true} trackLocation="floating_button" />

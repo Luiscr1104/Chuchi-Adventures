@@ -1,6 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { Clock, ArrowRight, Star } from 'lucide-react';
+import { Clock } from 'lucide-react';
 import { cn, getOptimizedImageUrl } from '../lib/utils';
 import type { Tour } from '../data/tours';
 
@@ -11,7 +10,6 @@ interface TourCardProps {
 export default function TourCard({ tour }: TourCardProps) {
     const minPrice = tour.variants.length > 0 ? Math.min(...tour.variants.map(v => v.price.rack)) : 0;
 
-    // Helper to render TripAdvisor-style bubbles
     const renderBubbles = (rating: number = 5) => {
         return (
             <div className="flex gap-[2px] items-center">
@@ -33,30 +31,24 @@ export default function TourCard({ tour }: TourCardProps) {
     };
 
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -6 }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        >
+        <div className="transition-transform duration-500 ease-out hover:-translate-y-1.5">
             <a
                 href={`/tours/${tour.slug}`}
                 className="relative flex flex-col h-full bg-white rounded-[2rem] border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.1)] transition-all duration-500 overflow-hidden"
             >
-                {/* Image Section */}
                 <div className="relative aspect-[16/10] overflow-hidden flex-shrink-0">
                     <img
                         src={getOptimizedImageUrl(tour.image, 600, 60)}
                         srcSet={tour.image.startsWith('http') ? `${getOptimizedImageUrl(tour.image, 400, 60)} 400w, ${getOptimizedImageUrl(tour.image, 600, 60)} 600w, ${getOptimizedImageUrl(tour.image, 700, 60)} 700w, ${getOptimizedImageUrl(tour.image, 800, 60)} 800w` : undefined}
                         sizes={tour.image.startsWith('http') ? "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px" : undefined}
                         alt={tour.title}
+                        width="600"
+                        height="375"
                         loading="lazy"
                         decoding="async"
                         className="w-full h-full object-cover transition-transform duration-[2s] ease-out group-hover:scale-105"
                     />
 
-                    {/* Minimalist Multi-Badge */}
                     <div className="absolute top-4 left-4 flex flex-col gap-2">
                         <div className="bg-white/90 backdrop-blur-md text-slate-900 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm">
                             {tour.category}
@@ -74,11 +66,9 @@ export default function TourCard({ tour }: TourCardProps) {
                     </div>
                 </div>
 
-                {/* Content Section */}
                 <div className="p-5 sm:p-8 flex flex-col flex-1">
-                    {/* Top Row: TripAdvisor Integration */}
                     <div className="flex items-center gap-3 mb-4">
-                        <div className="w-4 h-4 text-emerald-600">
+                        <div className="w-4 h-4 text-emerald-600" aria-hidden="true">
                             <svg viewBox="0 -96 512.2 512.2" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                                 <path d="M128.2 127.9C92.7 127.9 64 156.6 64 192c0 35.4 28.7 64.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1.1-35.4-28.6-64.1-64-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S174 166.7 174 192s-20.5 45.9-45.8 45.9z" /><circle cx="128.4" cy="191.9" r="31.9" /><path d="M384.2 127.9c-35.4 0-64.1 28.7-64.1 64.1 0 35.4 28.7 64.1 64.1 64.1 35.4 0 64.1-28.7 64.1-64.1 0-35.4-28.7-64.1-64.1-64.1zm0 110c-25.3 0-45.9-20.5-45.9-45.9s20.5-45.9 45.9-45.9S430 166.7 430 192s-20.5 45.9-45.8 45.9z" /><circle cx="384.4" cy="191.9" r="31.9" /><path d="M474.4 101.2l37.7-37.4h-76.4C392.9 29 321.8 0 255.9 0c-66 0-136.5 29-179.3 63.8H0l37.7 37.4C14.4 124.4 0 156.5 0 192c0 70.8 57.4 128.2 128.2 128.2 32.5 0 62.2-12.1 84.8-32.1l43.4 31.9 42.9-31.2-.5-1.2c22.7 20.2 52.5 32.5 85.3 32.5 70.8 0 128.2-57.4 128.2-128.2-.1-35.4-14.6-67.5-37.9-90.7zM368 64.8c-60.7 7.6-108.3 57.6-111.9 119.5-3.7-62-51.4-112.1-112.3-119.5 30.6-22 69.6-32.8 112.1-32.8S337.4 42.8 368 64.8zM128.2 288.2C75 288.2 32 245.1 32 192s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2zm256 0c-53.1 0-96.2-43.1-96.2-96.2s43.1-96.2 96.2-96.2 96.2 43.1 96.2 96.2c-.1 53.1-43.1 96.2-96.2 96.2z" /></svg>
                         </div>
@@ -100,7 +90,7 @@ export default function TourCard({ tour }: TourCardProps) {
                         <div className="flex flex-col">
                             <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Duration</span>
                             <div className="flex items-center gap-1.5 text-slate-700 font-bold text-xs">
-                                <Clock className="w-3 h-3 text-slate-400" />
+                                <Clock className="w-3 h-3 text-slate-400" aria-hidden="true" />
                                 {tour.duration}
                             </div>
                         </div>
@@ -115,6 +105,6 @@ export default function TourCard({ tour }: TourCardProps) {
                     </div>
                 </div>
             </a>
-        </motion.div>
+        </div>
     );
 }

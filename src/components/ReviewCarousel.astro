@@ -11,8 +11,8 @@ const { reviews } = Astro.props;
 const duplicatedReviews = [...reviews, ...reviews, ...reviews];
 ---
 
-<div class="relative w-full overflow-hidden py-10">
-    <div class="review-marquee flex gap-8">
+<div role="region" aria-label="Customer reviews" class="relative w-full overflow-hidden py-10">
+    <div class="review-marquee flex gap-8" aria-live="off">
         {duplicatedReviews.map((review, idx) => (
             <div
                 class="flex-shrink-0 w-[300px] md:w-[400px] bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-xl transition-shadow group relative"
